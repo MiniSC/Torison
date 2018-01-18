@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="com.torison.dao" />
+        <module name="com.torison.Server" />
+        <module name="com.torison.service" />
+        <module name="com.torison.web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="com.torison.dao" target="1.5" />
+      <module name="com.torison.parent" target="1.5" />
+      <module name="com.torison.Parent" target="1.5" />
+      <module name="com.torison.Server" target="1.5" />
+      <module name="com.torison.service" target="1.5" />
+      <module name="com.torison.web" target="1.5" />
+      <module name="comtorisondao" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
