@@ -6,6 +6,9 @@
       <module fileurl="file://$PROJECT_DIR$/com.torison.Parent/com.torison.Parent.iml" filepath="$PROJECT_DIR$/com.torison.Parent/com.torison.Parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/com.torison.Server/com.torison.Server.iml" filepath="$PROJECT_DIR$/com.torison.Server/com.torison.Server.iml" />
       <module fileurl="file://$PROJECT_DIR$/com.torison.Parent/com.torison.dao/com.torison.dao.iml" filepath="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/com.torison.dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.torison.pay/com.torison.pay.iml" filepath="$PROJECT_DIR$/com.torison.pay/com.torison.pay.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.torison.pay/com.torison.payApi/com.torison.payApi.iml" filepath="$PROJECT_DIR$/com.torison.pay/com.torison.payApi/com.torison.payApi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.torison.pay/com.torison.payIml/com.torison.payIml.iml" filepath="$PROJECT_DIR$/com.torison.pay/com.torison.payIml/com.torison.payIml.iml" />
       <module fileurl="file://$PROJECT_DIR$/com.torison.Parent/com.torison.service/com.torison.service.iml" filepath="$PROJECT_DIR$/com.torison.Parent/com.torison.service/com.torison.service.iml" />
       <module fileurl="file://$PROJECT_DIR$/com.torison.Parent/com.torison.web/com.torison.web.iml" filepath="$PROJECT_DIR$/com.torison.Parent/com.torison.web/com.torison.web.iml" />
       <module fileurl="file://$PROJECT_DIR$/com.torison.Server/dubbo-api/dubbo-api.iml" filepath="$PROJECT_DIR$/com.torison.Server/dubbo-api/dubbo-api.iml" />

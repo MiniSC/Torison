@@ -8,6 +8,7 @@
         <option value="$PROJECT_DIR$/com.torison.Server/dubbo-api/pom.xml" />
         <option value="$PROJECT_DIR$/com.torison.Server/dubbo-consumer/pom.xml" />
         <option value="$PROJECT_DIR$/com.torison.Server/dubbo-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/com.torison.pay/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

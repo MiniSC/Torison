@@ -1,2 +1,8 @@
+com\torison\model\MailCode.class
+com\torison\model\ResEntity.class
+com\torison\model\MailCode$MailErrCode.class
 com\minbo\dubbo\provider\DubboProviderApplication.class
+com\torison\config\EmailConfig.class
+com\Application.class
 com\minbo\dubbo\provider\DemoServiceImpl.class
+com\torison\util\EmailSentServiceImp.class

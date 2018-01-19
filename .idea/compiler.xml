@@ -7,6 +7,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="com.torison.dao" />
+        <module name="com.torison.payApi" />
+        <module name="com.torison.payIml" />
         <module name="com.torison.service" />
         <module name="com.torison.web" />
         <module name="dubbo-api" />
@@ -18,6 +20,9 @@
       <module name="com.torison.dao" target="1.8" />
       <module name="com.torison.parent" target="1.5" />
       <module name="com.torison.Parent" target="1.8" />
+      <module name="com.torison.pay" target="1.5" />
+      <module name="com.torison.payApi" target="1.5" />
+      <module name="com.torison.payIml" target="1.5" />
       <module name="com.torison.Server" target="1.5" />
       <module name="com.torison.service" target="1.8" />
       <module name="com.torison.web" target="1.8" />
