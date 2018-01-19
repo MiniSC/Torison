@@ -1,65 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a76baa25-d675-4265-b016-d6c91483272e" name="Default" comment="com.torison">
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-api/pom.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-api/src/main/java/com/minbo/api/provider/DemoService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-api/src/main/java/com/minbo/dubbo/provider/DemoService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-api/src/main/java/com/torison/api/EmailSentService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-api/src/main/java/com/torison/model/ResEntity.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-api/target/classes/com/minbo/api/provider/DemoService.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-api/target/dubbo-api-0.0.1-SNAPSHOT.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-api/target/maven-archiver/pom.properties" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-api/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-api/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-api/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-consumer/pom.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-consumer/src/main/java/com/minbo/dubbo/consumer/DubboConsumerApplication.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-consumer/src/main/resources/application.properties" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-consumer/src/main/resources/consumers.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-consumer/src/test/java/com/minbo/dubbo/consumer/DubboConsumerApplicationTests.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-consumer/src/test/java/com/torison/sendtest/EmailSendTest.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-consumer/target/classes/application.properties" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-consumer/target/classes/com/minbo/dubbo/consumer/DubboConsumerApplication.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-consumer/target/classes/consumers.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-consumer/target/dubbo-consumer-0.0.1-SNAPSHOT.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-consumer/target/maven-archiver/pom.properties" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-consumer/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-consumer/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-consumer/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-consumer/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-consumer/target/test-classes/com/minbo/dubbo/consumer/DubboConsumerApplicationTests.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-provider/pom.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-provider/src/main/java/com/Application.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-provider/src/main/java/com/minbo/dubbo/provider/DemoServiceImpl.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-provider/src/main/java/com/minbo/dubbo/provider/DubboProviderApplication.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-provider/src/main/java/com/torison/config/EmailConfig.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-provider/src/main/java/com/torison/model/MailCode.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-provider/src/main/java/com/torison/model/ResEntity.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-provider/src/main/java/com/torison/util/EmailSentServiceImp.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-provider/src/main/resources/application.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-provider/src/main/resources/providers.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-provider/src/test/java/com/minbo/dubbo/provider/DubboProviderApplicationTests.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-provider/src/test/java/com/torison/mail/EmailSendTest.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-provider/target/classes/com/minbo/dubbo/provider/DemoServiceImpl.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-provider/target/classes/com/minbo/dubbo/provider/DubboProviderApplication.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-provider/target/classes/providers.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-provider/target/dubbo-provider-0.0.1-SNAPSHOT.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-provider/target/maven-archiver/pom.properties" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-provider/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-provider/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-provider/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-provider/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Server/dubbo-provider/target/test-classes/com/minbo/dubbo/provider/DubboProviderApplicationTests.class" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+    <list default="true" id="a76baa25-d675-4265-b016-d6c91483272e" name="Default" comment="com.torison.Server邮件发送接口开发">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change beforePath="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/com.torison.dao.iml" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/com.torison.dao.iml" />
-      <change beforePath="$PROJECT_DIR$/com.torison.Server/pom.xml" afterPath="$PROJECT_DIR$/com.torison.Server/pom.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/com.torison.parent/comtorisonservice/target/" />
     <ignored path="$PROJECT_DIR$/com.torison.parent/target/" />
@@ -265,7 +208,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="830" />
     <option name="y" value="117" />
     <option name="width" value="720" />
@@ -595,7 +538,7 @@
       <option name="presentableId" value="Default" />
       <updated>1516244264203</updated>
       <workItem from="1516244265381" duration="16323000" />
-      <workItem from="1516339644312" duration="6685000" />
+      <workItem from="1516339644312" duration="6737000" />
     </task>
     <task id="LOCAL-00001" summary="dao层使用mybatis和逆向工程整合">
       <created>1516330694236</created>
@@ -604,7 +547,14 @@
       <option name="project" value="LOCAL" />
       <updated>1516330694236</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="com.torison.Server邮件发送接口开发">
+      <created>1516346377285</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1516346377285</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -640,7 +590,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23008000" />
+    <option name="totallyTimeSpent" value="23060000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -652,7 +602,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
+    <frame x="-8" y="-8" width="1456" height="876" extended-state="7" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5028653" order="0" side_tool="true" content_ui="tabs" />
@@ -696,7 +646,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="dao层使用mybatis和逆向工程整合" />
-    <option name="LAST_COMMIT_MESSAGE" value="dao层使用mybatis和逆向工程整合" />
+    <MESSAGE value="com.torison.Server邮件发送接口开发" />
+    <option name="LAST_COMMIT_MESSAGE" value="com.torison.Server邮件发送接口开发" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
