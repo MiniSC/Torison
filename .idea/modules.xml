@@ -8,6 +8,9 @@
       <module fileurl="file://$PROJECT_DIR$/com.torison.Parent/com.torison.dao/com.torison.dao.iml" filepath="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/com.torison.dao.iml" />
       <module fileurl="file://$PROJECT_DIR$/com.torison.Parent/com.torison.service/com.torison.service.iml" filepath="$PROJECT_DIR$/com.torison.Parent/com.torison.service/com.torison.service.iml" />
       <module fileurl="file://$PROJECT_DIR$/com.torison.Parent/com.torison.web/com.torison.web.iml" filepath="$PROJECT_DIR$/com.torison.Parent/com.torison.web/com.torison.web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.torison.Server/dubbo-api/dubbo-api.iml" filepath="$PROJECT_DIR$/com.torison.Server/dubbo-api/dubbo-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.torison.Server/dubbo-consumer/dubbo-consumer.iml" filepath="$PROJECT_DIR$/com.torison.Server/dubbo-consumer/dubbo-consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.torison.Server/dubbo-provider/dubbo-provider.iml" filepath="$PROJECT_DIR$/com.torison.Server/dubbo-provider/dubbo-provider.iml" />
     </modules>
   </component>
 </project>

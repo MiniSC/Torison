@@ -5,6 +5,9 @@
       <list>
         <option value="$PROJECT_DIR$/com.torison.parent/pom.xml" />
         <option value="$PROJECT_DIR$/com.torison.Server/pom.xml" />
+        <option value="$PROJECT_DIR$/com.torison.Server/dubbo-api/pom.xml" />
+        <option value="$PROJECT_DIR$/com.torison.Server/dubbo-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/com.torison.Server/dubbo-provider/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
@@ -13,4 +16,5 @@
       </set>
     </option>
   </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
 </project>

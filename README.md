@@ -15,5 +15,9 @@ com.torison.Server will be put on dubbo and provide server for send email
 <li>dao层和数据库的链接和逆向工程生成mapper</li>
 <li>SpringbootTest进行单元测试</li>
 
+###下午
+<li>com.torison.Server中邮件发送接口</li>
+<li>使用zookeeper作为注册中心,通过dubbo暴露emailsent接口</li>
+接口暴露为了给其他的同学的毕设使用
 
 

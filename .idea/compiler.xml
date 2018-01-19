@@ -7,9 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="com.torison.dao" />
-        <module name="com.torison.Server" />
         <module name="com.torison.service" />
         <module name="com.torison.web" />
+        <module name="dubbo-api" />
+        <module name="dubbo-consumer" />
+        <module name="dubbo-provider" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -20,6 +22,9 @@
       <module name="com.torison.service" target="1.8" />
       <module name="com.torison.web" target="1.8" />
       <module name="comtorisondao" target="1.5" />
+      <module name="dubbo-api" target="1.5" />
+      <module name="dubbo-consumer" target="1.5" />
+      <module name="dubbo-provider" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
