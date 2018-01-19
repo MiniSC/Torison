@@ -13,12 +13,12 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="com.torison.dao" target="1.5" />
+      <module name="com.torison.dao" target="1.8" />
       <module name="com.torison.parent" target="1.5" />
-      <module name="com.torison.Parent" target="1.5" />
+      <module name="com.torison.Parent" target="1.8" />
       <module name="com.torison.Server" target="1.5" />
-      <module name="com.torison.service" target="1.5" />
-      <module name="com.torison.web" target="1.5" />
+      <module name="com.torison.service" target="1.8" />
+      <module name="com.torison.web" target="1.8" />
       <module name="comtorisondao" target="1.5" />
     </bytecodeTargetLevel>
   </component>
