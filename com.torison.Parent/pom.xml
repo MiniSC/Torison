@@ -12,6 +12,7 @@
         <module>com.torison.web</module>
         <module>com.torison.service</module>
         <module>com.torison.dao</module>
+        <module>com.torison.login</module>
     </modules>
 <!--SpringBoot父引用-->
     <parent>

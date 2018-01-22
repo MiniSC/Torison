@@ -50,7 +50,7 @@
         </dependency>
 
     </dependencies>
-   <!-- <build>
+    <build>
         <plugins>
             <plugin>
                 <groupId>org.mybatis.generator</groupId>
@@ -78,16 +78,16 @@
                     </execution>
                 </executions>
                 <configuration>
-                    &lt;!&ndash;允许移动生成的文件 &ndash;&gt;
+
                     <verbose>true</verbose>
-                    &lt;!&ndash; 是否覆盖 &ndash;&gt;
+
                     <overwrite>true</overwrite>
-                    &lt;!&ndash; 自动生成的配置 &ndash;&gt;
+
                     <configurationFile>
                         src/main/resources/mybatis-generator.xml</configurationFile>
                 </configuration>
             </plugin>
         </plugins>
-    </build>-->
+    </build>
 
 </project>

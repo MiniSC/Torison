@@ -7,7 +7,7 @@ public class nomalUserSqlProvider {
 
     public String insertSelective(nomalUser record) {
         SQL sql = new SQL();
-        sql.INSERT_INTO("nomaluser");
+        sql.INSERT_INTO("NOMAL_USER");
         
         if (record.getUserid() != null) {
             sql.VALUES("userId", "#{userid,jdbcType=INTEGER}");
@@ -20,6 +20,23 @@ public class nomalUserSqlProvider {
         if (record.getUserpassword() != null) {
             sql.VALUES("userPassword", "#{userpassword,jdbcType=VARCHAR}");
         }
+        
+        return sql.toString();
+    }
+
+    public String updateByAccountSelective(nomalUser record) {
+        SQL sql = new SQL();
+        sql.UPDATE("NOMAL_USER");
+
+        if (record.getUseraccountnum() != null) {
+            sql.SET("userAccountNum = #{useraccountnum,jdbcType=VARCHAR}");
+        }
+
+        if (record.getUserpassword() != null) {
+            sql.SET("userPassword = #{userpassword,jdbcType=VARCHAR}");
+        }
+
+        sql.WHERE("userAccountNum = #{useraccountnum,jdbcType=INTEGER}");
         
         return sql.toString();
     }
