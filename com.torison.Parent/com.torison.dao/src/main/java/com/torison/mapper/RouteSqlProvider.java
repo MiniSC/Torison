@@ -51,4 +51,52 @@ public class RouteSqlProvider {
         
         return sql.toString();
     }
+
+    public String updateByIDSelective(Route record) {
+        SQL sql = new SQL();
+        sql.UPDATE("ROUTE");
+
+        if (record.getRouteid() != null) {
+          sql.SET("routeID = #{routeid,jdbcType=INTEGER}");
+        }
+        if (record.getRoutename() != null) {
+            sql.SET("routeName = #{routename,jdbcType=VARCHAR}");
+        }
+
+        if (record.getRoutefromaddress() != null) {
+            sql.SET("routeFromAddress = #{routefromaddress,jdbcType=VARCHAR}");
+        }
+
+        if (record.getRouteendaddress() != null) {
+            sql.SET("routeEndAddress = #{routeendaddress,jdbcType=VARCHAR}");
+        }
+
+        if (record.getRouteneedmoney() != null) {
+            sql.SET("routeNeedMoney = #{routeneedmoney,jdbcType=VARCHAR}");
+        }
+
+        if (record.getRouteintroduce() != null) {
+            sql.SET("routeIntroduc = #{routeintroduce,jdbcType=VARCHAR");
+        }
+
+        if (record.getRoutefromid() != null) {
+            sql.SET("routeFromId = #{routefromid,jdbcType=VARCHAR}");
+        }
+
+        if (record.getRoutemaxpersonnum() != null) {
+            sql.SET("routeMaxPersonNum = #{routemaxpersonnum,jdbcType=VARCHAR");
+        }
+
+        if (record.getRoutelastpersonnum() != null) {
+            sql.SET("routeLastPersonNum = #{routelastpersonnum,jdbcType=VARCHAR}");
+        }
+
+        if (record.getDeposite() != null) {
+            sql.SET("deposite = #{deposite,jdbcType=DOUBLE}");
+        }
+
+        sql.WHERE("routeID = #{routeid,jdbcType=INTEGER}");
+
+        return sql.toString();
+    }
 }

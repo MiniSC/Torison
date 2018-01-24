@@ -27,17 +27,17 @@ public interface nomalUserMapper {
         "select",
         "userId, userAccountNum, userPassword",
         "from NOMAL_USER",
-        "where userId = #{userid,jdbcType=INTEGER}"
+        "where userAccountNum = #{userAccount,jdbcType=INTEGER}"
     })
     @Results({
         @Result(column="userId", property="userid", jdbcType=JdbcType.INTEGER, id=true),
         @Result(column="userAccountNum", property="useraccountnum", jdbcType=JdbcType.VARCHAR),
         @Result(column="userPassword", property="userpassword", jdbcType=JdbcType.VARCHAR)
     })
-    nomalUser selectByPrimaryKey(Integer userid);
+    nomalUser selectByUserAcc(String userAccount);
 
-    @UpdateProvider(type=nomalUserSqlProvider.class, method="updateByPrimaryKeySelective")
-    int updateByPrimaryKeySelective(nomalUser record);
+    @UpdateProvider(type=nomalUserSqlProvider.class, method="updateByAccountSelective")
+    int updateByAccountSelective(nomalUser record);
 
     @Update({
         "update NOMAL_USER",

@@ -20,4 +20,13 @@ com.torison.Server will be put on dubbo and provide server for send email
 <li>使用zookeeper作为注册中心,通过dubbo暴露emailsent接口</li>
 接口暴露为了给其他的同学的毕设使用
 
+##1.23
 
+     结果集映射关系，在名字相同的情况下可以不写*/
+    @Results({
+            @Result(column="userId", property="userid", jdbcType=JdbcType.INTEGER, id=true),
+            @Result(column="userAccountNum", property="useraccountnum", jdbcType=JdbcType.VARCHAR),
+            @Result(column="userPassword", property="userpassword", jdbcType= JdbcType.VARCHAR)
+    })
+    
+    

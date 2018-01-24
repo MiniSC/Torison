@@ -5,6 +5,9 @@ import com.torison.model.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.TreeSet;
+
 @Service
 public class RouteDao {
 
@@ -18,6 +21,22 @@ public class RouteDao {
      */
     public int insert(Route route){
        return routeMapper.insert(route);
+    }
+
+    /**
+     * 查询所有路线
+     * @return listRoute
+     */
+    public List<Route> queryAllRoute(){
+        return routeMapper.queryAllRoute();
+    }
+
+    public int updateRoute(Route route){
+        return routeMapper.updateByIDSelective(route);
+    }
+
+    public int deleteRoute(int id){
+        return routeMapper.deleteByID(id);
     }
 
 
