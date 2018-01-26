@@ -1,0 +1,13 @@
+logging:
+  file: D:/
+  level: info
+server:
+  port: 8000
+spring:
+  freemarker:
+    content-type: text/html
+    suffix: .html
+    template-loader-path: classpath:/templates/
+    charset: utf-8
+  mvc:
+    static-path-pattern: /static/**

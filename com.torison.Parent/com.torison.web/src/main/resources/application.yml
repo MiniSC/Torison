@@ -1,0 +1,7 @@
+
+spring:
+  profiles:
+    active: dev
+    #dev表示开发环境
+    #pro表示线上环境
+    #分别对应application-xxx.yml文件

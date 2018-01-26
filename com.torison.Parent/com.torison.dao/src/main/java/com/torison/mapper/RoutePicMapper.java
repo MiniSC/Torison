@@ -57,7 +57,7 @@ public interface RoutePicMapper {
           "routePic3 = #{routepic3,jdbcType=VARCHAR},",
           "routePic4 = #{routepic4,jdbcType=VARCHAR},",
           "routePic5 = #{routepic5,jdbcType=VARCHAR}",
-        "where routeID = #{routeid,jdbcType=INTEGER}"
+          "where routeID = #{routeid,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(RoutePic record);
 }
