@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a76baa25-d675-4265-b016-d6c91483272e" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.service/src/main/java/com/torison/route/RouteService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.web/src/main/java/com/Application_Dao.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.web/src/main/java/com/model/User.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.web/src/main/java/com/test/controller/userController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.web/src/main/resources/application-dev.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.web/src/main/resources/application.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.web/src/main/resources/static/pic/1.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.web/src/main/resources/static/pic/2.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.web/src/main/resources/static/pic/3.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.web/src/main/resources/templates/test/RouteMaker.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.web/src/main/resources/templates/test/test1.html" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/src/main/java/com/torison/mapper/RoutePicMapper.java" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/src/main/java/com/torison/mapper/RoutePicMapper.java" />
-      <change beforePath="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/src/main/java/com/torison/model/RoutePicExample.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/com.torison.Parent/com.torison.web/com.torison.web.iml" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.web/com.torison.web.iml" />
-      <change beforePath="$PROJECT_DIR$/com.torison.Parent/com.torison.web/pom.xml" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.web/pom.xml" />
-    </list>
+    <list default="true" id="a76baa25-d675-4265-b016-d6c91483272e" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/com.torison.parent/comtorisonservice/target/" />
     <ignored path="$PROJECT_DIR$/com.torison.parent/target/" />
     <ignored path="$PROJECT_DIR$/com.torison.Server/target/" />
@@ -298,7 +281,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="991" />
@@ -858,7 +841,7 @@
       <workItem from="1516244265381" duration="16323000" />
       <workItem from="1516339644312" duration="11684000" />
       <workItem from="1516583714282" duration="22580000" />
-      <workItem from="1516861859290" duration="17805000" />
+      <workItem from="1516861859290" duration="17975000" />
     </task>
     <task id="LOCAL-00001" summary="dao层使用mybatis和逆向工程整合">
       <created>1516330694236</created>
@@ -924,7 +907,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68392000" />
+    <option name="totallyTimeSpent" value="68562000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -936,7 +919,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="7" />
+    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -948,7 +931,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33240223" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33240223" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
