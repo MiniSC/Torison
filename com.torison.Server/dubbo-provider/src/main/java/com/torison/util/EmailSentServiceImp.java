@@ -1,7 +1,7 @@
 package com.torison.util;
 
 import com.torison.api.EmailSentService;
-import com.torison.config.EmailConfig;
+import com.config.EmailConfig;
 import com.torison.model.MailCode;
 import com.torison.model.ResEntity;
 

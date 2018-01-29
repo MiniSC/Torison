@@ -13,10 +13,31 @@
 
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
 
+            $.ajax({
+               url:'/route',
+               type:'POST',
+                data:'id='+1,
+               dataType:'json',
+                success:function (value) {
+                   if (value.success){
+                    jQuery.each(value.obj, function(i,item){
+                        alert(item.maker+","+item.path);
+                    });
+                   }
+                }
+            });
+        });
+
+
+
+    </script>
 </head>
     <body>
     <div class="container">
+
         <div class="row clearfix">
             <div class="col-md-12 column">
                 <nav class="navbar navbar-default" role="navigation">
@@ -159,6 +180,7 @@
                 </p>
             </div>
             <div class="col-md-4 column">
+
                 <img alt="140x140" src="static/pic/3.jpg" />
                 <h2>
                     Heading

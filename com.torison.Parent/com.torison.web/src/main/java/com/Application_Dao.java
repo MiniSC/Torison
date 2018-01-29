@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 
 @SpringBootApplication
-@ComponentScan({"com.test.controller"})
+@ComponentScan({"com.test.controller","com.config","com"})
 public class Application_Dao {
 public static void main(String[] args) {
             SpringApplication.run(Application_Dao.class,args);

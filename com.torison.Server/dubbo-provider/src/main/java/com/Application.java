@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ImportResource;
 
-@ComponentScan({"com.torison.util","com.torison.config"})
+@ComponentScan({"com.torison.util", "com.config"})
 @SpringBootApplication
 @ImportResource(value = { "classpath:providers.xml" })
 public class Application {
