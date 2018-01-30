@@ -11,3 +11,9 @@ spring:
     charset: utf-8
   mvc:
     static-path-pattern: /static/**
+  datasource:
+    url: jdbc:mysql://120.79.88.192:3306/torison
+    username: root
+    password:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver

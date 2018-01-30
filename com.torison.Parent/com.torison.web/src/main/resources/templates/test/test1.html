@@ -13,6 +13,7 @@
 
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--页面异步加载-->
     <script>
         $(document).ready(function () {
 
@@ -23,19 +24,30 @@
                dataType:'json',
                 success:function (value) {
                    if (value.success){
+                       var div_per = $("<div class='col-md-4 column'>");
+                       var div_all = $("#div1");
                     jQuery.each(value.obj, function(i,item){
-                        alert(item.maker+","+item.path);
+                           var a_img =$("<img alt='140x140' src='"+item.path+"'>");
+                           var a_h2=$("<h2>"+item.maker+"</h2>");
+                           var a_p1=$("<p>"+item.introduce+"</p>");
+                           var a_p2=$("<p><a class='btn' href='#'>查看详情</a></p>");
+                           div_per.append(a_img);
+                           div_per.append(a_h2)
+                           div_per.append(a_p1);
+                           div_per.append(a_p2);
+                           div_all.append(div_per);
+                           div_per = $("<div class='col-md-4 column'>");
                     });
                    }
                 }
             });
         });
-
-
-
     </script>
 </head>
     <body>
+    <table id = "test">
+
+    </table>
     <div class="container">
 
         <div class="row clearfix">
@@ -166,120 +178,11 @@
             </div>
         </div>
         <!--三行旅行图+文字介绍-->
-        <div class="row clearfix">
-            <div class="col-md-4 column">
-                <img alt="140x140" src="static/pic/3.jpg" />
-                <h2>
-                    Heading
-                </h2>
-                <p>
-                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                </p>
-                <p>
-                    <a class="btn" href="#">View details »</a>
-                </p>
-            </div>
-            <div class="col-md-4 column">
-
-                <img alt="140x140" src="static/pic/3.jpg" />
-                <h2>
-                    Heading
-                </h2>
-                <p>
-                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                </p>
-                <p>
-                    <a class="btn" href="#">View details »</a>
-                </p>
-            </div>
-            <div class="col-md-4 column">
-                <img alt="140x140" src="static/pic/3.jpg" />
-                <h2>
-                    Heading
-                </h2>
-                <p>
-                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                </p>
-                <p>
-                    <a class="btn" href="#">View details »</a>
-                </p>
-            </div>
+        <div class="row clearfix" id="div1">
         </div>
-        <div class="row clearfix">
-            <div class="col-md-4 column">
-                <img alt="140x140" src="static/pic/3.jpg" />
-                <h2>
-                    Heading
-                </h2>
-                <p>
-                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                </p>
-                <p>
-                    <a class="btn" href="#">View details »</a>
-                </p>
-            </div>
-            <div class="col-md-4 column">
-                <img alt="140x140" src="static/pic/3.jpg" />
-                <h2>
-                    Heading
-                </h2>
-                <p>
-                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                </p>
-                <p>
-                    <a class="btn" href="#">View details »</a>
-                </p>
-            </div>
-            <div class="col-md-4 column">
-                <img alt="140x140" src="static/pic/3.jpg" />
-                <h2>
-                    Heading
-                </h2>
-                <p>
-                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                </p>
-                <p>
-                    <a class="btn" href="#">View details »</a>
-                </p>
-            </div>
+        <div class="row clearfix" id="div2">
         </div>
-        <div class="row clearfix">
-            <div class="col-md-4 column">
-                <img alt="140x140" src="static/pic/3.jpg" />
-                <h2>
-                    Heading
-                </h2>
-                <p>
-                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                </p>
-                <p>
-                    <a class="btn" href="#">View details »</a>
-                </p>
-            </div>
-            <div class="col-md-4 column">
-                <img alt="140x140" src="static/pic/3.jpg" />
-                <h2>
-                    Heading
-                </h2>
-                <p>
-                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                </p>
-                <p>
-                    <a class="btn" href="#">View details »</a>
-                </p>
-            </div>
-            <div class="col-md-4 column">
-                <img alt="140x140" src="static/pic/3.jpg" />
-                <h2>
-                    Heading
-                </h2>
-                <p>
-                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                </p>
-                <p>
-                    <a class="btn" href="#">View details »</a>
-                </p>
-            </div>
+        <div class="row clearfix" id="div3">
         </div>
     </div>
     </body>

@@ -983,44 +983,49 @@
       <DataType>double|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="244" parent="228" name="PRIMARY">
+    <column id="244" parent="228" name="routeCreateTime">
+      <Position>11</Position>
+      <DataType>varchar(255)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="245" parent="228" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>routeID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="245" parent="229" name="routeID">
+    <column id="246" parent="229" name="routeID">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="246" parent="229" name="routePic1">
+    <column id="247" parent="229" name="routePic1">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="247" parent="229" name="routePic2">
+    <column id="248" parent="229" name="routePic2">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="248" parent="229" name="routePic3">
+    <column id="249" parent="229" name="routePic3">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="249" parent="229" name="routePic4">
+    <column id="250" parent="229" name="routePic4">
       <Position>5</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="250" parent="229" name="routePic5">
+    <column id="251" parent="229" name="routePic5">
       <Position>6</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="251" parent="229" name="PRIMARY">
+    <key id="252" parent="229" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>routeID</ColNames>
       <Primary>1</Primary>

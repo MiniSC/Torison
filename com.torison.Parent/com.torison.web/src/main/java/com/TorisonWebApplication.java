@@ -4,13 +4,12 @@ package com;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.stereotype.Component;
 
 
 @SpringBootApplication
-@ComponentScan({"com.test.controller","com.config","com"})
-public class Application_Dao {
+@ComponentScan({"com","com.common.config"})
+public class TorisonWebApplication {
 public static void main(String[] args) {
-            SpringApplication.run(Application_Dao.class,args);
+            SpringApplication.run(TorisonWebApplication.class,args);
         }
 }

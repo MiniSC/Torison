@@ -1,4 +1,4 @@
-package com.Enum;
+package com.common.Enum;
 
 public class Path {
 
