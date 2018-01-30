@@ -1,7 +1,7 @@
-package com.route.model;
+package com.torison.route.model;
 
-import com.common.model.Form;
-import org.springframework.web.multipart.MultipartFile;
+
+import com.torison.common.model.Form;
 
 /**
  * 路线信息表单

@@ -2,6 +2,7 @@ package com.torison.route;
 
 import com.torison.dao.RouteDao;
 import com.torison.model.Route;
+import com.torison.route.model.RouteForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,10 +16,14 @@ public class RouteService {
 
     /**
      * 插入路线
-     * @param route
+     * @param form
+     *
      */
-    public int inserRoute(Route route){
-       return routeDao.insert(route);
+    public int inserRoute(RouteForm form){
+        Route route = new Route();
+        form.transTo(route);
+        routeDao.insert(route);
+        return route.getRouteid();
     }
 
     /**

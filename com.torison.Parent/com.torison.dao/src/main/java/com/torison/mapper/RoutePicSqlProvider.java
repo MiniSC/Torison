@@ -25,14 +25,6 @@ public class RoutePicSqlProvider {
             sql.VALUES("routePic3", "#{routepic3,jdbcType=VARCHAR}");
         }
         
-        if (record.getRoutepic4() != null) {
-            sql.VALUES("routePic4", "#{routepic4,jdbcType=VARCHAR}");
-        }
-        
-        if (record.getRoutepic5() != null) {
-            sql.VALUES("routePic5", "#{routepic5,jdbcType=VARCHAR}");
-        }
-        
         return sql.toString();
     }
 
@@ -50,14 +42,6 @@ public class RoutePicSqlProvider {
         
         if (record.getRoutepic3() != null) {
             sql.SET("routePic3 = #{routepic3,jdbcType=VARCHAR}");
-        }
-        
-        if (record.getRoutepic4() != null) {
-            sql.SET("routePic4 = #{routepic4,jdbcType=VARCHAR}");
-        }
-        
-        if (record.getRoutepic5() != null) {
-            sql.SET("routePic5 = #{routepic5,jdbcType=VARCHAR}");
         }
         
         sql.WHERE("routeID = #{routeid,jdbcType=INTEGER}");

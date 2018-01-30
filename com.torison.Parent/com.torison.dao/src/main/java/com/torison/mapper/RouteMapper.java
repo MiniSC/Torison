@@ -25,6 +25,7 @@ public interface RouteMapper {
         "#{routefromid,jdbcType=VARCHAR}, #{routemaxpersonnum,jdbcType=INTEGER}, ",
         "#{routelastpersonnum,jdbcType=INTEGER}, #{deposite,jdbcType=DOUBLE})"
     })
+    @Options(useGeneratedKeys = true, keyProperty = "routeid")
     int insert(Route record);
 
     /**

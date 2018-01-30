@@ -9,10 +9,6 @@ public class RoutePic {
 
     private String routepic3;
 
-    private String routepic4;
-
-    private String routepic5;
-
     public Integer getRouteid() {
         return routeid;
     }
@@ -43,21 +39,5 @@ public class RoutePic {
 
     public void setRoutepic3(String routepic3) {
         this.routepic3 = routepic3 == null ? null : routepic3.trim();
-    }
-
-    public String getRoutepic4() {
-        return routepic4;
-    }
-
-    public void setRoutepic4(String routepic4) {
-        this.routepic4 = routepic4 == null ? null : routepic4.trim();
-    }
-
-    public String getRoutepic5() {
-        return routepic5;
-    }
-
-    public void setRoutepic5(String routepic5) {
-        this.routepic5 = routepic5 == null ? null : routepic5.trim();
     }
 }
