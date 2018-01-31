@@ -1,6 +1,6 @@
-package com.torison.mapper;
+package com.torison.nomalUser.mapper;
 
-import com.torison.model.nomalUser;
+import com.torison.nomalUser.model.nomalUser;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
 

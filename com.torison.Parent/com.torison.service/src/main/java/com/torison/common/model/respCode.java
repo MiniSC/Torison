@@ -1,4 +1,4 @@
-package com.torison.model;
+package com.torison.common.model;
 
 public class respCode {
 

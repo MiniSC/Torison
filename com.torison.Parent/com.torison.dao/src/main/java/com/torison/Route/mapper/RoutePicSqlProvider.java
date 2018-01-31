@@ -1,6 +1,6 @@
-package com.torison.mapper;
+package com.torison.Route.mapper;
 
-import com.torison.model.RoutePic;
+import com.torison.Route.model.RoutePic;
 import org.apache.ibatis.jdbc.SQL;
 
 public class RoutePicSqlProvider {

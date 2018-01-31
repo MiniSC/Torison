@@ -1,16 +1,14 @@
 package com.torison.nomalUser;
 
-import com.torison.model.Result;
-import com.torison.model.nomalUser;
-import com.torison.model.respCode;
+import com.torison.common.model.Result;
+import com.torison.nomalUser.dao.nomaluserDao;
+import com.torison.nomalUser.model.nomalUser;
+import com.torison.common.model.respCode;
 import com.torison.utils.MD5Sercurity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.torison.dao.*;
 import org.springframework.util.StringUtils;
 
-import java.math.BigInteger;
-import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 @Service

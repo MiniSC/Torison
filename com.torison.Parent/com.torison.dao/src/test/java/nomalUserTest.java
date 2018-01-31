@@ -1,8 +1,8 @@
 import com.torison.Application_Dao;
-import com.torison.dao.RouteDao;
-import com.torison.dao.nomaluserDao;
-import com.torison.model.Route;
-import com.torison.model.nomalUser;
+import com.torison.Route.dao.RouteDao;
+import com.torison.nomalUser.dao.nomaluserDao;
+import com.torison.Route.model.Route;
+import com.torison.nomalUser.model.nomalUser;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

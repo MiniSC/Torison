@@ -1,6 +1,6 @@
-package com.torison.mapper;
+package com.torison.Route.mapper;
 
-import com.torison.model.Route;
+import com.torison.Route.model.Route;
 import org.apache.ibatis.jdbc.SQL;
 
 public class RouteSqlProvider {

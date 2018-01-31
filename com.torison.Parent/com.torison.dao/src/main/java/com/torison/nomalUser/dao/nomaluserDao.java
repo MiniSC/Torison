@@ -1,11 +1,9 @@
-package com.torison.dao;
+package com.torison.nomalUser.dao;
 
-import com.torison.mapper.nomalUserMapper;
-import com.torison.model.nomalUser;
+import com.torison.nomalUser.mapper.nomalUserMapper;
+import com.torison.nomalUser.model.nomalUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * 普通用户操作接口

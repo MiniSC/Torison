@@ -30,3 +30,5 @@ com.torison.Server will be put on dubbo and provide server for send email
     })
     
     
+##1.31
+完成了路线制作，稍微美化了一下前端页面

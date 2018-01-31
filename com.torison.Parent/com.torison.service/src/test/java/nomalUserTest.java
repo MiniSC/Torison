@@ -1,5 +1,5 @@
 import com.torison.Application_Dao;
-import com.torison.model.nomalUser;
+import com.torison.nomalUser.model.nomalUser;
 import com.torison.nomalUser.nomalUserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,4 +1,4 @@
-package com.torison.model;
+package com.torison.nomalUser.model;
 
 public class nomalUser {
     private Integer userid;

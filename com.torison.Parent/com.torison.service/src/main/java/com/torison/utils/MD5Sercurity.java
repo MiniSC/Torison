@@ -1,6 +1,6 @@
 package com.torison.utils;
 
-import com.torison.model.Result;
+import com.torison.common.model.Result;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;

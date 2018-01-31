@@ -1,8 +1,7 @@
-package com.torison.mapper;
+package com.torison.Route.mapper;
 
-import com.torison.model.Route;
+import com.torison.Route.model.Route;
 import org.apache.ibatis.annotations.*;
-import org.apache.ibatis.type.JdbcType;
 
 import java.util.List;
 

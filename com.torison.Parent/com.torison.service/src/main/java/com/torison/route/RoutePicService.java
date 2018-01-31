@@ -1,10 +1,9 @@
 package com.torison.route;
 
-import com.torison.dao.RoutePicDao;
-import com.torison.mapper.RoutePicMapper;
-import com.torison.model.Result;
-import com.torison.model.RoutePic;
-import com.torison.model.respCode;
+import com.torison.Route.dao.RoutePicDao;
+import com.torison.common.model.Result;
+import com.torison.Route.model.RoutePic;
+import com.torison.common.model.respCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

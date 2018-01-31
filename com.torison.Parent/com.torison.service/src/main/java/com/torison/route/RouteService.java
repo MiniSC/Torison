@@ -1,7 +1,7 @@
 package com.torison.route;
 
-import com.torison.dao.RouteDao;
-import com.torison.model.Route;
+import com.torison.Route.dao.RouteDao;
+import com.torison.Route.model.Route;
 import com.torison.route.model.RouteForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

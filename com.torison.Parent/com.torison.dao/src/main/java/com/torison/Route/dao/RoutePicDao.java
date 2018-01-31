@@ -1,7 +1,7 @@
-package com.torison.dao;
+package com.torison.Route.dao;
 
-import com.torison.mapper.RoutePicMapper;
-import com.torison.model.RoutePic;
+import com.torison.Route.mapper.RoutePicMapper;
+import com.torison.Route.model.RoutePic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

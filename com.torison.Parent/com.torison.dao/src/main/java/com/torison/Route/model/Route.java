@@ -1,4 +1,4 @@
-package com.torison.model;
+package com.torison.Route.model;
 
 public class Route {
     private Integer routeid;
