@@ -11,9 +11,13 @@
         <module name="com.torison.payIml" />
         <module name="com.torison.service" />
         <module name="com.torison.web" />
+        <module name="down-server" />
         <module name="dubbo-api" />
         <module name="dubbo-consumer" />
         <module name="dubbo-provider" />
+        <module name="up-server" />
+        <module name="updown-api" />
+        <module name="updown-consumer" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -26,11 +30,16 @@
       <module name="com.torison.payIml" target="1.5" />
       <module name="com.torison.Server" target="1.5" />
       <module name="com.torison.service" target="1.8" />
+      <module name="com.torison.UpDown" target="1.5" />
       <module name="com.torison.web" target="1.8" />
       <module name="comtorisondao" target="1.5" />
+      <module name="down-server" target="1.5" />
       <module name="dubbo-api" target="1.5" />
       <module name="dubbo-consumer" target="1.5" />
       <module name="dubbo-provider" target="1.5" />
+      <module name="up-server" target="1.5" />
+      <module name="updown-api" target="1.5" />
+      <module name="updown-consumer" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

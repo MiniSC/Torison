@@ -2,29 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a76baa25-d675-4265-b016-d6c91483272e" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.UpDown/down-server/pom.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.UpDown/pom.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.UpDown/up-server/pom.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.UpDown/updown-api/pom.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.UpDown/updown-consumer/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change beforePath="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/src/main/java/com/torison/dao/RouteDao.java" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/src/main/java/com/torison/Route/dao/RouteDao.java" />
-      <change beforePath="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/src/main/java/com/torison/dao/RoutePicDao.java" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/src/main/java/com/torison/Route/dao/RoutePicDao.java" />
-      <change beforePath="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/src/main/java/com/torison/dao/nomaluserDao.java" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/src/main/java/com/torison/nomalUser/dao/nomaluserDao.java" />
-      <change beforePath="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/src/main/java/com/torison/mapper/RouteMapper.java" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/src/main/java/com/torison/Route/mapper/RouteMapper.java" />
-      <change beforePath="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/src/main/java/com/torison/mapper/RoutePicMapper.java" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/src/main/java/com/torison/Route/mapper/RoutePicMapper.java" />
-      <change beforePath="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/src/main/java/com/torison/mapper/RoutePicSqlProvider.java" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/src/main/java/com/torison/Route/mapper/RoutePicSqlProvider.java" />
-      <change beforePath="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/src/main/java/com/torison/mapper/RouteSqlProvider.java" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/src/main/java/com/torison/Route/mapper/RouteSqlProvider.java" />
-      <change beforePath="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/src/main/java/com/torison/mapper/nomalUserMapper.java" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/src/main/java/com/torison/nomalUser/mapper/nomalUserMapper.java" />
-      <change beforePath="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/src/main/java/com/torison/mapper/nomalUserSqlProvider.java" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/src/main/java/com/torison/nomalUser/mapper/nomalUserSqlProvider.java" />
-      <change beforePath="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/src/main/java/com/torison/model/Route.java" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/src/main/java/com/torison/Route/model/Route.java" />
-      <change beforePath="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/src/main/java/com/torison/model/RoutePic.java" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/src/main/java/com/torison/Route/model/RoutePic.java" />
-      <change beforePath="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/src/main/java/com/torison/model/nomalUser.java" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/src/main/java/com/torison/nomalUser/model/nomalUser.java" />
-      <change beforePath="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/src/test/java/nomalUserTest.java" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/src/test/java/nomalUserTest.java" />
-      <change beforePath="$PROJECT_DIR$/com.torison.Parent/com.torison.service/src/main/java/com/torison/model/Result.java" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.service/src/main/java/com/torison/common/model/Result.java" />
-      <change beforePath="$PROJECT_DIR$/com.torison.Parent/com.torison.service/src/main/java/com/torison/model/respCode.java" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.service/src/main/java/com/torison/common/model/respCode.java" />
-      <change beforePath="$PROJECT_DIR$/com.torison.Parent/com.torison.service/src/main/java/com/torison/nomalUser/nomalUserService.java" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.service/src/main/java/com/torison/nomalUser/nomalUserService.java" />
-      <change beforePath="$PROJECT_DIR$/com.torison.Parent/com.torison.service/src/main/java/com/torison/route/RoutePicService.java" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.service/src/main/java/com/torison/route/RoutePicService.java" />
-      <change beforePath="$PROJECT_DIR$/com.torison.Parent/com.torison.service/src/main/java/com/torison/route/RouteService.java" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.service/src/main/java/com/torison/route/RouteService.java" />
-      <change beforePath="$PROJECT_DIR$/com.torison.Parent/com.torison.service/src/main/java/com/torison/utils/MD5Sercurity.java" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.service/src/main/java/com/torison/utils/MD5Sercurity.java" />
-      <change beforePath="$PROJECT_DIR$/com.torison.Parent/com.torison.service/src/test/java/nomalUserTest.java" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.service/src/test/java/nomalUserTest.java" />
-      <change beforePath="$PROJECT_DIR$/com.torison.Parent/com.torison.web/src/main/java/com/route/controller/RouteController.java" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.web/src/main/java/com/route/controller/RouteController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/com.torison.parent/comtorisonservice/target/" />
     <ignored path="$PROJECT_DIR$/com.torison.parent/target/" />
@@ -39,6 +25,11 @@
     <ignored path="$PROJECT_DIR$/com.torison.pay/com.torison.payIml/target/" />
     <ignored path="$PROJECT_DIR$/com.torison.pay/com.torison.payApi/target/" />
     <ignored path="$PROJECT_DIR$/com.torison.Parent/com.torison.login/target/" />
+    <ignored path="$PROJECT_DIR$/com.torison.UpDown/target/" />
+    <ignored path="$PROJECT_DIR$/com.torison.UpDown/up-server/target/" />
+    <ignored path="$PROJECT_DIR$/com.torison.UpDown/down-server/target/" />
+    <ignored path="$PROJECT_DIR$/com.torison.UpDown/updown-consumer/target/" />
+    <ignored path="$PROJECT_DIR$/com.torison.UpDown/updown-api/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -87,7 +78,58 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/com.torison.UpDown/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/com.torison.UpDown/up-server/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/com.torison.UpDown/down-server/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/com.torison.UpDown/updown-api/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/com.torison.UpDown/updown-consumer/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -116,7 +158,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/220d524c-3cc0-4e8a-9ff3-0be007b4b085/console_1.sql" />
         <option value="src:table:/d5d1a821/d5a08de6-b3f8-4eb7-a224-af88dcd46481/torison.ROUTE" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/Learning" />
         <option value="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/src/main/java/com/torison/mapper/nomalUserMapper.java" />
@@ -167,6 +208,7 @@
         <option value="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/src/main/java/com/torison/Route/mapper/RouteSqlProvider.java" />
         <option value="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/src/main/java/com/torison/Route/dao/RouteDao.java" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/com.torison.UpDown/pom.xml" />
       </list>
     </option>
   </component>
@@ -266,87 +308,12 @@
             <path>
               <item name="Torison" type="b2602c69:ProjectViewProjectNode" />
               <item name="Torison" type="462c0819:PsiDirectoryNode" />
-              <item name="com.torison.Parent" type="462c0819:PsiDirectoryNode" />
+              <item name="com.torison.Server" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Torison" type="b2602c69:ProjectViewProjectNode" />
               <item name="Torison" type="462c0819:PsiDirectoryNode" />
-              <item name="com.torison.Parent" type="462c0819:PsiDirectoryNode" />
-              <item name="com.torison.web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Torison" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Torison" type="462c0819:PsiDirectoryNode" />
-              <item name="com.torison.Parent" type="462c0819:PsiDirectoryNode" />
-              <item name="com.torison.web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Torison" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Torison" type="462c0819:PsiDirectoryNode" />
-              <item name="com.torison.Parent" type="462c0819:PsiDirectoryNode" />
-              <item name="com.torison.web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Torison" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Torison" type="462c0819:PsiDirectoryNode" />
-              <item name="com.torison.Parent" type="462c0819:PsiDirectoryNode" />
-              <item name="com.torison.web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Torison" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Torison" type="462c0819:PsiDirectoryNode" />
-              <item name="com.torison.Parent" type="462c0819:PsiDirectoryNode" />
-              <item name="com.torison.web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Torison" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Torison" type="462c0819:PsiDirectoryNode" />
-              <item name="com.torison.Parent" type="462c0819:PsiDirectoryNode" />
-              <item name="com.torison.web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Torison" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Torison" type="462c0819:PsiDirectoryNode" />
-              <item name="com.torison.Parent" type="462c0819:PsiDirectoryNode" />
-              <item name="com.torison.web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Torison" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Torison" type="462c0819:PsiDirectoryNode" />
-              <item name="com.torison.Parent" type="462c0819:PsiDirectoryNode" />
-              <item name="com.torison.web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Torison" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Torison" type="462c0819:PsiDirectoryNode" />
-              <item name="com.torison.Parent" type="462c0819:PsiDirectoryNode" />
-              <item name="com.torison.web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="com.torison.UpDown" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -645,7 +612,7 @@
       <workItem from="1516583714282" duration="22580000" />
       <workItem from="1516861859290" duration="17975000" />
       <workItem from="1517190528075" duration="30321000" />
-      <workItem from="1517298806916" duration="6117000" />
+      <workItem from="1517298806916" duration="7696000" />
     </task>
     <task id="LOCAL-00001" summary="dao层使用mybatis和逆向工程整合">
       <created>1516330694236</created>
@@ -711,7 +678,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105000000" />
+    <option name="totallyTimeSpent" value="106579000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -784,38 +751,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/com.torison.Parent/com.torison.web/target/classes/static/picmyid.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/com.torison.Parent/com.torison.dao/src/main/java/com/torison/Application_Dao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/com.torison.Parent/com.torison.dao/src/main/resources/mybatis-generator.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="37" column="65" lean-forward="false" selection-start-line="37" selection-start-column="65" selection-end-line="37" selection-end-column="214" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/util/UUID.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="140" column="23" lean-forward="false" selection-start-line="140" selection-start-column="23" selection-end-line="140" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/com.torison.Parent/com.torison.web/src/main/java/com/KafkaTopic.java" />
     <entry file="file://$PROJECT_DIR$/com.torison.Parent/com.torison.web/src/main/java/com/KafkaProducer.java" />
     <entry file="file://$PROJECT_DIR$/com.torison.Parent/com.torison.web/src/main/java/com/model/Result.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1185,6 +1120,46 @@
             <folding />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com.torison.UpDown/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com.torison.UpDown/up-server/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com.torison.UpDown/down-server/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com.torison.UpDown/updown-api/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com.torison.UpDown/updown-consumer/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
