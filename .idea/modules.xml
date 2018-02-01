@@ -2,21 +2,18 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Torison.iml" filepath="$PROJECT_DIR$/.idea/Torison.iml" />
       <module fileurl="file://$PROJECT_DIR$/com.torison.Parent/com.torison.Parent.iml" filepath="$PROJECT_DIR$/com.torison.Parent/com.torison.Parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/com.torison.Server/com.torison.Server.iml" filepath="$PROJECT_DIR$/com.torison.Server/com.torison.Server.iml" />
       <module fileurl="file://$PROJECT_DIR$/com.torison.UpDown/com.torison.UpDown.iml" filepath="$PROJECT_DIR$/com.torison.UpDown/com.torison.UpDown.iml" />
       <module fileurl="file://$PROJECT_DIR$/com.torison.Parent/com.torison.dao/com.torison.dao.iml" filepath="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/com.torison.dao.iml" />
       <module fileurl="file://$PROJECT_DIR$/com.torison.pay/com.torison.pay.iml" filepath="$PROJECT_DIR$/com.torison.pay/com.torison.pay.iml" />
       <module fileurl="file://$PROJECT_DIR$/com.torison.pay/com.torison.payApi/com.torison.payApi.iml" filepath="$PROJECT_DIR$/com.torison.pay/com.torison.payApi/com.torison.payApi.iml" />
-      <module fileurl="file://$PROJECT_DIR$/com.torison.pay/com.torison.payIml/com.torison.payIml.iml" filepath="$PROJECT_DIR$/com.torison.pay/com.torison.payIml/com.torison.payIml.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.torison.pay/com.torison.payIml/com.torison.payImp.iml" filepath="$PROJECT_DIR$/com.torison.pay/com.torison.payIml/com.torison.payImp.iml" />
       <module fileurl="file://$PROJECT_DIR$/com.torison.Parent/com.torison.service/com.torison.service.iml" filepath="$PROJECT_DIR$/com.torison.Parent/com.torison.service/com.torison.service.iml" />
       <module fileurl="file://$PROJECT_DIR$/com.torison.Parent/com.torison.web/com.torison.web.iml" filepath="$PROJECT_DIR$/com.torison.Parent/com.torison.web/com.torison.web.iml" />
-      <module fileurl="file://$PROJECT_DIR$/com.torison.UpDown/down-server/down-server.iml" filepath="$PROJECT_DIR$/com.torison.UpDown/down-server/down-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/com.torison.Server/dubbo-api/dubbo-api.iml" filepath="$PROJECT_DIR$/com.torison.Server/dubbo-api/dubbo-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/com.torison.Server/dubbo-consumer/dubbo-consumer.iml" filepath="$PROJECT_DIR$/com.torison.Server/dubbo-consumer/dubbo-consumer.iml" />
       <module fileurl="file://$PROJECT_DIR$/com.torison.Server/dubbo-provider/dubbo-provider.iml" filepath="$PROJECT_DIR$/com.torison.Server/dubbo-provider/dubbo-provider.iml" />
-      <module fileurl="file://$PROJECT_DIR$/com.torison.UpDown/up-server/up-server.iml" filepath="$PROJECT_DIR$/com.torison.UpDown/up-server/up-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/com.torison.UpDown/updown-api/updown-api.iml" filepath="$PROJECT_DIR$/com.torison.UpDown/updown-api/updown-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/com.torison.UpDown/updown-consumer/updown-consumer.iml" filepath="$PROJECT_DIR$/com.torison.UpDown/updown-consumer/updown-consumer.iml" />
     </modules>

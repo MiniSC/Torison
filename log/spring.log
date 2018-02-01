@@ -1,0 +1,96 @@
+2018-02-01 15:45:22.797  INFO 5352 --- [main] com.Run                                  : Starting Run on yfb-dongjj with PID 5352 (C:\Users\dongjj\Desktop\Torison\com.torison.UpDown\updown-server\target\classes started by dongjj in C:\Users\dongjj\Desktop\Torison)
+2018-02-01 15:45:22.800  INFO 5352 --- [main] com.Run                                  : No active profile set, falling back to default profiles: default
+2018-02-01 15:45:22.860  INFO 5352 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1fa268de: startup date [Thu Feb 01 15:45:22 CST 2018]; root of context hierarchy
+2018-02-01 15:45:25.248  INFO 5352 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$7752d63d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-02-01 15:45:25.456  INFO 5352 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 9090 (http)
+2018-02-01 15:45:25.466  INFO 5352 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2018-02-01 15:45:25.467  INFO 5352 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.11
+2018-02-01 15:45:25.533  INFO 5352 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-02-01 15:45:25.534  INFO 5352 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2676 ms
+2018-02-01 15:45:25.656  INFO 5352 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-01 15:45:25.656  INFO 5352 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-01 15:45:25.656  INFO 5352 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-01 15:45:25.657  INFO 5352 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-01 15:45:25.658  INFO 5352 --- [localhost-startStop-1] .s.DelegatingFilterProxyRegistrationBean : Mapping filter: 'springSecurityFilterChain' to: [/*]
+2018-02-01 15:45:25.658  INFO 5352 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2018-02-01 15:45:26.371  INFO 5352 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-02-01 15:45:26.384  INFO 5352 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-02-01 15:45:26.464  INFO 5352 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2018-02-01 15:45:26.465  INFO 5352 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-02-01 15:45:26.466  INFO 5352 --- [main] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2018-02-01 15:45:26.518  INFO 5352 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-01 15:45:26.659  INFO 5352 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2018-02-01 15:45:27.089  INFO 5352 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-02-01 15:45:27.536  INFO 5352 --- [main] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2018-02-01 15:45:29.602  INFO 5352 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-02-01 15:45:30.021  INFO 5352 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1fa268de: startup date [Thu Feb 01 15:45:22 CST 2018]; root of context hierarchy
+2018-02-01 15:45:30.074  INFO 5352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-01 15:45:30.075  INFO 5352 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-01 15:45:30.096  INFO 5352 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-01 15:45:30.097  INFO 5352 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-01 15:45:30.125  INFO 5352 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-01 15:45:30.293  INFO 5352 --- [main] o.s.ui.freemarker.SpringTemplateLoader   : SpringTemplateLoader for FreeMarker: using resource loader [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1fa268de: startup date [Thu Feb 01 15:45:22 CST 2018]; root of context hierarchy] and template loader path [classpath:/templates/]
+2018-02-01 15:45:30.294  INFO 5352 --- [main] o.s.w.s.v.f.FreeMarkerConfigurer         : ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-02-01 15:45:30.319  WARN 5352 --- [main] o.s.b.a.f.FreeMarkerAutoConfiguration    : Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+2018-02-01 15:45:30.431  INFO 5352 --- [main] b.a.s.AuthenticationManagerConfiguration : 
+
+Using default security password: 81b42ecd-2315-405e-922a-394ac8ecf53b
+
+2018-02-01 15:45:30.581  INFO 5352 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/css/**'], Ant [pattern='/js/**'], Ant [pattern='/images/**'], Ant [pattern='/webjars/**'], Ant [pattern='/**/favicon.ico'], Ant [pattern='/error']]], []
+2018-02-01 15:45:30.635  INFO 5352 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/**']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1b61a646, org.springframework.security.web.context.SecurityContextPersistenceFilter@2b8106f, org.springframework.security.web.header.HeaderWriterFilter@28833fff, org.springframework.security.web.authentication.logout.LogoutFilter@2080ee70, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@2408ca4c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@647bd553, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@14738629, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@38c840fb, org.springframework.security.web.session.SessionManagementFilter@25bd8eab, org.springframework.security.web.access.ExceptionTranslationFilter@21f48f6c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6fa98e98]
+2018-02-01 15:45:30.821  INFO 5352 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-02-01 15:45:30.822  INFO 5352 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-02-01 15:45:30.827  INFO 5352 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2018-02-01 15:45:30.833  INFO 5352 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 2147483647
+2018-02-01 15:45:30.874  INFO 5352 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 9090 (http)
+2018-02-01 15:45:30.878  INFO 5352 --- [main] com.Run                                  : Started Run in 8.389 seconds (JVM running for 8.933)
+2018-02-01 15:47:34.279  INFO 5520 --- [main] com.Run                                  : Starting Run on yfb-dongjj with PID 5520 (C:\Users\dongjj\Desktop\Torison\com.torison.UpDown\updown-server\target\classes started by dongjj in C:\Users\dongjj\Desktop\Torison)
+2018-02-01 15:47:34.281  INFO 5520 --- [main] com.Run                                  : No active profile set, falling back to default profiles: default
+2018-02-01 15:47:34.367  INFO 5520 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@359f7cdf: startup date [Thu Feb 01 15:47:34 CST 2018]; root of context hierarchy
+2018-02-01 15:47:36.511  INFO 5520 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$e200cdc8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-02-01 15:47:36.680  INFO 5520 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 9090 (http)
+2018-02-01 15:47:36.687  INFO 5520 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2018-02-01 15:47:36.688  INFO 5520 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.11
+2018-02-01 15:47:36.747  INFO 5520 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-02-01 15:47:36.748  INFO 5520 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2383 ms
+2018-02-01 15:47:36.863  INFO 5520 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-01 15:47:36.864  INFO 5520 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-01 15:47:36.864  INFO 5520 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-01 15:47:36.864  INFO 5520 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-01 15:47:36.865  INFO 5520 --- [localhost-startStop-1] .s.DelegatingFilterProxyRegistrationBean : Mapping filter: 'springSecurityFilterChain' to: [/*]
+2018-02-01 15:47:36.865  INFO 5520 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2018-02-01 15:47:37.548  INFO 5520 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-02-01 15:47:37.557  INFO 5520 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-02-01 15:47:37.600  INFO 5520 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2018-02-01 15:47:37.601  INFO 5520 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-02-01 15:47:37.601  INFO 5520 --- [main] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2018-02-01 15:47:37.629  INFO 5520 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-01 15:47:37.714  INFO 5520 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2018-02-01 15:47:38.258  INFO 5520 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-02-01 15:47:38.615  INFO 5520 --- [main] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2018-02-01 15:47:40.490  INFO 5520 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-02-01 15:47:40.832  INFO 5520 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@359f7cdf: startup date [Thu Feb 01 15:47:34 CST 2018]; root of context hierarchy
+2018-02-01 15:47:40.876  INFO 5520 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-01 15:47:40.876  INFO 5520 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-01 15:47:40.897  INFO 5520 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-01 15:47:40.898  INFO 5520 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-01 15:47:40.923  INFO 5520 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-01 15:47:41.057  INFO 5520 --- [main] o.s.ui.freemarker.SpringTemplateLoader   : SpringTemplateLoader for FreeMarker: using resource loader [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@359f7cdf: startup date [Thu Feb 01 15:47:34 CST 2018]; root of context hierarchy] and template loader path [classpath:/templates/]
+2018-02-01 15:47:41.058  INFO 5520 --- [main] o.s.w.s.v.f.FreeMarkerConfigurer         : ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-02-01 15:47:41.075  WARN 5520 --- [main] o.s.b.a.f.FreeMarkerAutoConfiguration    : Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+2018-02-01 15:47:41.166  INFO 5520 --- [main] b.a.s.AuthenticationManagerConfiguration : 
+
+Using default security password: 2005eb87-7b4f-492f-8023-996767202152
+
+2018-02-01 15:47:41.295  INFO 5520 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/css/**'], Ant [pattern='/js/**'], Ant [pattern='/images/**'], Ant [pattern='/webjars/**'], Ant [pattern='/**/favicon.ico'], Ant [pattern='/error']]], []
+2018-02-01 15:47:41.345  INFO 5520 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/**']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@792a9cb1, org.springframework.security.web.context.SecurityContextPersistenceFilter@70b437bb, org.springframework.security.web.header.HeaderWriterFilter@48c5a07d, org.springframework.security.web.authentication.logout.LogoutFilter@28833fff, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@27215154, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4870d2e1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7fac3ce0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@51fadd20, org.springframework.security.web.session.SessionManagementFilter@3e283f1a, org.springframework.security.web.access.ExceptionTranslationFilter@7fe75649, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5c4e86e7]
+2018-02-01 15:47:41.504  INFO 5520 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-02-01 15:47:41.505  INFO 5520 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-02-01 15:47:41.510  INFO 5520 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2018-02-01 15:47:41.514  INFO 5520 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 2147483647
+2018-02-01 15:47:41.546  INFO 5520 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 9090 (http)
+2018-02-01 15:47:41.549  INFO 5520 --- [main] com.Run                                  : Started Run in 7.545 seconds (JVM running for 8.034)

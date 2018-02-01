@@ -3,20 +3,11 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/com.torison.parent/pom.xml" />
-        <option value="$PROJECT_DIR$/com.torison.Server/pom.xml" />
-        <option value="$PROJECT_DIR$/com.torison.Server/dubbo-api/pom.xml" />
-        <option value="$PROJECT_DIR$/com.torison.Server/dubbo-consumer/pom.xml" />
-        <option value="$PROJECT_DIR$/com.torison.Server/dubbo-provider/pom.xml" />
-        <option value="$PROJECT_DIR$/com.torison.pay/pom.xml" />
         <option value="$PROJECT_DIR$/com.torison.UpDown/pom.xml" />
+        <option value="$PROJECT_DIR$/com.torison.Server/pom.xml" />
+        <option value="$PROJECT_DIR$/com.torison.pay/pom.xml" />
+        <option value="$PROJECT_DIR$/com.torison.Parent/pom.xml" />
       </list>
-    </option>
-    <option name="ignoredFiles">
-      <set>
-        <option value="$PROJECT_DIR$/com.torison.Parent/com.torison.login/pom.xml" />
-        <option value="$PROJECT_DIR$/com.torison.parent/pom.xml" />
-      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
