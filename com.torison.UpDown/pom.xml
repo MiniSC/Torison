@@ -10,10 +10,14 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>up-server</module>
-        <module>down-server</module>
         <module>updown-api</module>
         <module>updown-consumer</module>
     </modules>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.2.RELEASE</version>
+    </parent>
 
 </project>
