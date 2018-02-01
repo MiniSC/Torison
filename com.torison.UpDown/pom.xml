@@ -9,7 +9,7 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>up-server</module>
+        <module>updown-server</module>
         <module>updown-api</module>
         <module>updown-consumer</module>
     </modules>

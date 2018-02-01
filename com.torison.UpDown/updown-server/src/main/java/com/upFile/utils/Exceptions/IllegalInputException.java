@@ -1,10 +1,13 @@
 package com.upFile.utils.Exceptions;
 
 public class IllegalInputException extends RuntimeException {
+    private static final class Message{
+        private static final String e = "IllegalInputString";
+    }
 
 
     public IllegalInputException() {
-        super();
+        super(Message.e);
     }
 
     public IllegalInputException(String message) {

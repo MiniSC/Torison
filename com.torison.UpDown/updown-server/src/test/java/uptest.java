@@ -1,9 +1,5 @@
 import com.Run;
 import com.upFile.Server.FileUploadServerImp;
-import com.upFile.model.entity.File;
-import com.upFile.model.request.FileQueryForm;
-
-import com.upFile.model.response.DataGrid;
 import com.upFile.utils.Exceptions.IllegalInputException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,7 +16,10 @@ public class uptest {
     FileUploadServerImp fileUploadServer;
 
     @Test
-    public void test(){
+    public void testException(){
+        if (true){
+            throw new IllegalInputException();
+        }
         System.out.println(1);
 
     }

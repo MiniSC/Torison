@@ -10,5 +10,6 @@
     <file url="file://$PROJECT_DIR$/com.torison.UpDown" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/com.torison.UpDown/updown-api" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/com.torison.UpDown/updown-consumer" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/com.torison.UpDown/updown-server" charset="UTF-8" />
   </component>
 </project>
