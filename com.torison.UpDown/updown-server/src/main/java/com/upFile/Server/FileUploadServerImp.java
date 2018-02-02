@@ -4,11 +4,15 @@ package com.upFile.Server;
 import com.upFile.common.component.BaseComponent;
 import com.upFile.common.repository.FileRepository;
 import com.upFile.common.repository.UniqueFileRepository;
+import com.upFile.model.UniqueFile;
 import com.upFile.model.entity.File;
 import com.upFile.model.request.FileQueryForm;
 import com.upFile.model.response.DataGrid;
 import com.upFile.model.response.ResponseMessage;
 import com.upFile.model.response.error.ResponseCode;
+import com.upFile.utils.Encrypt;
+import com.upFile.utils.Exceptions.IllegalInputException;
+import com.upFile.utils.FileUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -18,7 +22,12 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -80,6 +89,51 @@ public class FileUploadServerImp extends BaseComponent {
             fileRepository.save(files);
             responseMessage.setCode(ResponseCode.Success);
             return responseMessage;
+    }
+
+    /**
+     * 文件上传
+     * @param file
+     * @return
+     */
+    public ResponseMessage upload(MultipartFile file,String userName) {
+        ResponseMessage responseMessage = new ResponseMessage();
+        String Path = Thread.currentThread().getContextClassLoader().getResource("").getPath()+"files";
+        String encryptFileName=null;
+        try {
+            encryptFileName = Encrypt.EncodeMultipartFile(file, "SHA-512", 0, 100000);
+        }catch (IOException e){
+            responseMessage.setCode(ResponseCode.Exception);
+            responseMessage.setMessage("未找到该文件");
+            return responseMessage;
+        }catch (NoSuchAlgorithmException e){
+            responseMessage.setCode(ResponseCode.Exception);
+            responseMessage.setMessage("系统异常，加密类型有误，请联系接口提供方");
+            return responseMessage;
+        }catch (IllegalInputException e){
+            responseMessage.setCode(ResponseCode.Exception);
+            responseMessage.setMessage("系统异常，加密相关信息有误，请联系接口提供方");
+        }
+        final UniqueFile uniqueFile = UniqueFile.create()
+                .setEncryptName(encryptFileName)
+                .setSize(file.getSize())
+                .build();
+        uniqueFileRepository.save(uniqueFile);
+        File saveFile = FileUtil.getFileByUniqueFileAndOriginalFileName(uniqueFile,file.getOriginalFilename(),file.getSize(),userName);
+        fileRepository.save(saveFile);
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(4,100,200,TimeUnit.MICROSECONDS, new LinkedBlockingQueue(400),new ThreadPoolExecutor.CallerRunsPolicy());
+        threadPoolExecutor.execute(
+                () -> {
+                    java.io.File targetFile = new java.io.File(Path,uniqueFile.getEncryptName() );
+                    try {
+                        file.transferTo(targetFile);
+                        responseMessage.setCode(ResponseCode.Success);
+                    } catch (Exception e) {
+                        responseMessage.setCode(ResponseCode.Exception);
+                        e.printStackTrace();
+                    }
+                });
+        return responseMessage;
     }
 
 

@@ -2,6 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script>
+        function pic1 () {
+            var r = new FileReader();
+            f = document.getElementById('file1').files[0];
+
+            r.readAsDataURL(f);
+            r.onload = function (e) {
+                document.getElementById('pic1').src = this.result;
+            };
+        }
+        function pic2 () {
+            var r = new FileReader();
+            f = document.getElementById('file2').files[0];
+
+            r.readAsDataURL(f);
+            r.onload = function (e) {
+                document.getElementById('pic2').src = this.result;
+            };
+        }
+        function pic3 () {
+            var r = new FileReader();
+            f = document.getElementById('file3').files[0];
+
+            r.readAsDataURL(f);
+            r.onload = function (e) {
+                document.getElementById('pic3').src = this.result;
+            };
+        }
+    </script>
     <!-- 新 Bootstrap 核心 CSS 文件 -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
@@ -14,6 +43,7 @@
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Title</title>
+
 </head>
 <body>
 <div class="container">
@@ -92,7 +122,7 @@
         </div>
     </div>
     <div class="row clearfix">
-        <div class="col-md-6 column">
+        <div class="col-md-4 column">
             <form role="form" action="/route/addRoute" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="routename">路线名称</label><input class="form-control" id="routename" name="routename" type="text" />
@@ -113,18 +143,43 @@
                     <label for="routemaxpersonnum">最大可报名人数</label><input class="form-control" id="routemaxpersonnum" name="routemaxpersonnum"  type="text" />
                 </div>
                 <div class="form-group">
-                    <label for="file1">路线图片1</label><input id="file1" type="file" name="file1" />
+                    <label for="file1">路线图片1</label><input id="file1" type="file" name="file1" onchange="pic1()"/>
                 </div>
                 <div class="form-group">
-                    <label for="file2">路线图片2</label><input id="file2" type="file" name="file2" />
+                    <label for="file2">路线图片2</label><input id="file2" type="file" name="file2" onchange="pic2()"/>
                 </div>
                 <div class="form-group">
-                    <label for="file3">路线图片3</label><input id="file3" type="file" name="file3" />
+                    <label for="file3">路线图片3</label><input id="file3" type="file" name="file3" onchange="pic3()"/>
                 </div>
                  <button type="submit" class="btn btn-default">提交</button>
             </form>
         </div>
-        <div class="col-md-6 column">
+            <div class="col-md-4 column">
+                <br>
+            </div>
+        <div class="col-md-4 column">
+            <div class="row clearfix">
+                
+                </div>
+            </div>
+            <div class="row clearfix">
+                <label for="pic1">待上传图片1</label>
+                <img id="pic1" width="140" height="140">
+                <div class="col-md-12 column">
+                </div>
+            </div>
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <label for="pic2">待上传图片2</label>
+                    <img id="pic2" width="140" height="140">
+                </div>
+            </div>
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <label for="pic3">待上传图片3</label>
+                    <img id="pic3" width="140" height="140">
+                </div>
+            </div>
         </div>
     </div>
     <div class="row clearfix">

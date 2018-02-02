@@ -1,5 +1,4 @@
 package com.upFile.model;
-
 import lombok.Data;
 
 import javax.persistence.Entity;
@@ -7,8 +6,9 @@ import javax.persistence.Id;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-@Data
+
 @Entity
+@Data
 public class UniqueFile implements Serializable {
 
 
@@ -33,35 +33,55 @@ public class UniqueFile implements Serializable {
      */
     private Long size;
 
-    public String getEncryptName() {
-        return encryptName;
+
+    private UniqueFile(Builder builder){
+        this.encryptName = builder.encryptName;
+        this.createTime = builder.createTime;
+        this.path = builder.path;
+        this.size = builder.size;
     }
 
-    public void setEncryptName(String encryptName) {
-        this.encryptName = encryptName;
+    public static Builder create(){
+        return new Builder();
     }
 
-    public String getPath() {
-        return path;
+    /**
+     * builder
+     */
+    public static class Builder{
+        private String encryptName;
+        private String path;
+        private Timestamp createTime;
+        private Long size;
+
+        public Builder setEncryptName(String encryptName) {
+            this.encryptName = encryptName;
+            return this ;
+        }
+        public Builder setPath(String path) {
+            this.path = path;
+            return this ;
+        }
+        public Builder setCreateTime(Timestamp createTime) {
+            this.createTime = createTime;
+            return this ;
+        }
+        public Builder setSize(Long size) {
+            this.size = size;
+            return this ;
+        }
+        public UniqueFile build() {
+            return new UniqueFile(this);
+        }
+
     }
 
-    public void setPath(String path) {
-        this.path = path;
-    }
 
-    public Timestamp getCreateTime() {
-        return createTime;
-    }
 
-    public void setCreateTime(Timestamp createTime) {
-        this.createTime = createTime;
-    }
 
-    public Long getSize() {
-        return size;
-    }
 
-    public void setSize(Long size) {
-        this.size = size;
-    }
+
+
+
+
 }

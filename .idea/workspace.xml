@@ -5,41 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bdbfac5-5066-4fb9-80fc-407f7bc2fa42" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/utils/FileUploadThread.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/utils/FileUtil.java" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_torison_up_server_1_0_SNAPSHOT.xml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/com.torison.dao.iml" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.dao/com.torison.dao.iml" />
       <change beforePath="$PROJECT_DIR$/com.torison.Parent/com.torison.service/com.torison.service.iml" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.service/com.torison.service.iml" />
       <change beforePath="$PROJECT_DIR$/com.torison.Parent/com.torison.web/com.torison.web.iml" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.web/com.torison.web.iml" />
-      <change beforePath="$PROJECT_DIR$/com.torison.UpDown/pom.xml" afterPath="$PROJECT_DIR$/com.torison.UpDown/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/com.torison.UpDown/updown-api/pom.xml" afterPath="$PROJECT_DIR$/com.torison.UpDown/updown-api/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/com.torison.Parent/com.torison.web/src/main/resources/templates/test/Route/MakeRoute.html" afterPath="$PROJECT_DIR$/com.torison.Parent/com.torison.web/src/main/resources/templates/test/Route/MakeRoute.html" />
       <change beforePath="$PROJECT_DIR$/com.torison.UpDown/updown-api/updown-api.iml" afterPath="$PROJECT_DIR$/com.torison.UpDown/updown-api/updown-api.iml" />
-      <change beforePath="$PROJECT_DIR$/com.torison.UpDown/updown-server/log/spring.log" afterPath="$PROJECT_DIR$/com.torison.UpDown/updown-server/log/spring.log" />
+      <change beforePath="$PROJECT_DIR$/com.torison.UpDown/updown-server/pom.xml" afterPath="$PROJECT_DIR$/com.torison.UpDown/updown-server/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/Server/FileUploadServerImp.java" afterPath="$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/Server/FileUploadServerImp.java" />
+      <change beforePath="$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/model/UniqueFile.java" afterPath="$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/model/UniqueFile.java" />
+      <change beforePath="$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/model/entity/File.java" afterPath="$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/model/entity/File.java" />
       <change beforePath="$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/utils/Encrypt.java" afterPath="$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/utils/Encrypt.java" />
-      <change beforePath="$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/utils/Exceptions/IllegalInputException.java" afterPath="$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/utils/Exceptions/IllegalInputException.java" />
-      <change beforePath="$PROJECT_DIR$/com.torison.UpDown/updown-server/src/test/java/uptest.java" afterPath="$PROJECT_DIR$/com.torison.UpDown/updown-server/src/test/java/uptest.java" />
-      <change beforePath="$PROJECT_DIR$/com.torison.UpDown/updown-server/target/classes/com/Run.class" afterPath="$PROJECT_DIR$/com.torison.UpDown/updown-server/target/classes/com/Run.class" />
-      <change beforePath="$PROJECT_DIR$/com.torison.UpDown/updown-server/target/classes/com/upFile/common/component/BaseComponent.class" afterPath="$PROJECT_DIR$/com.torison.UpDown/updown-server/target/classes/com/upFile/common/component/BaseComponent.class" />
-      <change beforePath="$PROJECT_DIR$/com.torison.UpDown/updown-server/target/classes/com/upFile/common/repository/FileRepository.class" afterPath="$PROJECT_DIR$/com.torison.UpDown/updown-server/target/classes/com/upFile/common/repository/FileRepository.class" />
-      <change beforePath="$PROJECT_DIR$/com.torison.UpDown/updown-server/target/classes/com/upFile/common/repository/UniqueFileRepository.class" afterPath="$PROJECT_DIR$/com.torison.UpDown/updown-server/target/classes/com/upFile/common/repository/UniqueFileRepository.class" />
-      <change beforePath="$PROJECT_DIR$/com.torison.UpDown/updown-server/target/classes/com/upFile/model/UniqueFile.class" afterPath="$PROJECT_DIR$/com.torison.UpDown/updown-server/target/classes/com/upFile/model/UniqueFile.class" />
-      <change beforePath="$PROJECT_DIR$/com.torison.UpDown/updown-server/target/classes/com/upFile/model/entity/File.class" afterPath="$PROJECT_DIR$/com.torison.UpDown/updown-server/target/classes/com/upFile/model/entity/File.class" />
-      <change beforePath="$PROJECT_DIR$/com.torison.UpDown/updown-server/target/classes/com/upFile/model/entity/Role.class" afterPath="$PROJECT_DIR$/com.torison.UpDown/updown-server/target/classes/com/upFile/model/entity/Role.class" />
-      <change beforePath="$PROJECT_DIR$/com.torison.UpDown/updown-server/target/classes/com/upFile/model/request/FileDownloadForm.class" afterPath="$PROJECT_DIR$/com.torison.UpDown/updown-server/target/classes/com/upFile/model/request/FileDownloadForm.class" />
-      <change beforePath="$PROJECT_DIR$/com.torison.UpDown/updown-server/target/classes/com/upFile/model/request/FileQueryForm.class" afterPath="$PROJECT_DIR$/com.torison.UpDown/updown-server/target/classes/com/upFile/model/request/FileQueryForm.class" />
-      <change beforePath="$PROJECT_DIR$/com.torison.UpDown/updown-server/target/classes/com/upFile/model/request/PaginationForm.class" afterPath="$PROJECT_DIR$/com.torison.UpDown/updown-server/target/classes/com/upFile/model/request/PaginationForm.class" />
-      <change beforePath="$PROJECT_DIR$/com.torison.UpDown/updown-server/target/classes/com/upFile/model/request/RegisterUser.class" afterPath="$PROJECT_DIR$/com.torison.UpDown/updown-server/target/classes/com/upFile/model/request/RegisterUser.class" />
-      <change beforePath="$PROJECT_DIR$/com.torison.UpDown/updown-server/target/classes/com/upFile/model/response/DataGrid.class" afterPath="$PROJECT_DIR$/com.torison.UpDown/updown-server/target/classes/com/upFile/model/response/DataGrid.class" />
-      <change beforePath="$PROJECT_DIR$/com.torison.UpDown/updown-server/target/classes/com/upFile/model/response/ResponseMessage.class" afterPath="$PROJECT_DIR$/com.torison.UpDown/updown-server/target/classes/com/upFile/model/response/ResponseMessage.class" />
-      <change beforePath="$PROJECT_DIR$/com.torison.UpDown/updown-server/target/classes/com/upFile/model/response/error/ResponseCode.class" afterPath="$PROJECT_DIR$/com.torison.UpDown/updown-server/target/classes/com/upFile/model/response/error/ResponseCode.class" />
-      <change beforePath="$PROJECT_DIR$/com.torison.UpDown/updown-server/target/test-classes/uptest.class" afterPath="$PROJECT_DIR$/com.torison.UpDown/updown-server/target/test-classes/uptest.class" />
-      <change beforePath="$PROJECT_DIR$/com.torison.UpDown/updown-server/updown-server.iml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/com.torison.pay/com.torison.payIml/com.torison.payIml.iml" afterPath="$PROJECT_DIR$/com.torison.pay/com.torison.payImp/com.torison.payIml.iml" />
-      <change beforePath="$PROJECT_DIR$/com.torison.pay/com.torison.payIml/com.torison.payImp.iml" afterPath="$PROJECT_DIR$/com.torison.pay/com.torison.payImp/com.torison.payImp.iml" />
-      <change beforePath="$PROJECT_DIR$/com.torison.pay/com.torison.payIml/pom.xml" afterPath="$PROJECT_DIR$/com.torison.pay/com.torison.payImp/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/com.torison.UpDown/updown-server/updown-server.iml" afterPath="$PROJECT_DIR$/com.torison.UpDown/updown-server/updown-server.iml" />
     </list>
     <ignored path="$PROJECT_DIR$/com.torison.Server/dubbo-api/target/" />
     <ignored path="$PROJECT_DIR$/com.torison.Parent/com.torison.service/target/" />
@@ -64,48 +45,46 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="FileUploadServerImp.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/Server/FileUploadServerImp.java">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="nomalUserService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/com.torison.Parent/com.torison.service/src/main/java/com/torison/nomalUser/nomalUserService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-638">
-              <caret line="32" column="13" lean-forward="false" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+            <state relative-caret-position="836">
+              <caret line="99" column="5" lean-forward="true" selection-start-line="99" selection-start-column="5" selection-end-line="99" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IllegalInputException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/utils/Exceptions/IllegalInputException.java">
+      <file leaf-file-name="TorisonWebApplication.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/com.torison.Parent/com.torison.web/src/main/java/com/TorisonWebApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="2" column="51" lean-forward="false" selection-start-line="2" selection-start-column="51" selection-end-line="2" selection-end-column="51" />
+            <state relative-caret-position="176">
+              <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Exception.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/lang/Exception.java">
+      <file leaf-file-name="MakeRoute.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/com.torison.Parent/com.torison.web/src/main/resources/templates/test/Route/MakeRoute.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6">
-              <caret line="36" column="53" lean-forward="true" selection-start-line="36" selection-start-column="53" selection-end-line="36" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Encrypt.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/utils/Encrypt.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="29" column="34" lean-forward="false" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
+            <state relative-caret-position="176">
+              <caret line="167" column="22" lean-forward="true" selection-start-line="167" selection-start-column="22" selection-end-line="167" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -122,8 +101,15 @@
         <option value="$PROJECT_DIR$/com.torison.UpDown/updown-api/pom.xml" />
         <option value="$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/utils/Exceptions/IllegalInputException.java" />
         <option value="$PROJECT_DIR$/com.torison.UpDown/updown-server/src/test/java/uptest.java" />
-        <option value="$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/utils/Encrypt.java" />
         <option value="$PROJECT_DIR$/../ObjectToXMLUtil.java" />
+        <option value="$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/utils/Encrypt.java" />
+        <option value="$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/model/entity/File.java" />
+        <option value="$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/utils/FileUtil.java" />
+        <option value="$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/utils/FileUploadThread.java" />
+        <option value="$PROJECT_DIR$/com.torison.UpDown/updown-server/pom.xml" />
+        <option value="$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/Server/FileUploadServerImp.java" />
+        <option value="$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/model/UniqueFile.java" />
+        <option value="$PROJECT_DIR$/com.torison.Parent/com.torison.web/src/main/resources/templates/test/Route/MakeRoute.html" />
       </list>
     </option>
   </component>
@@ -145,7 +131,7 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="width" value="720" />
+    <option name="width" value="728" />
     <option name="height" value="860" />
   </component>
   <component name="ProjectView">
@@ -164,7 +150,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -238,7 +224,136 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="torison" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Torison" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Torison" type="462c0819:PsiDirectoryNode" />
+              <item name="com.torison.Parent" type="462c0819:PsiDirectoryNode" />
+              <item name="com.torison.service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="torison" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Torison" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Torison" type="462c0819:PsiDirectoryNode" />
+              <item name="com.torison.Parent" type="462c0819:PsiDirectoryNode" />
+              <item name="com.torison.service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="torison" type="462c0819:PsiDirectoryNode" />
               <item name="nomalUser" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Torison" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Torison" type="462c0819:PsiDirectoryNode" />
+              <item name="com.torison.Parent" type="462c0819:PsiDirectoryNode" />
+              <item name="com.torison.service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="torison" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Torison" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Torison" type="462c0819:PsiDirectoryNode" />
+              <item name="com.torison.Parent" type="462c0819:PsiDirectoryNode" />
+              <item name="com.torison.web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Torison" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Torison" type="462c0819:PsiDirectoryNode" />
+              <item name="com.torison.Parent" type="462c0819:PsiDirectoryNode" />
+              <item name="com.torison.web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Torison" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Torison" type="462c0819:PsiDirectoryNode" />
+              <item name="com.torison.Parent" type="462c0819:PsiDirectoryNode" />
+              <item name="com.torison.web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Torison" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Torison" type="462c0819:PsiDirectoryNode" />
+              <item name="com.torison.Parent" type="462c0819:PsiDirectoryNode" />
+              <item name="com.torison.web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Torison" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Torison" type="462c0819:PsiDirectoryNode" />
+              <item name="com.torison.Parent" type="462c0819:PsiDirectoryNode" />
+              <item name="com.torison.web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Torison" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Torison" type="462c0819:PsiDirectoryNode" />
+              <item name="com.torison.Parent" type="462c0819:PsiDirectoryNode" />
+              <item name="com.torison.web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Torison" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Torison" type="462c0819:PsiDirectoryNode" />
+              <item name="com.torison.Parent" type="462c0819:PsiDirectoryNode" />
+              <item name="com.torison.web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Torison" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Torison" type="462c0819:PsiDirectoryNode" />
+              <item name="com.torison.Parent" type="462c0819:PsiDirectoryNode" />
+              <item name="com.torison.web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="Maker" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Torison" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Torison" type="462c0819:PsiDirectoryNode" />
+              <item name="com.torison.Parent" type="462c0819:PsiDirectoryNode" />
+              <item name="com.torison.web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="Route" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Torison" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Torison" type="462c0819:PsiDirectoryNode" />
+              <item name="com.torison.Parent" type="462c0819:PsiDirectoryNode" />
+              <item name="com.torison.web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Torison" type="b2602c69:ProjectViewProjectNode" />
@@ -250,120 +365,24 @@
               <item name="Torison" type="462c0819:PsiDirectoryNode" />
               <item name="com.torison.Server" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Torison" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Torison" type="462c0819:PsiDirectoryNode" />
-              <item name="com.torison.UpDown" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Torison" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Torison" type="462c0819:PsiDirectoryNode" />
-              <item name="com.torison.UpDown" type="462c0819:PsiDirectoryNode" />
-              <item name="updown-server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Torison" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Torison" type="462c0819:PsiDirectoryNode" />
-              <item name="com.torison.UpDown" type="462c0819:PsiDirectoryNode" />
-              <item name="updown-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Torison" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Torison" type="462c0819:PsiDirectoryNode" />
-              <item name="com.torison.UpDown" type="462c0819:PsiDirectoryNode" />
-              <item name="updown-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Torison" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Torison" type="462c0819:PsiDirectoryNode" />
-              <item name="com.torison.UpDown" type="462c0819:PsiDirectoryNode" />
-              <item name="updown-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Torison" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Torison" type="462c0819:PsiDirectoryNode" />
-              <item name="com.torison.UpDown" type="462c0819:PsiDirectoryNode" />
-              <item name="updown-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Torison" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Torison" type="462c0819:PsiDirectoryNode" />
-              <item name="com.torison.UpDown" type="462c0819:PsiDirectoryNode" />
-              <item name="updown-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="upFile" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Torison" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Torison" type="462c0819:PsiDirectoryNode" />
-              <item name="com.torison.UpDown" type="462c0819:PsiDirectoryNode" />
-              <item name="updown-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="upFile" type="462c0819:PsiDirectoryNode" />
-              <item name="Server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Torison" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Torison" type="462c0819:PsiDirectoryNode" />
-              <item name="com.torison.UpDown" type="462c0819:PsiDirectoryNode" />
-              <item name="updown-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="upFile" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Torison" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Torison" type="462c0819:PsiDirectoryNode" />
-              <item name="com.torison.UpDown" type="462c0819:PsiDirectoryNode" />
-              <item name="updown-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="upFile" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-              <item name="Exceptions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Torison" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Torison" type="462c0819:PsiDirectoryNode" />
-              <item name="com.torison.UpDown" type="462c0819:PsiDirectoryNode" />
-              <item name="updown-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="AndroidView" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/com.torison.Parent/pom.xml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth2" value="75" />
+    <property name="RequestMappingsPanelOrder2" value="2" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -377,7 +396,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.TorisonWebApplication">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -446,6 +465,24 @@
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
     </configuration>
+    <configuration name="Application_Dao" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.torison.Application_Dao" />
+      <module name="com.torison.dao" />
+      <envs />
+    </configuration>
+    <configuration name="DubboConsumerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.minbo.dubbo.consumer.DubboConsumerApplication" />
+      <module name="dubbo-consumer" />
+      <envs />
+    </configuration>
+    <configuration name="TorisonWebApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.TorisonWebApplication" />
+      <module name="com.torison.web" />
+      <envs />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -479,6 +516,12 @@
       <option name="PROGRAM_PARAMETERS" />
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
+    <list size="4">
+      <item index="0" class="java.lang.String" itemvalue="Spring Boot.TorisonWebApplication" />
+      <item index="1" class="java.lang.String" itemvalue="Spring Boot.DubboConsumerApplication" />
+      <item index="2" class="java.lang.String" itemvalue="Spring Boot.Application_Dao" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.uptest.test" />
+    </list>
     <recent_temporary>
       <list size="1">
         <item index="0" class="java.lang.String" itemvalue="JUnit.uptest.test" />
@@ -504,6 +547,8 @@
       <option name="presentableId" value="Default" />
       <updated>1517473389131</updated>
       <workItem from="1517473390625" duration="3807000" />
+      <workItem from="1517534782084" duration="7599000" />
+      <workItem from="1517548028005" duration="9949000" />
     </task>
     <servers />
   </component>
@@ -519,43 +564,42 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3807000" />
+    <option name="totallyTimeSpent" value="21355000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4939394" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4939394" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39944133" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20111732" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.256447" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Learn" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36452514" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2786533" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Learn" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -570,11 +614,130 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/com.torison.UpDown/updown-server/pom.xml">
+    <entry file="file://$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/Server/FileUploadServerImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2068">
+          <caret line="118" column="46" lean-forward="true" selection-start-line="118" selection-start-column="46" selection-end-line="118" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/utils/FileUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="10" lean-forward="false" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/model/UniqueFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1100">
+          <caret line="50" column="10" lean-forward="false" selection-start-line="50" selection-start-column="10" selection-end-line="50" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#861#862#0" expanded="true" />
+            <element signature="e#897#898#0" expanded="true" />
+            <element signature="e#1630#1631#0" expanded="true" />
+            <element signature="e#1681#1682#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/utils/Exceptions/IllegalInputException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="51" lean-forward="false" selection-start-line="2" selection-start-column="51" selection-end-line="2" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/lang/Exception.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="36" column="53" lean-forward="false" selection-start-line="36" selection-start-column="53" selection-end-line="36" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/utils/Encrypt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="45" column="25" lean-forward="false" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
+          <folding>
+            <element signature="e#4060#4061#0" expanded="false" />
+            <element signature="e#4118#4119#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/io/FileInputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7414">
+          <caret line="365" column="23" lean-forward="false" selection-start-line="365" selection-start-column="23" selection-end-line="365" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.7.RELEASE/spring-web-4.3.7.RELEASE-sources.jar!/org/springframework/web/multipart/MultipartFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1540">
+          <caret line="88" column="16" lean-forward="false" selection-start-line="88" selection-start-column="16" selection-end-line="88" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/model/entity/File.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1628">
+          <caret line="80" column="9" lean-forward="true" selection-start-line="80" selection-start-column="9" selection-end-line="80" selection-end-column="9" />
+          <folding>
+            <element signature="e#951#952#0" expanded="false" />
+            <element signature="e#978#979#0" expanded="false" />
+            <element signature="e#1958#1959#0" expanded="false" />
+            <element signature="e#1988#1989#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/Server/FileUploadServerImp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/utils/Exceptions/IllegalInputException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="51" lean-forward="false" selection-start-line="2" selection-start-column="51" selection-end-line="2" selection-end-column="51" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/lang/Exception.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="36" column="53" lean-forward="true" selection-start-line="36" selection-start-column="53" selection-end-line="36" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/utils/Encrypt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="29" column="34" lean-forward="false" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
+          <folding>
+            <element signature="e#4060#4061#0" expanded="false" />
+            <element signature="e#4118#4119#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -590,7 +753,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="550">
           <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -608,7 +770,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="151">
           <caret line="206" column="13" lean-forward="false" selection-start-line="206" selection-start-column="13" selection-end-line="206" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -624,24 +785,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="682">
           <caret line="79" column="102" lean-forward="false" selection-start-line="79" selection-start-column="98" selection-end-line="79" selection-end-column="102" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/utils/Encrypt.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="29" column="34" lean-forward="false" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/lang/Exception.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6">
-          <caret line="36" column="53" lean-forward="true" selection-start-line="36" selection-start-column="53" selection-end-line="36" selection-end-column="53" />
+        <state relative-caret-position="286">
+          <caret line="36" column="53" lean-forward="false" selection-start-line="36" selection-start-column="53" selection-end-line="36" selection-end-column="53" />
           <folding />
         </state>
       </provider>
@@ -667,11 +817,45 @@
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="75.5" y="135.0" />
+          <settings layout="Hierarchic Group" zoom="1.0" x="76.0" y="135.0" />
           <SelectedNodes />
           <Categories />
           <SCOPE>All</SCOPE>
           <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.7.RELEASE/spring-web-4.3.7.RELEASE-sources.jar!/org/springframework/web/multipart/MultipartFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1540">
+          <caret line="88" column="16" lean-forward="false" selection-start-line="88" selection-start-column="16" selection-end-line="88" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/io/FileInputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7414">
+          <caret line="365" column="23" lean-forward="false" selection-start-line="365" selection-start-column="23" selection-end-line="365" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/model/response/error/ResponseCode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="12" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/utils/Encrypt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="45" column="25" lean-forward="false" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
+          <folding>
+            <element signature="e#4060#4061#0" expanded="false" />
+            <element signature="e#4118#4119#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -683,18 +867,142 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/com.torison.Parent/com.torison.service/src/main/java/com/torison/nomalUser/nomalUserService.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.16.18/lombok-1.16.18.jar!/lombok/Builder.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1128">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        <state relative-caret-position="176">
+          <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/aspectj/aspectjweaver/1.8.9/aspectjweaver-1.8.9.jar!/org/aspectj/util/FileUtil.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="39" column="13" lean-forward="false" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/1.13.1.RELEASE/spring-data-commons-1.13.1.RELEASE-sources.jar!/org/springframework/data/repository/CrudRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="35" column="20" lean-forward="false" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/common/repository/UniqueFileRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/utils/FileUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="18" column="24" lean-forward="false" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/model/entity/File.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="39" column="33" lean-forward="false" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
+          <folding>
+            <element signature="e#951#952#0" expanded="false" />
+            <element signature="e#978#979#0" expanded="false" />
+            <element signature="e#1958#1959#0" expanded="false" />
+            <element signature="e#1988#1989#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/utils/FileUploadThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/Server/FileUploadServerImp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-638">
-          <caret line="32" column="13" lean-forward="false" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+        <state relative-caret-position="308">
+          <caret line="125" column="23" lean-forward="true" selection-start-line="125" selection-start-column="23" selection-end-line="125" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com.torison.UpDown/updown-server/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="23" column="12" lean-forward="true" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="710">
+          <caret line="33" column="11" lean-forward="true" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com.torison.UpDown/updown-server/src/main/java/com/upFile/model/UniqueFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="57" column="16" lean-forward="false" selection-start-line="54" selection-start-column="8" selection-end-line="57" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#861#862#0" expanded="true" />
+            <element signature="e#897#898#0" expanded="true" />
+            <element signature="e#1630#1631#0" expanded="true" />
+            <element signature="e#1681#1682#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com.torison.Parent/com.torison.service/src/test/java/nomalUserTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com.torison.Parent/com.torison.service/src/main/java/com/torison/nomalUser/nomalUserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="836">
+          <caret line="99" column="5" lean-forward="true" selection-start-line="99" selection-start-column="5" selection-end-line="99" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com.torison.Parent/com.torison.web/src/main/java/com/TorisonWebApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="3797" column="4" lean-forward="false" selection-start-line="3797" selection-start-column="4" selection-end-line="3797" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com.torison.Parent/com.torison.web/src/main/resources/templates/test/Route/MakeRoute.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="167" column="22" lean-forward="true" selection-start-line="167" selection-start-column="22" selection-end-line="167" selection-end-column="22" />
           <folding />
         </state>
       </provider>
