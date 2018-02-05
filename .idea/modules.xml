@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Torison.iml" filepath="$PROJECT_DIR$/.idea/Torison.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.torison.Back/com.torison.Back.iml" filepath="$PROJECT_DIR$/com.torison.Back/com.torison.Back.iml" />
       <module fileurl="file://$PROJECT_DIR$/com.torison.Parent/com.torison.Parent.iml" filepath="$PROJECT_DIR$/com.torison.Parent/com.torison.Parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/com.torison.Server/com.torison.Server.iml" filepath="$PROJECT_DIR$/com.torison.Server/com.torison.Server.iml" />
       <module fileurl="file://$PROJECT_DIR$/com.torison.UpDown/com.torison.UpDown.iml" filepath="$PROJECT_DIR$/com.torison.UpDown/com.torison.UpDown.iml" />

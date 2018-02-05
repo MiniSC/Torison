@@ -18,6 +18,8 @@ public class MD5Sercurity {
      * @throws NoSuchAlgorithmException with result's isSuccess is false
      * @param arg
      * @return
+     *
+     * should be
      */
     public static Result<String> getMd5(String arg){
         Result<String> result = new Result<>();
