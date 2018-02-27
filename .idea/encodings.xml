@@ -5,6 +5,8 @@
     <file url="file://$PROJECT_DIR$/com.torison.Parent/com.torison.dao" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/com.torison.Parent/com.torison.service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/com.torison.Parent/com.torison.web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/com.torison.Parent/com.torison.web/src/main/resources/static/js/index.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/com.torison.Parent/com.torison.web/src/main/resources/templates/test/Login/js/index.js" charset="GBK" />
     <file url="file://$PROJECT_DIR$/com.torison.Server/dubbo-consumer" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/com.torison.Server/dubbo-provider" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/com.torison.UpDown" charset="UTF-8" />

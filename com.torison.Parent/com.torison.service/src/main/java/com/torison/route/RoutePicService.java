@@ -1,5 +1,6 @@
 package com.torison.route;
 
+import ch.qos.logback.core.rolling.helper.IntegerTokenConverter;
 import com.torison.Route.dao.RoutePicDao;
 import com.torison.common.model.Result;
 import com.torison.Route.model.RoutePic;
@@ -27,5 +28,9 @@ public class RoutePicService {
             result.setSuccess(true);
         }
         return result;
+    }
+
+    public RoutePic selectPicByID(Integer ID){
+        return routePicDao.selectByPrimaryKey(ID);
     }
 }

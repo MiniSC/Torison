@@ -4,6 +4,10 @@ import com.torison.nomalUser.model.nomalUser;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
 
+/**
+ * @author dongjj
+ * @date 2018.2.22
+ */
 @Mapper
 public interface nomalUserMapper {
     @Delete({

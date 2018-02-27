@@ -1,6 +1,6 @@
 package com.torison.api;
 
-import com.torison.model.ResEntity;
+import com.torison.User.model.ResEntity;
 import javafx.util.Pair;
 
 import java.io.File;

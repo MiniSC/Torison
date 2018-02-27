@@ -2,8 +2,8 @@ package com.torison.util;
 
 import com.torison.api.EmailSentService;
 import com.config.EmailConfig;
-import com.torison.model.MailCode;
-import com.torison.model.ResEntity;
+import com.torison.User.model.MailCode;
+import com.torison.User.model.ResEntity;
 
 import javafx.util.Pair;
 import org.springframework.beans.factory.annotation.Autowired;

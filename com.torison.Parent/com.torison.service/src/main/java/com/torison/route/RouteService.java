@@ -50,4 +50,22 @@ public class RouteService {
        return routeDao.queryAllRoute();
     }
 
+    /**
+     * 根据ID查询路线的详细信息
+     * @param id
+     * @return
+     */
+    public Route selectRouteById(Integer id){
+        return routeDao.selectRouteById(id);
+    }
+
+    /**
+     * 根据ID查询路线的详细信息
+     * @param makerid
+     * @return
+     */
+    public List<Route> selectRouteByMakerId(Integer makerid){
+        return routeDao.selectRouteByMakerId(makerid);
+    }
+
 }

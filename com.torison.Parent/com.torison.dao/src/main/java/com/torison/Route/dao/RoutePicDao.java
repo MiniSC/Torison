@@ -14,4 +14,8 @@ public class RoutePicDao {
     public int insert(RoutePic routePic){
         return  routePicMapper.insert(routePic);
     }
+
+    public RoutePic selectByPrimaryKey (Integer ID){
+        return routePicMapper.selectByPrimaryKey(ID);
+    }
 }

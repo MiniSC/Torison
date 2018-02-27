@@ -7,31 +7,44 @@ public class RouteMakerSqlProvider {
 
     public String insertSelective(RouteMaker record) {
         SQL sql = new SQL();
-        sql.INSERT_INTO("ROUTE_MAKER");
+        sql.INSERT_INTO("route_maker");
         
         if (record.getUserid() != null) {
-            sql.VALUES("userId", "#{userid,jdbcType=INTEGER}");
+            sql.VALUES("UserID", "#{userid,jdbcType=INTEGER}");
+        }
+        
+        if (record.getPic1() != null) {
+            sql.VALUES("Pic1", "#{pic1,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getPic2() != null) {
+            sql.VALUES("Pic2", "#{pic2,jdbcType=VARCHAR}");
         }
         
         if (record.getIntroduce() != null) {
-            sql.VALUES("introduce", "#{introduce,jdbcType=VARCHAR}");
+            sql.VALUES("Introduce", "#{introduce,jdbcType=VARCHAR}");
         }
         
-        if (record.getSenioritypic() != null) {
-            sql.VALUES("seniorityPic", "#{senioritypic,jdbcType=VARCHAR}");
+        return sql.toString();
+    }
+
+    public String updateByPrimaryKeySelective(RouteMaker record) {
+        SQL sql = new SQL();
+        sql.UPDATE("route_maker");
+        
+        if (record.getPic1() != null) {
+            sql.SET("Pic1 = #{pic1,jdbcType=VARCHAR}");
         }
         
-        if (record.getSenioritypic2() != null) {
-            sql.VALUES("seniorityPic2", "#{senioritypic2,jdbcType=VARCHAR}");
+        if (record.getPic2() != null) {
+            sql.SET("Pic2 = #{pic2,jdbcType=VARCHAR}");
         }
         
-        if (record.getIsagency() != null) {
-            sql.VALUES("isAgency", "#{isagency,jdbcType=TINYINT}");
+        if (record.getIntroduce() != null) {
+            sql.SET("Introduce = #{introduce,jdbcType=VARCHAR}");
         }
         
-        if (record.getSeniorityyet() != null) {
-            sql.VALUES("seniorityYet", "#{seniorityyet,jdbcType=TINYINT}");
-        }
+        sql.WHERE("UserID = #{userid,jdbcType=INTEGER}");
         
         return sql.toString();
     }

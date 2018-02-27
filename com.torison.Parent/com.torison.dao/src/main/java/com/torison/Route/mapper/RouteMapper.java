@@ -60,6 +60,18 @@ public interface RouteMapper {
     List<Route> queryRouteByID(int ID);
 
     /**
+     * 根据发布者ID查询路线
+     * @param routeFromID
+     * @return
+     */
+    @Select({
+            "select",
+            "*",
+            "from ROUTE",
+            "where routeFromID=#{routeFromID,jdbcType=VARCHAR}"
+    })
+    List<Route> queryRouteByMakerID(int routeFromID);
+    /**
      * 有什么条件就改什么数据的修改
      * @param record
      * @return

@@ -3,15 +3,11 @@ package com.torison.routeMaker.model;
 public class RouteMaker {
     private Integer userid;
 
+    private String pic1;
+
+    private String pic2;
+
     private String introduce;
-
-    private String senioritypic;
-
-    private String senioritypic2;
-
-    private Byte isagency;
-
-    private Byte seniorityyet;
 
     public Integer getUserid() {
         return userid;
@@ -21,43 +17,27 @@ public class RouteMaker {
         this.userid = userid;
     }
 
+    public String getPic1() {
+        return pic1;
+    }
+
+    public void setPic1(String pic1) {
+        this.pic1 = pic1 == null ? null : pic1.trim();
+    }
+
+    public String getPic2() {
+        return pic2;
+    }
+
+    public void setPic2(String pic2) {
+        this.pic2 = pic2 == null ? null : pic2.trim();
+    }
+
     public String getIntroduce() {
         return introduce;
     }
 
     public void setIntroduce(String introduce) {
         this.introduce = introduce == null ? null : introduce.trim();
-    }
-
-    public String getSenioritypic() {
-        return senioritypic;
-    }
-
-    public void setSenioritypic(String senioritypic) {
-        this.senioritypic = senioritypic == null ? null : senioritypic.trim();
-    }
-
-    public String getSenioritypic2() {
-        return senioritypic2;
-    }
-
-    public void setSenioritypic2(String senioritypic2) {
-        this.senioritypic2 = senioritypic2 == null ? null : senioritypic2.trim();
-    }
-
-    public Byte getIsagency() {
-        return isagency;
-    }
-
-    public void setIsagency(Byte isagency) {
-        this.isagency = isagency;
-    }
-
-    public Byte getSeniorityyet() {
-        return seniorityyet;
-    }
-
-    public void setSeniorityyet(Byte seniorityyet) {
-        this.seniorityyet = seniorityyet;
     }
 }
