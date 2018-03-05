@@ -1,0 +1,19 @@
+logging:
+  file: D:/
+  level: info
+server:
+  port: 8001
+spring:
+  freemarker:
+    content-type: text/html
+    suffix: .html
+    template-loader-path: classpath:/templates/
+    charset: utf-8
+  mvc:
+    static-path-pattern: /static/**
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/torison
+    username: root
+    password: 123
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver

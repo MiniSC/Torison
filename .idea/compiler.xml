@@ -21,7 +21,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="com.torison.Back" target="1.5" />
+      <module name="com.torison.Back" target="1.8" />
       <module name="com.torison.dao" target="1.8" />
       <module name="com.torison.Parent" target="1.8" />
       <module name="com.torison.pay" target="1.8" />

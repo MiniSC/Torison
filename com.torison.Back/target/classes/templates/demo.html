@@ -1,0 +1,150 @@
+<#assign ctx = request.contextPath />
+<script type="text/javascript">
+
+    $(function() {
+        parent.$.messager.progress('close');
+            $('#form').form({
+            /*这里进行修改为鉴权渠道增加的入口add.do*/
+            url : '${ctx}/authentication/channel/add.do',
+            onSubmit : function() {
+                parent.$.messager.progress({
+                    title : '提示',
+                    text : '数据处理中，请稍后....'
+                });
+                var isValid = $(this).form('validate');
+                if (!isValid) {
+                    parent.$.messager.progress('close');
+                }
+                return isValid;
+            },
+            success : function(result) {
+                parent.$.messager.progress('close');
+                result = $.parseJSON(result);
+                if (result.success) {
+                    $.modalDialog.openner_dataGrid.datagrid('reload');//之所以能在这里调用到parent.$.modalDialog.openner_dataGrid这个对象，是因为user.jsp页面预定义好了
+                    $.modalDialog.handler.dialog('close');
+                } else {
+                    $.messager.alert('错误', result.msg, 'error');
+                }
+            }
+        });
+    });
+
+    var btsloader_type = function (param, success, error) {
+        var q = param.q || "";
+
+        if (q.length < 0) {
+            console.log("q.length < 0");
+            return false;
+        }
+        $.ajax({
+            url: "${ctx}/authentication/channel/listType.do",
+            type: "post",
+            data: {bankName: q},//后台使用param这个变量接收传值的
+            dataType: "json",
+            success: function (data) {				//console.log("i am in success-->" + data);返回的是数组对象data
+                var items2 = $.each(data.rows, function(value){
+                    return value; //遍历数组中的值
+                });
+                success(items2);//调用loader的success方法，将items添加到下拉框中,这里是难点啊，之前后台已经返回数据了，但就是不添加到下拉框
+            }
+        });
+    }
+    var setType = function(){
+        $('#type').val($('#type').combobox('getText'));
+    }
+
+    var btsloader_IdentifyChannel = function (param, success, error) {
+        var q = param.q || "";
+
+        if (q.length < 0) {
+            console.log("q.length < 0");
+            return false;
+        }
+        $.ajax({
+            url: "${ctx}/authentication/channel/listIdentifyChannel.do",
+            type: "post",
+            data: {bankName: q},//后台使用param这个变量接收传值的
+            dataType: "json",
+            success: function (data) {				//console.log("i am in success-->" + data);返回的是数组对象data
+                var items2 = $.each(data.rows, function(value){
+                    return value; //遍历数组中的值
+                });
+                success(items2);//调用loader的success方法，将items添加到下拉框中,这里是难点啊，之前后台已经返回数据了，但就是不添加到下拉框
+            }
+        });
+    }
+    var setIdentifyChannel = function(){
+        $('#identifyChannel').val($('#identifyChannel').combobox('getText'));
+    }
+    //校验规则
+    $.extend($.fn.validatebox.defaults.rules, {
+        //验证汉字
+        CHS: {
+            validator: function (value) {
+                return /^[\u0391-\uFFE5]+$/.test(value);
+            },
+            message: '只能为中文'
+        },
+        CHSAEN: {
+            validator: function (value) {
+                return /^[\u0391-\uFFE5a-zA-Z]+$/.test(value);
+            },
+            message: '只能为中文'
+        },
+        //数字
+        Number: {
+            validator: function (value) {
+                var reg =/^([0-9][0-9]*)+(.[0-9]{1,2})?$/;
+                return reg.test(value);
+            },
+            message: '只能为数字,保留两位小数'
+        },
+        NumberAndChar: {
+            validator: function (value) {
+                var reg =/^[a-zA-Z0-9]*$/;
+                return reg.test(value);
+            },
+            message: '只能为数字和字母'
+        }
+
+
+    })
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+    <div data-options="region:'center',border:false" title="" style="overflow: hidden;">
+        <form id="form" method="post">
+            <table class="ftbs">
+                <tr class="fitem">
+                    <th>渠道名称</th>
+                    <td width="140px">
+                        <input class="easyui-combobox" id="channel" name="channel" required="true"  data-options="valueField:'spName' , textField:'spName', loader : btsloader_IdentifyChannel, mode : 'remote' ,required:true,validType:['length[0,10]','CHSAEN']" type="text"  style="width:135px" autocomplete="off"/>
+                    </td>
+                </tr>
+                <tr class="fitem">
+                     <th>渠道交易码</th>
+                    <td><input datatype="*" id="channelCode" placeholder="请输入渠道编号"  maxlength="30" name="channelCode"  data-options="required:true,validType:['length[0,10]','NumberAndChar']"  class="easyui-validatebox" required="true" type="text"/></td>
+                </tr>
+                <tr class="fitem">
+                    <th>选择服务</th>
+                    <td width="140px">
+                        <input class="easyui-combobox"  name="type" id="type"  required="true"  data-options="valueField:'type' , textField:'name', loader : btsloader_type, mode : 'remote',onSelect : setType" type="text"  style="width:135px" autocomplete="off"/>
+                    </td>
+                </tr>
+                <tr class="fitem">
+                    <th>服务价格</th>
+                    <td><input class="easyui-validatebox" name="price" data-options="validType:['length[0,10]','Number']" type="text" id="price" required="true"></td>
+                </tr>
+                <tr class="fitem">
+                    <th>是否禁用</th>
+                    <td>
+                        <select name="authStat" style="width:135px" class="easyui-validatebox" required="true" >
+                            <option value="0">是</option>
+                            <option value="1" selected>否</option>
+                             </select>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
