@@ -5,21 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bdbfac5-5066-4fb9-80fc-407f7bc2fa42" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_druid_1_1_3.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Back/src/main/java/back/TorisonBackApplication.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Back/src/main/java/back/controller/MainController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Back/src/main/resources/application-dev.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com.torison.Back/src/main/resources/application.yml" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/com.torison.Back/com.torison.Back.iml" afterPath="$PROJECT_DIR$/com.torison.Back/com.torison.Back.iml" />
-      <change beforePath="$PROJECT_DIR$/com.torison.Back/pom.xml" afterPath="$PROJECT_DIR$/com.torison.Back/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/com.torison.Back/src/main/java/Model.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/com.torison.Back/src/main/java/easyui/Menus.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/com.torison.Back/src/main/java/easyui/Menus2.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/com.torison.Back/src/main/java/easyui/Test.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/com.torison.Back/src/main/resources/templates/index.html" afterPath="$PROJECT_DIR$/com.torison.Back/src/main/resources/templates/main/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/com.torison.Server/dubbo-api/target/" />
     <ignored path="$PROJECT_DIR$/com.torison.Parent/com.torison.service/target/" />
@@ -809,7 +795,7 @@
       <workItem from="1519267806577" duration="80049000" />
       <workItem from="1520212265847" duration="2299000" />
       <workItem from="1520225976835" duration="2767000" />
-      <workItem from="1520229169562" duration="10825000" />
+      <workItem from="1520229169562" duration="10842000" />
     </task>
     <servers />
   </component>
@@ -846,7 +832,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123476000" />
+    <option name="totallyTimeSpent" value="123493000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="7" />
