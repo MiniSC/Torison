@@ -45,21 +45,30 @@ public class OrderController {
         return result;
     }
 
+    /**
+     * 跳转到我的订单界面
+     * @return
+     */
     @RequestMapping(value = "/toMyOrder")
     public String toMyOrder(){
         return "test/Order/MyOrder";
     }
 
+    /**
+     * 获取订单信息
+     * @param request
+     * @param status
+     * @return
+     */
     @RequestMapping(value = "/getMyOrder")
-    public Result getMyOrder(HttpServletRequest request){
+    public Result getMyOrder(HttpServletRequest request , String status){
         HttpSession session = request.getSession();
-        List<Order> listOrder = orderService.listOrderByUserid(Integer.parseInt(session.getAttribute("userid").toString()));
-
-        List<OrderForm> listOrderForm = new ArrayList<>();
-        
-
+        Integer userId = Integer.parseInt(session.getAttribute("userid").toString());
+        List<Order> listOrder = new ArrayList<>();
+        listOrder = orderService.listOrderByUseridAndStatus(userId,status);
         Result result = new Result();
         result.setObj(listOrder);
+        result.setSuccess(true);
         return result;
     }
 }

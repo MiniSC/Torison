@@ -1,7 +1,5 @@
 /**
  * Created by Administrator on 2018/1/10.
- * form by 好好好先生
- * email 1570302023@qq.com
  *
  *
  *
