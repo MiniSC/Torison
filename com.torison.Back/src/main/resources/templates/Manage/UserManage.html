@@ -1,0 +1,280 @@
+<#include "../common.ftl">
+<@header title="鉴权渠道管理">
+<script type="text/javascript">
+    var dataGrid;
+    $(function() {
+        dataGrid = $('#dataGrid').datagrid({
+            /*这里是获取datagrid数据部分，等确认获取途径之后修改*/
+            url : '${ctx}/authentication/channel/list.do',
+            fit : true,
+            rownumbers:true,//序号
+            fitColumns : false,
+            border : false,
+            pagination : true,
+            idField : 'channelCode',/*编号域，需要修改字段名*/
+            pageSize : 10,
+            pageList : [ 10, 20, 30, 40, 50 ],
+            checkOnSelect : false,
+            selectOnCheck : false,
+            nowrap : false,
+            frozenColumns : [ [ {
+                field : 'channelCode',
+                title : '渠道交易码',
+                width : 100,
+                sortable : true
+            }, {
+                field : 'channel',
+                title : '渠道名称',
+                width : 100,
+                sortable : true
+            }, {
+                field : 'createTime',
+                title : '创建时间',
+                width : 100,
+                sortable : true
+            } , {
+                field : 'type',
+                title : '服务产品',
+                width : 100,
+                sortable : true
+            } , {
+                field : 'price',
+                title : '价格',
+                width : 100,
+                sortable : true
+            } ] ],
+            columns : [ [  {
+                field : 'authStat',
+                title : '是否禁用',
+                width : 100,
+                formatter : function(value, row, index) {
+                    var str = '';
+                    if(value==1){
+                        str = '正常';
+                    }else if(value==0){
+                        str = '禁用';
+                    }
+                    return str;
+                }
+            }, {
+                field : 'action',
+                title : '操作',
+                width : 200,
+                formatter : function(value, row, index) {
+                    var str = '';
+                <@shiro.hasPermission name="/authentication/channel/editPage.do">
+                    str += $.formatString('<img onclick="editFun(\'{0}\');" src="{1}" title="编辑"/>', row.channelCode, '${ctx}/style/images/extjs_icons/pencil.png');
+                </@shiro.hasPermission>
+                    return str;
+                }
+            } ] ],
+            toolbar : '#toolbar',
+            onLoadSuccess : function() {
+                $('#searchForm table').show();
+                parent.$.messager.progress('close');
+
+                $(this).datagrid('tooltip');
+            },
+            onRowContextMenu : function(e, rowIndex, rowData) {
+                e.preventDefault();
+                $(this).datagrid('unselectAll').datagrid('uncheckAll');
+                $(this).datagrid('selectRow', rowIndex);
+                $('#menu').menu('show', {
+                    left : e.pageX,
+                    top : e.pageY
+                });
+            }
+        });
+    });
+
+
+    function deleteFun(id) {
+        if (id == undefined) {//点击右键菜单才会触发这个
+            var rows = dataGrid.datagrid('getSelections');
+            id = rows[0].id;
+        } else {//点击操作里面的删除图标会触发这个
+            dataGrid.datagrid('unselectAll').datagrid('uncheckAll');
+        }
+        $.messager.confirm('询问', '您是否要删除当前渠道-银行关联', function(b) {
+            if (b) {
+                parent.$.messager.progress({
+                    title : '提示',
+                    text : '数据处理中，请稍后....'
+                });
+                $.post('${ctx}/authentication/channel/delete.do', {
+                    id : id
+                }, function(result) {
+                    if (result.success) {
+                        //parent.$.messager.alert('提示', result.msg, 'info');
+                        dataGrid.datagrid('reload');
+                    }else{
+                        $.messager.alert('提示', result.msg, 'info');
+                    }
+                    parent.$.messager.progress('close');
+                }, 'JSON');
+            }
+        });
+    }
+
+
+    function editFun(id) {
+        if (id == undefined) {
+            var rows = dataGrid.datagrid('getSelections');
+            id = rows[1].id;//这里使用listchannel获取到的数据的字段进行取值
+        } else {
+            dataGrid.datagrid('unselectAll').datagrid('uncheckAll');
+        }
+        $.modalDialog({
+            title : '编辑鉴权渠道',
+            width : 500,
+            height : 500,
+            href : '${ctx}/authentication/channel/editPage.do?id=' + id,
+            buttons : [ {
+                text : '编辑',
+                handler : function() {
+                    $.modalDialog.openner_dataGrid = dataGrid;//因为添加成功之后，需要刷新这个dataGrid，所以先预定义好
+                    var f = $.modalDialog.handler.find('#form');
+                    f.submit();
+                }
+            } ]
+        });
+    }
+
+    function addFun() {
+        $.modalDialog({
+            title : '新增渠道',
+            width : 500,
+            height : 500,
+            href : '${ctx}/authentication/channel/addPage.do?'+$('#searchForm').serialize(),
+            buttons : [ {
+                text : '添加',
+                handler : function() {
+                    $.modalDialog.openner_dataGrid = dataGrid;//因为添加成功之后，需要刷新这个dataGrid，所以先预定义好
+                    var f = $.modalDialog.handler.find('#form');
+                    f.submit();
+                }
+            } ]
+        });
+    }
+
+
+    function searchFun() {
+        dataGrid.datagrid('load', $.serializeObject($('#searchForm')));
+    }
+    function cleanFun() {
+        $('#searchForm input').val('');
+        dataGrid.datagrid('load', {});
+    }
+
+
+    var btsloader_channelCode = function (param, success, error) {
+        var q = param.q || "";
+
+        if (q.length < 0) {
+            console.log("q.length < 0");
+            return false;
+        }
+        $.ajax({
+            url: "${ctx}/authentication/channel/listChannel.do",
+            type: "post",
+            data: {bankName: q},//后台使用param这个变量接收传值的
+            dataType: "json",
+            success: function (data) {				//console.log("i am in success-->" + data);返回的是数组对象data
+                var items2 = $.each(data.rows, function(value){
+                    return value; //遍历数组中的值
+                });
+                success(items2);//调用loader的success方法，将items添加到下拉框中,这里是难点啊，之前后台已经返回数据了，但就是不添加到下拉框
+            }
+        });
+    }
+
+    var setChannel = function(){
+        $('#channel').val($('#channel').combobox('getText'));
+    }
+    var setChannelCode = function(){
+        $('#channelCode').val($('#channelCode').combobox('getText'));
+    }
+    var setType = function(){
+        $('#type').val($('#type').combobox('getText'));
+    }
+    var btsloader_channel = function (param, success, error) {
+        var q = param.q || "";
+        if (q.length < 0) {
+            console.log("q.length < 0");
+            return false;
+        }
+        $('#channelName').val(q);
+        $.ajax({
+            url: "${ctx}/authentication/channel/listChannel.do",
+            type: "post",
+            data: {bankName: q},//后台使用param这个变量接收传值的
+            dataType: "json",
+            success: function (data) {				//console.log("i am in success-->" + data);返回的是数组对象data
+                var items = $.each(data.rows, function(value){
+                    return value; //遍历数组中的值
+                });
+                success(items);//调用loader的success方法，将items添加到下拉框中,这里是难点啊，之前后台已经返回数据了，但就是不添加到下拉框
+            }
+        });
+    }
+
+    var btsloader_type = function (param, success, error) {
+        var q = param.q || "";
+
+        if (q.length < 0) {
+            console.log("q.length < 0");
+            return false;
+        }
+        $.ajax({
+            url: "${ctx}/authentication/channel/listType.do",
+            type: "post",
+            data: {bankName: q},//后台使用param这个变量接收传值的
+            dataType: "json",
+            success: function (data) {				//console.log("i am in success-->" + data);返回的是数组对象data
+                var items2 = $.each(data.rows, function(value){
+                    return value; //遍历数组中的值
+                });
+                success(items2);//调用loader的success方法，将items添加到下拉框中,这里是难点啊，之前后台已经返回数据了，但就是不添加到下拉框
+            }
+        });
+    }
+</script>
+</@header>
+<div class="easyui-layout" data-options="fit : true,border : false">
+    <div data-options="region:'north',border:false" style="height: 80px; overflow: hidden;">
+        <form id="searchForm">
+            <input  name="channelName" id="channelName" type="hidden" />
+            <table style="display: none;">
+                <tr>
+                    <td style="text-align:right;">通道名称</td>
+                    <td width="140px">
+                        <input   name="channel" id="channel"   type="text"  style="width:135px" autocomplete="off"/>
+                    </td>
+                    <td style="text-align:right;">渠道编号</td>
+                    <td width="140px">
+                        <input  name="channelCode" id="channelCode" type="text"  style="width:135px" autocomplete="off"/>
+                    </td>
+                    <td style="text-align:right;">服务产品</td>
+                    <td width="140px">
+                        <input class="easyui-combobox"  name="type" id="type" data-options="valueField:'type' , textField:'name', loader : btsloader_type, mode : 'remote',onSelect : setType" type="text"  style="width:135px" autocomplete="off"/>
+                    </td>
+
+                    <td style="padding-left:10px">
+
+                        <a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true" style="width:65px" onclick="searchFun();">查询</a>
+
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div data-options="region:'center',border:false">
+        <table id="dataGrid"></table>
+    </div>
+</div>
+<div id="toolbar" style="display: none;">
+    <!--shiro权限管理，确认当前用户的添加权限-->
+    <@shiro.hasPermission name="/authentication/channel/addPage.do">
+    <a onclick="addFun();" href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'pencil_add'">添加</a>
+</@shiro.hasPermission>
+</div>

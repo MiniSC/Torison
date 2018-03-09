@@ -2,7 +2,7 @@ logging:
   file: D:/
   level: info
 server:
-  port: 8000
+  port: 8002
 spring:
   freemarker:
     content-type: text/html
@@ -17,3 +17,4 @@ spring:
     password: 123
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
+

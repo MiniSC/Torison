@@ -1,0 +1,118 @@
+<#include "../common.ftl">
+<@header title="权限撤销">
+<script type="text/javascript">
+    var dataGrid;
+    $(function() {
+        dataGrid = $('#dataGrid').datagrid({
+            /*这里是获取datagrid数据部分，等确认获取途径之后修改*/
+            url : '/usermanage/listPassedApply',
+            fit : true,
+            fitColumns : false,
+            border : false,
+            pagination : true,
+            pageSize : 10,
+            pageList : [ 10, 20, 30, 40, 50 ],
+            checkOnSelect : false,
+            selectOnCheck : false,
+            nowrap : false,
+            frozenColumns : [ [ {
+                field : 'userId',
+                title : '用户编号',
+                width : 100,
+                sortable : true
+            }, {
+                field : 'userName',
+                title : '姓名',
+                width : 100,
+                sortable : true
+            }, {
+                field : 'age',
+                title : '年龄',
+                width : 100,
+                sortable : true
+            } , {
+                field : 'birthday',
+                title : '生日',
+                width : 100,
+                sortable : true
+            } , {
+                field : 'address',
+                title : '地址',
+                width : 200,
+                sortable : true
+            }  ] ],
+            columns : [ [  {
+                field : 'action',
+                title : '操作',
+                width : 200,
+                formatter : function(value, row, index) {
+                    var str = '';
+
+                    str += $.formatString('<img onclick="editFun(\'{0}\');" src="{1}" title="查看详情"/>查看详情', row.userId, '../static/style/images/extjs_icons/delete.png');
+                    return str;
+                }
+            } ] ],
+            toolbar : '#toolbar',
+            onLoadSuccess : function() {
+                $('#searchForm table').show();
+                $(this).datagrid('tooltip');
+            },
+            onRowContextMenu : function(e, rowIndex, rowData) {
+                e.preventDefault();
+                $(this).datagrid('unselectAll').datagrid('uncheckAll');
+                $(this).datagrid('selectRow', rowIndex);
+                $('#menu').menu('show', {
+                    left : e.pageX,
+                    top : e.pageY
+                });
+            }
+        });
+    });
+    function editFun(id) {
+        if (id == undefined) {
+            var rows = dataGrid.datagrid('getSelections');
+            id = rows[1].id;//这里使用listchannel获取到的数据的字段进行取值
+        } else {
+            dataGrid.datagrid('unselectAll').datagrid('uncheckAll');
+        }
+        $.modalDialog({
+            title : '用户权限审批',
+            width : 500,
+            height : 500,
+            href : '/usermanage/toListDetail?id=' + id
+        });
+    }
+
+
+    function searchFun() {
+        dataGrid.datagrid('load', $.serializeObject($('#searchForm')));
+    }
+</script>
+</@header>
+
+<div class="easyui-layout" data-options="fit : true,border : false">
+    <div data-options="region:'north',border:false" style="height: 80px; overflow: hidden;">
+        <form id="searchForm">
+            <table style="display: none;">
+                <tr>
+                    <td style="text-align:right;">用户账号</td>
+                    <td width="140px">
+                        <input   name="userAccount" id="userAccount"   type="text"  style="width:135px" autocomplete="off"/>
+                    </td>
+                    <td style="text-align:right;">用户姓名</td>
+                    <td width="140px">
+                        <input  name="userName" id="userName" type="text"  style="width:135px" autocomplete="off"/>
+                    </td>
+                    <td style="padding-left:10px">
+
+                        <a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true" style="width:65px" onclick="searchFun();">查询</a>
+
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div data-options="region:'center',border:false">
+        <table id="dataGrid"></table>
+    </div>
+</div>

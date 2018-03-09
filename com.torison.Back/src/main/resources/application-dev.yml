@@ -9,6 +9,12 @@ spring:
     suffix: .html
     template-loader-path: classpath:/templates/
     charset: utf-8
+    cache: false
+    expose-request-attributes: true
+    expose-session-attributes: true
+    request-context-attribute: request
+    settings:
+          number_format: "#"
   mvc:
     static-path-pattern: /static/**
   datasource:
@@ -17,3 +23,8 @@ spring:
     password: 123
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    hibernate:
+      format_sql: true
+      show_sql: true
+      ddl-auto: update

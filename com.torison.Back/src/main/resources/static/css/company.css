@@ -1,0 +1,134 @@
+.ftb {
+    width: 98%;
+    font-size: 18px
+}
+
+.ftbs {
+    width: 98%;
+    font-size: 12px
+}
+
+.ftbs tr th,.ftb tr th {
+    width: 18%;
+    background: #f6f6f6;
+    border-bottom: #efefef 1px solid;
+    border-right: #efefef 1px solid;
+    color: #0466b2;
+    height: 36px;
+    line-height: 36px;
+    text-align: right;
+    padding-left: 15px;
+}
+
+.ftbs tr td,.ftb tr td {
+    width: 32%;
+    border-bottom: #efefef 1px solid;
+    border-right: #efefef 1px solid;
+    color: #666;
+    text-align: left;
+    padding-left: 10px
+}
+
+.datagrid-body a {
+    color: #379BE9;
+    outline: medium none;
+    text-decoration: none;
+}
+
+.ftbfix {
+    width: 98%;
+    font-size: 18px
+}
+
+.ftbfix tr th {
+    width: 100px;
+    background: #f6f6f6;
+    border-bottom: #efefef 1px solid;
+    border-right: #efefef 1px solid;
+    color: #0466b2;
+    height: 36px;
+    line-height: 36px;
+    text-align: right
+}
+
+.ftbfix tr td {
+    width: 150px;
+    border-bottom: #efefef 1px solid;
+    border-right: #efefef 1px solid;
+    color: #666;
+    text-align: left;
+    padding-left: 10px
+}
+
+.table-condensed th,.table-condensed td {
+    padding: 1px 3px;
+}
+
+.requireNote {
+    color: red;
+    padding-right: 3px;
+}
+
+#searchForm {
+    padding-top: 8px;
+    border: none;
+}
+
+#searchForm table tr td {
+    border: none;
+}
+
+#searchForm table td {
+    padding-left: 5px;
+}
+
+#searchForm table td input {
+    margin-bottom: 0px;
+}
+
+#searchForm table td select {
+    margin-bottom: 0px;
+}
+
+#searchForm .searchText {
+    height: 32px;
+}
+
+.smallPicList {
+    float: left;
+    margin: 5px 10px;
+    heigth: auto;
+    width: 100px;
+    overflow: hidden;
+}
+
+.smallPicList div {
+    margin-bottom: 2px;
+    overflow: hidden;
+    heigth: 100px;
+    text-align: center
+}
+
+pre {
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+}
+.datagrid-view1-2{
+    position: relative;
+    float: right;
+    right: auto;
+    left:auto;
+}
+.datagrid-view2-2{
+    right:auto;
+    left: 0px;
+}
+.datagrid-view1-2 .datagrid-header td, .datagrid-view1-2 .datagrid-body td, .datagrid-view1-2 .datagrid-footer td {
+    border-width: 0 1px 1px 1px;
+    border-style: dotted;
+    margin: 0;
+    padding: 0;
+}
