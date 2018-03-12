@@ -48,7 +48,7 @@
                 formatter : function(value, row, index) {
                     var str = '';
 
-                    str += $.formatString('<img onclick="editFun(\'{0}\');" src="{1}" title="查看详情"/>查看详情', row.userId, '../static/style/images/extjs_icons/delete.png');
+                    str += $.formatString('<img onclick="deleteAuth(\'{0}\');" src="{1}" title="查看详情"/>权限撤销', row.userId, '../static/style/images/extjs_icons/delete.png');
                     return str;
                 }
             } ] ],
@@ -68,19 +68,19 @@
             }
         });
     });
-    function editFun(id) {
-        if (id == undefined) {
-            var rows = dataGrid.datagrid('getSelections');
-            id = rows[1].id;//这里使用listchannel获取到的数据的字段进行取值
-        } else {
-            dataGrid.datagrid('unselectAll').datagrid('uncheckAll');
-        }
-        $.modalDialog({
-            title : '用户权限审批',
-            width : 500,
-            height : 500,
-            href : '/usermanage/toListDetail?id=' + id
-        });
+    function deleteAuth(userid) {
+            $.ajax({
+                type:"POST",
+                url:"/usermanage/deleteAuth",
+                data: { id: userid },
+                success:function (data) {
+                    if (data.success){
+                        dataGrid.datagrid('reload');
+                        alert("删除成功");
+                    }else
+                        alert("删除失败"+data.msg);
+                }
+            });
     }
 
 

@@ -18,4 +18,6 @@ public interface RmJPA extends JpaRepository<RouteMaker,Integer>,JpaSpecificatio
     @Query( "update RouteMaker rm set rm.userStatus = :status where rm.userId = :id" )
     int confirmRm(@Param("status")String status,  @Param("id")Integer id);
 
+
+
 }

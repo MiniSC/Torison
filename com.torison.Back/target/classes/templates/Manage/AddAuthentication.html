@@ -1,6 +1,28 @@
 <#include "../common.ftl">
 <@header title="鉴权渠道管理">
 <script type="text/javascript">
+    $.modalDialog = function(options) {
+        if ($.modalDialog.handler == undefined) {// 避免重复弹出
+            var opts = $.extend({
+                title : '',
+                width : 840,
+                height : 680,
+                modal : true,
+                onClose : function() {
+                    $.modalDialog.handler = undefined;
+                    $(this).dialog('destroy');
+                },
+                onOpen : function() {
+                    parent.$.messager.progress({
+                        title : '提示',
+                        text : '数据处理中，请稍后....'
+                    });
+                }
+            }, options);
+            opts.modal = true;// 强制此dialog为模式化，无视传递过来的modal参数
+            return $.modalDialog.handler = $('<div/>').dialog(opts);
+        }
+    };
     var dataGrid;
     $(function() {
         dataGrid = $('#dataGrid').datagrid({
@@ -79,41 +101,7 @@
             title : '用户权限审批',
             width : 500,
             height : 500,
-            href : '/usermanage/toListDetail?id=' + id/*,
-            buttons : [ {
-                text : '驳回',
-                handler : function() {
-                    $.ajax({
-                        type:"POST",
-                        url:"/usermanage/confirmRej",
-                        success:function (data) {
-                            if (data.success){
-                                alert("操作成功");
-                            }else
-                                alert("操作失败"+data.msg);
-                        }
-                    });
-                   /!* $.modalDialog.openner_dataGrid = dataGrid;//因为添加成功之后，需要刷新这个dataGrid，所以先预定义好
-                    var f = $.modalDialog.handler.find('#form');
-                    f.submit();*!/
-                }
-            } ,
-                {
-                    text : '通过',
-                    handler : function() {
-                        $.ajax({
-                            type:"POST",
-                            url:"/usermanage/confirmPass",
-                            data: $("#routeId").val(),
-                            success:function (data) {
-                                if (data.success){
-                                    alert("操作成功");
-                                }else
-                                    alert("操作失败"+data.msg);
-                            }
-                        });
-                    }
-                } ]*/
+            href : '/usermanage/toListDetail?id=' + id
         });
     }
 

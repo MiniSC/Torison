@@ -1,0 +1,115 @@
+<#assign ctx = request.contextPath />
+<script type="text/javascript">
+    var first = true;
+    var first_bank = true;
+    $(function () {
+        $("#pass").click(function () {
+            var userid = $("#routeId").val();
+            $.ajax({
+                type:"POST",
+                url:"/usermanage/confirmPass",
+                data: { id: userid },
+                success:function (data) {
+                    if (data.success){
+                        alert("通过成功");
+                    }else
+                        alert("通过失败");
+                }
+            });
+        });
+        $("#pass").click(function () {
+            var userid = $("#routeId").val();
+            $.ajax({
+                type:"POST",
+                url:"/usermanage/confirmRej",
+                data: { id: userid },
+                success:function (data) {
+                    if (data.success){
+                        alert("修改成功");
+                    }else
+                        alert("修改失败"+data.msg);
+                }
+            });
+        });
+    })
+
+
+
+
+    //校验规则
+    $.extend($.fn.validatebox.defaults.rules, {
+//验证汉字
+        CHS: {
+            validator: function (value) {
+                return /^[\u0391-\uFFE5]+$/.test(value);
+            },
+            message: '只能为中文'
+        },
+//数字
+        Number: {
+            validator: function (value) {
+                var reg =/^([0-9][0-9]*)+(.[0-9]{1,2})?$/;
+                return reg.test(value);
+            },
+            message: '只能为数字，保留两位小数'
+        },
+        NumberAndChar: {
+            validator: function (value) {
+                var reg =/^[a-zA-Z0-9]*$/;
+                return reg.test(value);
+            },
+            message: '只能为数字和字母'
+        }
+
+
+    })
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+    <div data-options="region:'center',border:false" title="" style="overflow: hidden;height:300px;width:400px;overflow-x:scroll;overflow-y:scroll;word-break:break-all" >
+        <form id="form" method="post">
+
+            <table class="ftbs" >
+                <tr class="fitem">
+                    <td>
+                        <input id="routeId" hidden="hidden"  value="${routeMakerForm.userId!''}">
+
+                </tr>
+                <tr class="fitem">
+                    <th>路线详情：</th>
+                    <td>
+                        <a>${route.routeIntroduce!''}</a>
+                        <input hidden datatype="*"  placeholder="请输入渠道名称" maxlength="30" name="channel" class="easyui-validatebox" required="true" type="text" value="" readonly="readonly"/></td>
+                </tr>
+                <tr class="fitem">
+                    <th>路线图片1：</th>
+                    <td>
+                        <a>${routepic.routepic1!''}</a>
+                        <input hidden datatype="*" name="channelCode" maxlength="30" class="easyui-validatebox" id="channelId_show" required="true" type="text" value=""/></td>
+                </tr>
+                <tr class="fitem">
+                    <th>路线图片2：</th>
+                    <td width="140px">
+                        <a>${routepic.routepic2!''}</a>
+                        <input name="type" id="type" type="text" value="" hidden="true" style="width:135px" autocomplete="off"/>
+                    </td>
+                </tr>
+                <tr class="fitem">
+                    <th>路线图片3：</th>
+                    <td width="140px">
+                        <a>${routepic.routepic3!''}</a>
+                        <input name="type" id="introduce" type="text" value="" hidden="true" style="width:135px" autocomplete="off"/>
+                    </td>
+                </tr>
+                <tr class="fitem">
+                    <th>操作：</th>
+                    <td width="140px">
+                        <input  type="button" value="通过" id="pass"/>
+                        <input  type="button" value="拒绝" id="rej"/>
+                    </td>
+                </tr>
+
+            </table>
+        </form>
+    </div>
+</div>
+

@@ -11,6 +11,20 @@
                 data: { id: userid },
                 success:function (data) {
                     if (data.success){
+                        alert("通过成功");
+                    }else
+                        alert("通过失败");
+                }
+            });
+        });
+        $("#pass").click(function () {
+            var userid = $("#routeId").val();
+            $.ajax({
+                type:"POST",
+                url:"/usermanage/confirmRej",
+                data: { id: userid },
+                success:function (data) {
+                    if (data.success){
                         alert("修改成功");
                     }else
                         alert("修改失败"+data.msg);
@@ -58,7 +72,6 @@
                 <tr class="fitem">
                     <td>
                         <input id="routeId" hidden="hidden"  value="${routeMakerForm.userId!''}">
-
                 </tr>
                 <tr class="fitem">
                     <th>用户姓名：</th>

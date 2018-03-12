@@ -35,6 +35,7 @@ public class OrderController {
     public Result addOrder(Order order,Integer routeid,Integer num , HttpServletRequest request){
         Result result = new Result();
         HttpSession session = request.getSession();
+        System.out.println(session.getAttribute("userid"));
         order.setUserid(Integer.parseInt(session.getAttribute("userid").toString()));
         order.setRouteid(routeid);
         order.setNum(num);

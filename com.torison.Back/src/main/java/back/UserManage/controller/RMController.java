@@ -70,6 +70,13 @@ public class RMController {
         return dataGrid;
     }
 
+    /**
+     * 初始化详情审核
+     * @param id
+     * @param model
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/toListDetail")
     public String toListDetail(String id, Model model, HttpServletRequest request){
         /**
@@ -107,6 +114,16 @@ public class RMController {
         return  rmService.giveAuthentication(id, ConfirmStatus.REJECT.code());
     }
 
+    /**
+     * 撤销权限
+     * @param id
+     * @return
+     */
+    @RequestMapping(value = "/deleteAuth")
+    @ResponseBody
+    public Result deleteAuth(String id){
+        return  rmService.giveAuthentication(id, ConfirmStatus.DELETE.code());
+    }
 
 
 

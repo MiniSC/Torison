@@ -2,7 +2,7 @@ package back.common.model;
 
 public enum ConfirmStatus {
 
-    PASS("0"),REJECT("1"),WAIT("2");
+    PASS("0"),REJECT("1"),WAIT("2"),DELETE("3");
     private String code;
     ConfirmStatus(String code){
         this.code = code;

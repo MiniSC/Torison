@@ -68,21 +68,19 @@
             }
         });
     });
-    function deleteAuth(id) {
-        $("#pass").click(function () {
-            var userid = $("#routeId").val();
+    function deleteAuth(userid) {
             $.ajax({
                 type:"POST",
-                url:"/usermanage/confirmPass",
+                url:"/usermanage/deleteAuth",
                 data: { id: userid },
                 success:function (data) {
                     if (data.success){
-                        alert("修改成功");
+                        dataGrid.datagrid('reload');
+                        alert("删除成功");
                     }else
-                        alert("修改失败"+data.msg);
+                        alert("删除失败"+data.msg);
                 }
             });
-        });
     }
 
 
