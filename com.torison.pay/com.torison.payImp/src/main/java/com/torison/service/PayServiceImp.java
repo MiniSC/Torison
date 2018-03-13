@@ -1,15 +1,21 @@
 package com.torison.service;
 
+
 import com.torison.JPA.UserJPA;
-import com.torison.model.PayEntity;
+import com.torison.api.PayServiceApi;
 import com.torison.model.UserEntity;
-import com.torison.model.PayEnum;
-import com.torison.model.ResEntity;
+import model.PayEntity;
+import model.PayEnum;
+import model.ResEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Service
-public class UserService {
+
+public class PayServiceImp implements PayServiceApi {
+
 
     @Autowired
     private UserJPA userJPA;
@@ -19,6 +25,7 @@ public class UserService {
      * @param userEntity
      * @return
      */
+    @Override
     public ResEntity<UserEntity> addPayEntity(UserEntity userEntity){
         ResEntity resEntity = new ResEntity();
         try {
@@ -38,6 +45,9 @@ public class UserService {
      * @param payEntity
      * @return
      */
+
+    @Override
+    @Transactional
     public ResEntity modifyMoney(PayEntity payEntity)
     {
         ResEntity resEntity = new ResEntity();
@@ -49,14 +59,19 @@ public class UserService {
         if (PayEnum.PayStatus.INCREASE.equals(payEntity.getStatus())){
             UserEntity userEntity = userJPA.queryUserEntityByAccount(payEntity.getAccount()).get(0);
             userEntity.setMoney(userEntity.getMoney()+payEntity.getMoney());
-            userJPA.updateMoneyByAccountAndMoney(userEntity.getAccount(),userEntity.getMoney());
+            userJPA.updateMoneyByAccountAndMoney(userEntity.getMoney(),userEntity.getAccount());
             resEntity.setSuccess(true);
             return resEntity;
         }
         if (PayEnum.PayStatus.DECREASE.equals(payEntity.getStatus())){
             UserEntity userEntity = userJPA.queryUserEntityByAccount(payEntity.getAccount()).get(0);
+            if (userEntity.getMoney()<payEntity.getMoney()){
+                resEntity.setResMsg("余额不足");
+                resEntity.setSuccess(false);
+                return resEntity;
+            }
             userEntity.setMoney(userEntity.getMoney()-payEntity.getMoney());
-            userJPA.updateMoneyByAccountAndMoney(userEntity.getAccount(),userEntity.getMoney());
+            userJPA.updateMoneyByAccountAndMoney(userEntity.getMoney(),userEntity.getAccount());
             resEntity.setSuccess(true);
             return resEntity;
         }
@@ -66,4 +81,13 @@ public class UserService {
         return resEntity;
     }
 
+    @Override
+    public ResEntity<Double> queryMoneyByAccount(String account) {
+
+       UserEntity userEntity =  userJPA.queryUserEntityByAccount(account).get(0);
+       ResEntity resEntity = new ResEntity();
+       resEntity.setData(userEntity.getMoney());
+       resEntity.setSuccess(true);
+       return resEntity;
+    }
 }

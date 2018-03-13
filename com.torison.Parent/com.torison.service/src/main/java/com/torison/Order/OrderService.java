@@ -6,6 +6,7 @@ import com.torison.Order.model.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.naming.directory.InvalidAttributesException;
 import java.util.List;
 
 @Service
@@ -24,7 +25,7 @@ public class OrderService {
     }
 
   /**
-     * 根据用户编号和订单转台查询订单信息
+     * 根据用户编号和订单状态查询订单信息
      * @param Userid
      * @param Status
      * @return
@@ -60,6 +61,26 @@ public class OrderService {
     public List<Order> listOrderByUserid(Integer userid){
         return orderDao.listOrderByUserid(userid);
     }
+
+    /**
+     * 根据路线id和userid查询订单信息
+     * 在订单新增前检查
+     * @param userid
+     * @param routeid
+     * @return
+     */
+    public Order listOrderByUseridAndRouteid(Integer userid , Integer routeid) {
+        List<Order> listOrder = orderDao.listOrderByUseridAndRouteID(userid,routeid);
+        if (listOrder.isEmpty()){
+            return null;
+        }
+        if (listOrder.size()==1){
+            return listOrder.get(0);
+        }
+        return null;
+    }
+
+
 
 
 

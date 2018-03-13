@@ -14,6 +14,7 @@ public class Result {
         super();
     }
 
+
     public Result(boolean success, String msg, Object obj) {
         super();
         this.success = success;

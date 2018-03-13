@@ -14,6 +14,6 @@
 	<dubbo:registry protocol="zookeeper" address="120.79.88.192:2181" client="zkclient" />
 	
 	<!-- 生成远程服务代理，可以和本地 bean 一样使用 testService -->
-	<dubbo:reference id="emailsentService" interface="com.torison.api.EmailSentService" />
+	<dubbo:reference id="payService" interface="com.torison.api.EmailSentService" />
 
 </beans>

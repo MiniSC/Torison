@@ -23,7 +23,7 @@ public class OrderDao {
     }
 
  /**
-     * 根据用户编号和订单转台查询订单信息
+     * 根据用户编号和订单状态查询订单信息
      * @param Userid
      * @param Status
      * @return
@@ -59,6 +59,18 @@ public class OrderDao {
     public List<Order> listOrderByUserid(Integer userid){
         return orderMapper.selectByUserID(userid);
     }
+
+    /**
+     * 根据用户编号和路线号查询订单信息
+     * @param userid
+     * @param routeid
+     * @return
+     */
+    public List<Order> listOrderByUseridAndRouteID(Integer userid,Integer routeid){
+        return orderMapper.selectByUserIDAndRouteID(userid,routeid);
+    }
+
+
 
 
 

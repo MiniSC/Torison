@@ -1,7 +1,9 @@
 package com.login.controller;
 
+import com.login.model.UserRank;
 import com.torison.User.UserService;
 import com.torison.User.model.User;
+import com.torison.api.PayServiceApi;
 import com.torison.common.model.RespEntity;
 import com.torison.common.model.respCode;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +21,14 @@ public class LoginAndOutController {
     @Autowired
     private UserService userService;
 
+
+
     @RequestMapping(value = "/toLogin")
     public String toLogin(User user){
         return "test/Login/login";
     }
+
+
 
     @RequestMapping(value = "/loginTest")
     public String login(Model model, User user, HttpServletRequest request){
@@ -32,6 +38,9 @@ public class LoginAndOutController {
             session.setAttribute("username",respEntity.getData().getUsername());
             session.setAttribute("account",respEntity.getData().getAccount());
             session.setAttribute("userid",respEntity.getData().getId());
+            if (UserRank.MAKER.code().equals(respEntity.getData().getRank())) {
+                session.setAttribute("userrank", UserRank.MAKER.code());
+            }
             return "test/index";
         }else{
             model.addAttribute("wrong","wrong");
@@ -45,4 +54,5 @@ public class LoginAndOutController {
         session.removeAttribute("username");
         return "test/index";
     }
+
 }

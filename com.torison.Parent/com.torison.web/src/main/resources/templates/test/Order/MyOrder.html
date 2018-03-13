@@ -170,20 +170,24 @@
                             var a_text = $("<a href='#' class='wdc_a'></a>");
                             var div_img = $("<div class='wdc_img'></div>");
                             var img = $("<img src='../static/pic/"+item.pic+"'>");
-                            var h1_img = $("<h1 class='wdc_dis'>"+item.routename+"</h1>");
-                            var h2_img = $("<h2 class='wdc_dis'>"+item.routefrom +"-->"+ item.routeend+"</h2>");
+                            var h1_img = $("<h1 class='wdc_dis'>"+item.routeName+"</h1>");
+                            var h2_img = $("<h2 class='wdc_dis'>出发地点："+item.routeFrom +"-->到达地点："+ item.routeEnd+"</h2>");
+                            var h3_img = $("<h2 class='wdc_dis'>预订数量："+item.num +"</h2>");
                             var p = $("<p class='wdc_p'></p>");
-                            var a1 = $("<a href='http://127.0.0.1:8000/route/listRouteDetail?routeId="+item.routeID+"'></a>");
+                            var a1 = $("<a href='/route/listRouteDetail?routeId="+item.routeID+"'></a>");
                             var i11 = $("<i class='icon-picture-outline'></i>");
                             var i12 = $("<i>查看详情</i>");
-                            var a2 = $("<a href='http://127.0.0.1:8000/route/deleteRoute?routeId="+item.routeID+"'></a>");
+                            var a2 = $("<a href='/order/deleteOrder?routeId="+item.routeID+"'></a>");
                             var i21 = $("<i class='icon-picture-outline'></i>");
-                            var i22 = $("<i>删除路线</i>");
-
+                            var i22 = $("<i>取消预订</i>");
+                            var a3 = $("<a href='/order/deleteOrder?routeId="+item.routeID+"'></a>");
+                            var i31 = $("<i class='icon-picture-outline'></i>");
+                            var i32 = $("<i>去支付</i>");
                             div_img.append(img);
                             a_text.append(div_img);
                             a_text.append(h1_img);
                             a_text.append(h2_img);
+                            a_text.append(h3_img)
                             a1.append(i11);
                             a1.append(i12);
                             a2.append(i21);
@@ -201,6 +205,23 @@
                 }
             });
         });
+        function payMyOrder(allmoney) {
+         alert(allmoney);
+           $.ajax({
+                url:'/order/payOrder',
+                type:'POST',
+                data: { allmoney:allmoney },
+                dataType:'json',
+                success:function (data) {
+                        if (data.success){
+                            alert("支付成功");
+                        }
+                        else
+                            alert("支付失败："+data.msg);
+                }
+
+            });
+        }
     </script>
 </head>
 <body>
@@ -215,35 +236,42 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li class="active">
-                            <a href="#">Link</a>
+                            <a href="/index">首页</a>
                         </li>
                         <li>
-                            <a href="#">Link</a>
+                            <a href="/route/tolistCollect">路线收藏</a>
+                        </li>
+                        <li>
+                            <a href="/routeMaker/listInsertMaker">领队申请</a>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">订单管理<strong class="caret"></strong></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="#">Action</a>
+                                    <a href="/order/toMyOrder">未支付订单</a>
                                 </li>
                                 <li>
-                                    <a href="#">Another action</a>
+                                    <a href="/route/toGetMyRoute">已完成订单</a>
                                 </li>
                                 <li>
-                                    <a href="#">Something else here</a>
-                                </li>
-                                <li class="divider">
-                                </li>
-                                <li>
-                                    <a href="#">Separated link</a>
-                                </li>
-                                <li class="divider">
-                                </li>
-                                <li>
-                                    <a href="#">One more separated link</a>
+                                    <a href="/order/toMyOrder">进行中订单</a>
                                 </li>
                             </ul>
                         </li>
+                        <#if Session.userrank??>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">领队工具箱<strong class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/listRouteMake">制作路线</a>
+                                </li>
+                                <li>
+                                    <a href="/route/toGetMyRoute">订单管理</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </#if>
+                    </ul>
                     </ul>
                     <form class="navbar-form navbar-left" role="search">
                         <div class="form-group">
@@ -252,24 +280,28 @@
                     </form>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="#">Link</a>
+                            <#if Session.username??>
+                            <a>欢迎${Session.username}</a>
+                            <#else>
+                            <a href="/login/toLogin">登录</a>
+                        </#if>
                         </li>
+                        <li>
+                            <#if Session.username??>
+                            <a href="/login/logOut">账号管理</a>
+                        </#if>
+                        </li>
+                        <li>
+                            <#if Session.username??>
+                            <a href="/login/logOut">退出登录</a>
+                        </#if>
+                        </li>
+
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">好友管理<strong class="caret"></strong></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="#">Action</a>
-                                </li>
-                                <li>
-                                    <a href="#">Another action</a>
-                                </li>
-                                <li>
-                                    <a href="#">Something else here</a>
-                                </li>
-                                <li class="divider">
-                                </li>
-                                <li>
-                                    <a href="#">Separated link</a>
+                                    <a href="#">关注列表</a>
                                 </li>
                             </ul>
                         </li>
@@ -289,29 +321,9 @@
     </div>
     <div class="row clearfix">
         <div class="col-md-12 column">
-            <ul class="pagination">
-                <li>
-                    <a href="#">Prev</a>
-                </li>
-                <li>
-                    <a href="#">1</a>
-                </li>
-                <li>
-                    <a href="#">2</a>
-                </li>
-                <li>
-                    <a href="#">3</a>
-                </li>
-                <li>
-                    <a href="#">4</a>
-                </li>
-                <li>
-                    <a href="#">5</a>
-                </li>
-                <li>
-                    <a href="#">Next</a>
-                </li>
-            </ul>
+            <label>总金额：</label>
+            <label>${allmoney!''}</label>
+            <a onclick="payMyOrder(${allmoney!''})">支付</a>
         </div>
     </div>
 </div>

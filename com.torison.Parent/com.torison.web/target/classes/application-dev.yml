@@ -23,3 +23,10 @@ spring:
       force: true
       enabled: true
       uri-encoding: UTF-8
+  dubbo:
+      ##appname: provider
+      appname: consumer
+      registry: zookeeper://120.79.88.192:2181
+      protocol: dubbo
+      port: 20881
+      scan: com

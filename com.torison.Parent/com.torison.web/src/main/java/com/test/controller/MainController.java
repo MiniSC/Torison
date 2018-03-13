@@ -21,10 +21,10 @@ public class MainController {
 
     @RequestMapping("/index")
     public String test(Model model,HttpServletRequest request) {
-        Map<String, Object> model2 = new HashMap<String, Object>();
-        User user = new User();
-        model.addAttribute("user",user);
-        return "/test/index";
+
+        if (request.getSession().getAttribute("userid")!=null){
+        return "/test/index";}
+        return "/login/toLogin";
     }
 
     @RequestMapping("/listRouteMake")

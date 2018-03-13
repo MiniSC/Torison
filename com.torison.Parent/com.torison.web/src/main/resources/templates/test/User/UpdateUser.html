@@ -47,32 +47,36 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li class="active">
-                            <a href="#">Link</a>
+                            <a href="/index">首页</a>
                         </li>
                         <li>
-                            <a href="#">Link</a>
+                            <a href="/route/tolistCollect">路线收藏</a>
+                        </li>
+                        <li>
+                            <a href="/routeMaker/listInsertMaker">领队申请</a>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">订单管理<strong class="caret"></strong></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="#">Action</a>
+                                    <a href="/order/toMyOrder">未支付订单</a>
                                 </li>
                                 <li>
-                                    <a href="#">Another action</a>
+                                    <a href="/route/toGetMyRoute">已完成订单</a>
                                 </li>
                                 <li>
-                                    <a href="#">Something else here</a>
+                                    <a href="/order/toMyOrder">进行中订单</a>
                                 </li>
-                                <li class="divider">
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">领队工具箱<strong class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/listRouteMake">制作路线</a>
                                 </li>
                                 <li>
-                                    <a href="#">Separated link</a>
-                                </li>
-                                <li class="divider">
-                                </li>
-                                <li>
-                                    <a href="#">One more separated link</a>
+                                    <a href="/route/toGetMyRoute">订单管理</a>
                                 </li>
                             </ul>
                         </li>
@@ -84,24 +88,31 @@
                     </form>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="#">Link</a>
+                            <#if Session.username??>
+                            <a>欢迎${Session.username}</a>
+                            <#else>
+                            <a href="/login/toLogin">登录</a>
+                        </#if>
                         </li>
+                        <li>
+                            <#if Session.username??>
+                            <a href="/login/logOut">账号管理</a>
+                        </#if>
+                        </li>
+                        <li>
+                            <#if Session.username??>
+                            <a href="/login/logOut">退出登录</a>
+                        </#if>
+                        </li>
+
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">好友管理<strong class="caret"></strong></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="#">Action</a>
+                                    <a href="#">关注列表</a>
                                 </li>
                                 <li>
-                                    <a href="#">Another action</a>
-                                </li>
-                                <li>
-                                    <a href="#">Something else here</a>
-                                </li>
-                                <li class="divider">
-                                </li>
-                                <li>
-                                    <a href="#">Separated link</a>
+                                    <a href="#">关注者路线发布</a>
                                 </li>
                             </ul>
                         </li>
@@ -168,11 +179,19 @@
         </div>
          <div class="col-md-6 column">
              <div>
-                 <label>账号级别</label>
-                 <a>${user.rank!''}</a>
+                 <label>账号级别：</label>
+                 <label>${user.rank!''}</label>
              </div>
+             <br><br><br>
              <div>
+                 <label>账号升级：</label>
                  <a href="/routeMaker/listInsertMaker">成为旅游路线发布者</a>
+             </div>
+
+             <br><br><br>
+             <div>
+                 <label>账号余额：</label>
+                 <label>${money!''}</label>
              </div>
 
          </div>

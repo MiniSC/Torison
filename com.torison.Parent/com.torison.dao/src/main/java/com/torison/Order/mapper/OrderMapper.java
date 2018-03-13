@@ -3,6 +3,7 @@ package com.torison.Order.mapper;
 import com.torison.Order.model.Order;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
+import org.springframework.validation.ValidationUtils;
 
 import java.util.List;
 
@@ -82,5 +83,21 @@ public interface OrderMapper {
             @Result(column="Num", property="num", jdbcType=JdbcType.INTEGER),
             @Result(column="Status", property="status", jdbcType=JdbcType.VARCHAR)
     })
-    List<Order> selectByUserIDAndStatus(Integer userid,String status);
+    List<Order> selectByUserIDAndStatus(@Param(value = "userid") Integer userid,@Param(value = "status") String status);
+
+
+    @Select({
+            "select",
+            "OrderID, UserID, RouteID, Num, Status",
+            "from orders",
+            "where UserID = #{userid,jdbcType=INTEGER} and RouteID = #{routeid,jdbcType=INTEGER}"
+    })
+    @Results({
+            @Result(column="OrderID", property="orderid", jdbcType=JdbcType.INTEGER, id=true),
+            @Result(column="UserID", property="userid", jdbcType=JdbcType.INTEGER),
+            @Result(column="RouteID", property="routeid", jdbcType=JdbcType.INTEGER),
+            @Result(column="Num", property="num", jdbcType=JdbcType.INTEGER),
+            @Result(column="Status", property="status", jdbcType=JdbcType.VARCHAR)
+    })
+    List<Order> selectByUserIDAndRouteID(@Param(value = "userid") Integer userid,@Param(value = "routeid") Integer routeid);
 }
