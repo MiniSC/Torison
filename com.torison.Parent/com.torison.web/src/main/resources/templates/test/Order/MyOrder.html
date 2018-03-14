@@ -162,6 +162,7 @@
                 url:'/order/getMyOrder',
                 type:'POST',
                 dataType:'json',
+                data : {status:'01'},
                 success:function (value) {
                     if (value.success){
                         var div_all = $("#wdc_index");
@@ -180,26 +181,27 @@
                             var a2 = $("<a href='/order/deleteOrder?routeId="+item.routeID+"'></a>");
                             var i21 = $("<i class='icon-picture-outline'></i>");
                             var i22 = $("<i>取消预订</i>");
-                            var a3 = $("<a href='/order/deleteOrder?routeId="+item.routeID+"'></a>");
+                            var a3 = $("<a href='/order/payOneOrder?routeId="+item.routeID+"'></a>");
                             var i31 = $("<i class='icon-picture-outline'></i>");
-                            var i32 = $("<i>去支付</i>");
+                            var i32 = $("<i>订单支付</i>");
                             div_img.append(img);
                             a_text.append(div_img);
                             a_text.append(h1_img);
                             a_text.append(h2_img);
-                            a_text.append(h3_img)
+                            a_text.append(h3_img);
                             a1.append(i11);
                             a1.append(i12);
                             a2.append(i21);
                             a2.append(i22);
+                            a3.append(i31);
+                            a3.append(i32);
                             p.append(a1);
                             p.append(a2);
+                            p.append(a3);
                             li_all.append(a_text);
                             li_all.append(p);
                             div_all.append(li_all);
-
                             li_all = $("<li></li>");
-
                         });
                     }
                 }

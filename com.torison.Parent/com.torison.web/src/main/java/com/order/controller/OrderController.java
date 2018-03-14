@@ -93,26 +93,20 @@ public class OrderController {
     @ResponseBody
     public Result getMyOrder(HttpServletRequest request , String status){
         HttpSession session = request.getSession();
-        List<OrderForm> orderForms = new LinkedList<>();
         Integer userId = Integer.parseInt(session.getAttribute("userid").toString());
-        List<Order> listOrder = orderService.listOrderByUseridAndStatus(userId,OrderStatus.UNPAY);
-        for (Order order:listOrder){
-            Route route = routeService.selectRouteById(order.getRouteid());
-            RoutePic routePic = routePicService.selectPicByID(order.getRouteid());
-            OrderForm orderForm = new OrderForm(route.getRouteid(),
-                    routePic.getRoutepic1(),
-                    route.getRoutefromaddress(),
-                    route.getRouteendaddress(),
-                    order.getNum(),
-                    route.getRoutename());
-            orderForms.add(orderForm);
-        }
+        List<Order> listOrder = orderService.listOrderByUseridAndStatus(userId,status);
         Result result = new Result();
-        result.setObj(orderForms);
+        result.setObj(toOrderForms(listOrder));
         result.setSuccess(true);
         return result;
     }
 
+    /**
+     * 删除订单
+     * @param routeId
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/deleteOrder")
     @ResponseBody
     public Result deleteOrder(String routeId,HttpServletRequest request){
@@ -129,6 +123,12 @@ public class OrderController {
         return new Result(false,"失败");
     }
 
+    /**
+     * 所有订单支付
+     * @param request
+     * @param allmoney
+     * @return
+     */
     @RequestMapping(value = "/payOrder")
     @ResponseBody
     public Result payMyOrder(HttpServletRequest request,String allmoney){
@@ -151,4 +151,82 @@ public class OrderController {
         result.setSuccess(true);
         return result;
     }
+    /**
+     * 一条订单支付
+     * @param request
+     * @param routeId
+     * @return
+     */
+    @RequestMapping(value = "/payOneOrder")
+    @ResponseBody
+    public Result payOneOrder(HttpServletRequest request,String routeId){
+        Integer routeID = Integer.parseInt(routeId);
+        Route route = routeService.selectRouteById(routeID);
+        Result result = new Result();
+        Integer userid = Integer.parseInt(request.getSession().getAttribute("userid").toString());
+        String useracc = request.getSession().getAttribute("account").toString();
+        Order order = orderService.listOrderByUseridAndRouteid(userid,routeID);
+        /* 支付功能，支付订单*/
+        PayEntity payEntity = new PayEntity();
+        payEntity.setAccount(useracc);
+        payEntity.setMoney( route.getRouteneedmoney());
+        payEntity.setStatus(PayEnum.PayStatus.DECREASE);
+        ResEntity resEntity = payServiceApi.modifyMoney(payEntity);
+        if (!resEntity.isSuccess()) {
+            result.setMsg(resEntity.getResMsg());
+            result.setSuccess(false);
+            return result;
+        }
+        /*
+        支付成功，修改订单状态为进行中--PAYED已支付状态
+         */
+        order.setStatus(OrderStatus.PAYED);
+        if (orderService.updateOrder(order)!=1){
+            result.setMsg("系统异常");
+            result.setSuccess(false);
+        }
+        result.setSuccess(true);
+        return result;
+    }
+
+    /**
+     * 跳转到已完成订单
+     * @return
+     */
+    @RequestMapping(value = "/toFinishedOrder")
+    public String toFinishedOrder(){
+        return "test/Order/FinishedOrder";
+    }
+
+    /**
+     * 跳转到进行中订单
+     * @return
+     */
+    @RequestMapping(value = "/toGoingOrder")
+    public String toGoingOrder(){
+        return "test/Order/GoingOrder";
+    }
+
+    /**
+     * 通过订单转化为订单表单
+     * web输出格式化
+     * @param listOrder
+     * @return
+     */
+    public List<OrderForm> toOrderForms(List<Order> listOrder){
+        List<OrderForm> orderForms = new LinkedList<>();
+        for (Order order:listOrder){
+            Route route = routeService.selectRouteById(order.getRouteid());
+            RoutePic routePic = routePicService.selectPicByID(order.getRouteid());
+            OrderForm orderForm = new OrderForm(route.getRouteid(),
+                    routePic.getRoutepic1(),
+                    route.getRoutefromaddress(),
+                    route.getRouteendaddress(),
+                    order.getNum(),
+                    route.getRoutename());
+            orderForms.add(orderForm);
+        }
+        return orderForms;
+    }
+
 }

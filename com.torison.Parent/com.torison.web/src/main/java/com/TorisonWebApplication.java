@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ImportResource;
 
 
 @SpringBootApplication
-@ComponentScan({"com","com.common.config"})
+@ComponentScan({"com","com.common.config","quartz.email"})
 @ImportResource(value = { "classpath:consumers.xml" })
 public class TorisonWebApplication {
 public static void main(String[] args) {
