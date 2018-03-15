@@ -173,10 +173,10 @@
                             var h1_img = $("<h1 class='wdc_dis'>"+item.routename+"</h1>");
                             var h2_img = $("<h2 class='wdc_dis'>"+item.routefrom +"-->"+ item.routeend+"</h2>");
                             var p = $("<p class='wdc_p'></p>");
-                            var a1 = $("<a href='http://127.0.0.1:8000/route/listRouteDetail?routeId="+item.routeID+"'></a>");
+                            var a1 = $("<a href='/route/listRouteDetail?routeId="+item.routeID+"'></a>");
                             var i11 = $("<i class='icon-picture-outline'></i>");
                             var i12 = $("<i>查看详情</i>");
-                            var a2 = $("<a href='http://127.0.0.1:8000/route/deleteCollectRoute?routeId="+item.routeID+"'></a>");
+                            var a2 = $("<a href='/route/deleteCollectRoute?routeId="+item.routeID+"'></a>");
                             var i21 = $("<i class='icon-picture-outline'></i>");
                             var i22 = $("<i>取消收藏</i>");
 
@@ -220,23 +220,21 @@
                         <li>
                             <a href="/route/tolistCollect">路线收藏</a>
                         </li>
-                        <li>
-                            <a href="/routeMaker/listInsertMaker">领队申请</a>
-                        </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">订单管理<strong class="caret"></strong></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="/order/toMyOrder">未支付订单</a>
+                                    <a href="/order/toMyOrder?">未支付订单</a>
                                 </li>
                                 <li>
-                                    <a href="/route/toGetMyRoute">已完成订单</a>
+                                    <a href="/route/toFinishedOrder">已完成订单</a>
                                 </li>
                                 <li>
-                                    <a href="/order/toMyOrder">进行中订单</a>
+                                    <a href="/order/toGoingOrder">进行中订单</a>
                                 </li>
                             </ul>
                         </li>
+                        <#if Session.userrank??>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">领队工具箱<strong class="caret"></strong></a>
                             <ul class="dropdown-menu">
@@ -248,6 +246,8 @@
                                 </li>
                             </ul>
                         </li>
+                    </#if>
+                    </ul>
                     </ul>
                     <form class="navbar-form navbar-left" role="search">
                         <div class="form-group">
@@ -264,7 +264,7 @@
                         </li>
                         <li>
                             <#if Session.username??>
-                            <a href="/login/logOut">账号管理</a>
+                            <a href="/user/toUpdate">账号管理</a>
                         </#if>
                         </li>
                         <li>
@@ -278,9 +278,6 @@
                             <ul class="dropdown-menu">
                                 <li>
                                     <a href="#">关注列表</a>
-                                </li>
-                                <li>
-                                    <a href="#">关注者路线发布</a>
                                 </li>
                             </ul>
                         </li>
@@ -300,29 +297,7 @@
     </div>
     <div class="row clearfix">
         <div class="col-md-12 column">
-            <ul class="pagination">
-                <li>
-                    <a href="#">Prev</a>
-                </li>
-                <li>
-                    <a href="#">1</a>
-                </li>
-                <li>
-                    <a href="#">2</a>
-                </li>
-                <li>
-                    <a href="#">3</a>
-                </li>
-                <li>
-                    <a href="#">4</a>
-                </li>
-                <li>
-                    <a href="#">5</a>
-                </li>
-                <li>
-                    <a href="#">Next</a>
-                </li>
-            </ul>
+
         </div>
     </div>
 </div>

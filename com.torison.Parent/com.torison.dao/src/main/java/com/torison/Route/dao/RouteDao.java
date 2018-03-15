@@ -31,6 +31,14 @@ public class RouteDao {
     }
 
     /**
+     * 查询所有路线
+     * @return listRoute
+     */
+    public List<Route> queryTopTenRoute(){
+        return routeMapper.queryTopTenRoute();
+    }
+
+    /**
      * 更新路线信息
      * @param route
      * @return

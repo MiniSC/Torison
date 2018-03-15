@@ -45,7 +45,7 @@ public class RMController {
     @ResponseBody
     public DataGrid listApply(RouteMaker routeMaker){
         DataGrid dataGrid = new DataGrid();
-        routeMaker.setUserStatus("2");
+        routeMaker.setUserStatus(ConfirmStatus.WAIT.code());
         List<RouteMakerForm> ls = rmService.findMakerByConditioins(routeMaker);
         dataGrid.setTotal(ls.size());
         dataGrid.setRows(ls);
@@ -63,7 +63,7 @@ public class RMController {
     @ResponseBody
     public DataGrid listPassedApply(RouteMaker routeMaker){
         DataGrid dataGrid = new DataGrid();
-        routeMaker.setUserStatus("0");
+        routeMaker.setUserStatus(ConfirmStatus.PASS.code());
         List<RouteMakerForm> ls = rmService.findMakerByConditioins(routeMaker);
         dataGrid.setTotal(ls.size());
         dataGrid.setRows(ls);

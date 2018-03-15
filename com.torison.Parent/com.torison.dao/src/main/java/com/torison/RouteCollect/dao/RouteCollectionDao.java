@@ -21,6 +21,14 @@ public class RouteCollectionDao {
     public List<RouteCollection> listRouteCollection(Integer userID){
         return routeCollectionMapper.selectByPrimaryKey(userID);
     }
+    /**
+     * 查看路线收藏
+     * @param userID
+     * @return
+     */
+    public RouteCollection listRouteCollectionByUserIdAndRouteId(Integer userID,Integer routeID){
+        return routeCollectionMapper.selectByPrimaryKeyAndRouteId(userID,routeID);
+    }
 
     /**
      * 删除路线收藏信息

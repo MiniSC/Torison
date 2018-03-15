@@ -51,6 +51,14 @@ public class RouteService {
     }
 
     /**
+     * 查询最新十条路线
+     * @return
+     */
+    public List<Route> queryTopTenRoute(){
+        return routeDao.queryTopTenRoute();
+    }
+
+    /**
      * 根据ID查询路线的详细信息
      * @param id
      * @return

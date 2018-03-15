@@ -3,6 +3,7 @@ package com.route.controller;
 import com.alibaba.fastjson.JSON;
 import com.common.Enum.Path;
 import com.model.Result;
+import com.model.User;
 import com.route.form.RouteListForm;
 import com.torison.Route.model.Route;
 import com.torison.Route.model.RoutePic;
@@ -33,6 +34,8 @@ import java.util.UUID;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+
+import static java.util.stream.Collectors.toList;
 
 @Controller
 @RequestMapping(value = "/route")
@@ -113,6 +116,7 @@ public class RouteController {
                   });
       }
       return result;
+
     }
 
     /**
@@ -141,6 +145,14 @@ public class RouteController {
         return result;
     }
 
+   /* *//**
+     * 跳转到路线详情界面
+     * @return
+     *//*
+    @RequestMapping("/toListRouteDetail")
+    public String toListRouteDetail(){
+        return "test/Route/ListRoute";
+    }*/
     /**
      * 查看路线的详情
      * @param model
@@ -150,12 +162,10 @@ public class RouteController {
     @RequestMapping(value = "/listRouteDetail")
     public String getRouteDetail(Model model, Integer routeId){
         Route route = routeService.selectRouteById(routeId);
-
         model.addAttribute("route",route);
         return "test/Route/ListRoute";
-
-
     }
+
 
     /**
      * 删除我制作的路线信息
@@ -225,8 +235,13 @@ public class RouteController {
         RouteCollection routeCollection = new RouteCollection();
         routeCollection.setRouteid(Integer.parseInt(routeid));
         routeCollection.setUserid(userid);
-        routeCollectionService.addRouteCollection(routeCollection);
         Result result = new Result();
+        if (routeCollectionService.listRouteCollectionByIDs(userid,Integer.parseInt(routeid))!=null){
+            result.setSuccess(false);
+            result.setMsg("请不要重复添加");
+            return result;
+        }
+        routeCollectionService.addRouteCollection(routeCollection);
         result.setSuccess(true);
         result.setMsg("添加收藏成功");
         return result;

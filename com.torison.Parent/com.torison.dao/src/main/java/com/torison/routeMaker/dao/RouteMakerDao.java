@@ -11,8 +11,21 @@ public class RouteMakerDao {
     @Autowired
     private RouteMakerMapper routeMakerMapper;
 
+    /**
+     * 插入制作者
+     * @param routeMaker
+     */
     public void insertMaker(RouteMaker routeMaker){
         routeMakerMapper.insert(routeMaker);
+    }
+
+    /**
+     * 根据ID查询制作者
+     * @param makerId
+     * @return
+     */
+    public RouteMaker queryMaker(Integer makerId){
+        return routeMakerMapper.selectByPrimaryKey(makerId);
     }
 
 }

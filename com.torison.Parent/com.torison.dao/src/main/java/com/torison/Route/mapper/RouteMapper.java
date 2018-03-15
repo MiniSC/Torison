@@ -47,6 +47,17 @@ public interface RouteMapper {
     List<Route> queryAllRoute();
 
     /**
+     * 查询最新的十条路线
+     * @return
+     */
+    @Select({
+            "select",
+            "*",
+            "from ROUTE GROUP BY routeID DESC LIMIT 10"
+    })
+    List<Route> queryTopTenRoute();
+
+    /**
      * 根据ID查询路线
      * @param ID
      * @return

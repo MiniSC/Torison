@@ -24,6 +24,17 @@ public class RouteCollectionService {
     }
 
     /**
+     * 根据用户Id查询用户的收藏的路线
+     * @param userId
+     * @return
+     */
+    public RouteCollection listRouteCollectionByIDs(Integer userId,Integer routeId){
+        return routeCollectionDao.listRouteCollectionByUserIdAndRouteId(userId, routeId);
+    }
+
+
+
+    /**
      * 删除路线收藏信息
      * @param userid
      * @param routeid

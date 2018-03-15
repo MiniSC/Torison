@@ -31,6 +31,14 @@ public interface RouteCollectionMapper {
     })
     List<RouteCollection> selectByPrimaryKey(Integer userid);
 
+    @Select({
+            "select",
+            "*",
+            "from route_collection",
+            "where UserID = #{userid,jdbcType=INTEGER} and RouteID = #{routeid,jdbcType=INTEGER}"
+    })
+    RouteCollection selectByPrimaryKeyAndRouteId(@Param(value = "userid") Integer userid,@Param(value = "routeid") Integer routeid);
+
     @UpdateProvider(type=RouteCollectionSqlProvider.class, method="updateByPrimaryKeySelective")
     int updateByPrimaryKeySelective(RouteCollection record);
 

@@ -6,6 +6,8 @@ import com.torison.User.model.User;
 import com.torison.api.PayServiceApi;
 import com.torison.common.model.RespEntity;
 import com.torison.common.model.respCode;
+import com.torison.routeMaker.model.RouteMaker;
+import com.torison.routemaker.RouteMakerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +22,9 @@ public class LoginAndOutController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private RouteMakerService routeMakerService;
 
 
 
@@ -38,8 +43,11 @@ public class LoginAndOutController {
             session.setAttribute("username",respEntity.getData().getUsername());
             session.setAttribute("account",respEntity.getData().getAccount());
             session.setAttribute("userid",respEntity.getData().getId());
-            if (UserRank.MAKER.code().equals(respEntity.getData().getRank())) {
-                session.setAttribute("userrank", UserRank.MAKER.code());
+            RouteMaker routeMaker = routeMakerService.queryMaker(respEntity.getData().getId());
+            if (routeMaker!=null) {
+                if (UserRank.MAKER.code().equals(routeMaker.getStatus())) {
+                    session.setAttribute("userrank", UserRank.MAKER.code());
+                }
             }
             return "test/index";
         }else{

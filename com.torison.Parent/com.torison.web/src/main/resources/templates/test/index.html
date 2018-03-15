@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-    <html>
+<html xmlns:font-family="http://www.w3.org/1999/xhtml">
 <head>
 
     <!-- 新 Bootstrap 核心 CSS 文件 -->
@@ -41,6 +41,33 @@
                    }
                 }
             });
+            /**
+             * 目的地下拉列表的出现
+             */
+            $.ajax({
+                url:'/route/getRoute',
+                type:'POST',
+                data:'id='+1,
+                dataType:'json',
+                success:function (value) {
+                    if (value.success){
+                        var div_per = $("<div class='col-md-4 column'>");
+                        var div_all = $("#div1");
+                        jQuery.each(value.obj, function(i,item){
+                            var a_img =$("<img alt='140x140'width='140' height='140' src='../static/pic/"+item.path+"'>");
+                            var a_h2=$("<h2>"+item.maker+"</h2>");
+                            var a_p1=$("<p>"+item.introduce+"</p>");
+                            var a_p2=$("<p><a class='btn' href='/route/listRouteDetail?routeId=3'>查看详情</a></p>");
+                            div_per.append(a_img);
+                            div_per.append(a_h2)
+                            div_per.append(a_p1);
+                            div_per.append(a_p2);
+                            div_all.append(div_per);
+                            div_per = $("<div class='col-md-4 column'>");
+                        });
+                    }
+                }
+            });
         });
     </script>
 </head>
@@ -62,12 +89,6 @@
                             <li class="active">
                                 <a href="/index">首页</a>
                             </li>
-                            <li>
-                                <a href="/route/tolistCollect">路线收藏</a>
-                            </li>
-                            <li>
-                                <a href="/routeMaker/listInsertMaker">领队申请</a>
-                            </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">订单管理<strong class="caret"></strong></a>
                                 <ul class="dropdown-menu">
@@ -75,11 +96,23 @@
                                         <a href="/order/toMyOrder">未支付订单</a>
                                     </li>
                                     <li>
-                                        <a href="/order/toFinishedOrder">已完成订单</a>
+                                        <a href="/route/toGetMyRoute">已完成订单</a>
                                     </li>
                                     <li>
-                                        <a href="/order/toGoingOrder">进行中订单</a>
+                                        <a href="/order/toMyOrder">进行中订单</a>
                                     </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">目的地<strong class="caret"></strong></a>
+                                <ul class="dropdown-menu" id="endaddress">
+
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">最新活动<strong class="caret"></strong></a>
+                                <ul class="dropdown-menu" id="newactivity">
+
                                 </ul>
                             </li>
                             <#if Session.userrank??>
@@ -94,7 +127,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            </#if>
+                        </#if>
                         </ul>
                         </ul>
                         <form class="navbar-form navbar-left" role="search">
@@ -103,23 +136,26 @@
                             </div> <button type="submit" class="btn btn-default">Submit</button>
                         </form>
                         <ul class="nav navbar-nav navbar-right">
-                            <li>
-                                <#if Session.username??>
-                                <a>欢迎${Session.username}</a>
+                            <li class="dropdown">
+                            <#if Session.username??>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">欢迎${Session.username}<strong class="caret"></strong></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="/login/logOut">账号管理</a>
+                                    </li>
+                                    <li>
+                                        <a href="/route/tolistCollect">我的收藏</a>
+                                    </li>
+                                    <li>
+                                        <a href="/login/logOut">退出登录</a>
+                                    </li>
+                                </ul>
                                 <#else>
                                 <a href="/login/toLogin">登录</a>
-                                </#if>
-                            </li>
-                            <li>
-                                <#if Session.username??>
-                                <a href="/user/toUpdate">账号管理</a>
                             </#if>
                             </li>
-                            <li>
-                                <#if Session.username??>
-                                <a href="/login/logOut">退出登录</a>
-                               </#if>
-                            </li>
+
+
 
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">好友管理<strong class="caret"></strong></a>
@@ -134,7 +170,8 @@
 
                 </nav>
                 <!--图片轮播遮罩层+图片层-->
-                <div class="carousel slide" id="carousel-157208">
+                <div style=" background: #c9cbc9">
+                <div class="carousel slide"  id="carousel-157208" >
                     <ol class="carousel-indicators">
                         <li data-slide-to="0" data-target="#carousel-157208">
                         </li>
@@ -180,14 +217,19 @@
                         </div>
                     </div> <a class="left carousel-control" href="#carousel-157208" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-157208" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
                 </div>
+                </div>
             </div>
         </div>
         <div class="row clearfix">
             <div class="col-md-12 column">
                 <br>
                 <br>
+                <div style="border-left:solid 10px #96f2ff;border-right:5px solid #5eecff; height: 30px;">
+                     <h1 style="font-family: 'Microsoft YaHei';color: #2b2b2b;font-size: 18px">最新活动</h1>
+                </div>
             </div>
         </div>
+        <br>
         <!--三行旅行图+文字介绍-->
         <div class="row clearfix" id="div1">
         </div>

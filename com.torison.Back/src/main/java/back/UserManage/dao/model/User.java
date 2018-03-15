@@ -7,7 +7,7 @@ import javax.websocket.ClientEndpoint;
 @Table(name = "user")
 public class User {
 
-    @Column(name = "userid")
+    @Column(name = "id")
     @Id
     @GeneratedValue
     private Integer userId;

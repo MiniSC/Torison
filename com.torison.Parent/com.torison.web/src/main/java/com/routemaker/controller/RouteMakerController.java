@@ -28,33 +28,38 @@ public class RouteMakerController {
     }
 
     @RequestMapping(value="saveMaker")
-    public String saveMaker(HttpServletRequest request, String makerName, String introduce, MultipartFile file) {
+    public String saveMaker(HttpServletRequest request, String makerName, String introduce,
+                            MultipartFile file1,
+                            MultipartFile file2) {
         List<String> picPath = new ArrayList<>();
-        if (!file.isEmpty()) {
-            try {
-                String fileName = UUID.randomUUID().toString();
-                BufferedOutputStream out = new BufferedOutputStream(
-                        new FileOutputStream(new File(Path.PicURL.PicUpload + fileName+".jpg")));
-                out.write(file.getBytes());
-                picPath.add(fileName+".jpg");
-                out.flush();
-                out.close();
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-                return "上传失败," + e.getMessage();
-            } catch (IOException e) {
-                e.printStackTrace();
-                return "上传失败," + e.getMessage();
+        List<MultipartFile> files = new ArrayList<>();
+        files.add(file1);files.add(file2);
+        for (MultipartFile file:files) {
+            if (!file.isEmpty()) {
+                try {
+                    String fileName = UUID.randomUUID().toString();
+                    BufferedOutputStream out = new BufferedOutputStream(
+                            new FileOutputStream(new File(Path.PicURL.PicUpload + fileName + ".jpg")));
+                    out.write(file.getBytes());
+                    picPath.add(fileName + ".jpg");
+                    out.flush();
+                    out.close();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                    return "上传失败," + e.getMessage();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    return "上传失败," + e.getMessage();
+                }
             }
+        }
             RouteMaker routeMaker = new RouteMaker();
-
+            routeMaker.setIntroduce(introduce);
+            routeMaker.setUserid(Integer.parseInt(request.getSession().getAttribute("userid").toString()));
                 routeMaker.setPic1(picPath.get(0));
                 routeMaker.setPic2(picPath.get(1));
-
             routeMaker.setIntroduce(introduce);
-           // routeMaker.setUserid(Integer.parseInt(request.getSession().getAttribute("userid").toString()));
             routeMakerService.insertMaker(routeMaker);
-        }
         return null;
     }
 

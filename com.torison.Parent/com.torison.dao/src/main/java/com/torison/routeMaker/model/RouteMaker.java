@@ -9,6 +9,16 @@ public class RouteMaker {
 
     private String introduce;
 
+    private String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public Integer getUserid() {
         return userid;
     }
