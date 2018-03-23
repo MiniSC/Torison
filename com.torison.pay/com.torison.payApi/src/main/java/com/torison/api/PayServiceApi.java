@@ -1,10 +1,12 @@
 package com.torison.api;
 
 
-import com.torison.model.UserEntity;
-import model.PayEntity;
-import model.ResEntity;
+import com.torison.api.model.UserEntity;
+import com.torison.api.model.PayEntity;
+import com.torison.api.model.ResEntity;
+import org.springframework.stereotype.Service;
 
+@Service
 public interface PayServiceApi {
 
 

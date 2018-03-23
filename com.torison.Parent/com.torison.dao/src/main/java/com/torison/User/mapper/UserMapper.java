@@ -31,7 +31,19 @@ public interface UserMapper {
     })
     List<User> queryUserByAcc(String account);
 
-    @UpdateProvider(type=UserSqlProvider.class, method="updateByIDSelective")
+    @Select({
+            "select",
+            "*",
+            "from User",
+            "where id=#{id,jdbcType=VARCHAR}"
+    })
+    List<User> queryUserById(String id);
+
+    @Update({
+            "update `user` set" ,
+                    " rank=#{rank,jdbcType=VARCHAR} where " ,
+                    "account = #{account,jdbcType=VARCHAR}"
+    })
     int updateByIDSelective(User user);
 
 

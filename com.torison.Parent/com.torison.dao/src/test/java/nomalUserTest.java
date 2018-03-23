@@ -1,4 +1,6 @@
 import com.torison.Application_Dao;
+import com.torison.Friend.dao.FriendDao;
+import com.torison.Friend.model.FriendForm;
 import com.torison.Route.dao.RouteDao;
 import com.torison.nomalUser.dao.nomaluserDao;
 import com.torison.Route.model.Route;
@@ -18,6 +20,9 @@ public class nomalUserTest {
 
     @Autowired
     RouteDao rd;
+
+    @Autowired
+    FriendDao fd;
 
     @Test
     public  void testNomalInsert(){
@@ -52,6 +57,8 @@ public class nomalUserTest {
         rd.deleteRoute(id);
 
     }
+
+
 
 
 

@@ -58,7 +58,7 @@ public class RouteForm extends Form {
     /**
      * 备用参数
      */
-    private Double deposite;
+    private String deposite;
 
     public Integer getRouteid() {
         return routeid;
@@ -132,11 +132,11 @@ public class RouteForm extends Form {
         this.routelastpersonnum = routelastpersonnum;
     }
 
-    public Double getDeposite() {
+    public String getDeposite() {
         return deposite;
     }
 
-    public void setDeposite(Double deposite) {
+    public void setDeposite(String deposite) {
         this.deposite = deposite;
     }
 }

@@ -4,9 +4,21 @@
     <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
     <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
     <script>
-        function toLogin(){
-            $("#login").submit();
-        }
+        $(function () {
+            $("#logbtn").click(function () {
+                $.ajax({
+                    type:"POST",
+                    url:"/login/loginTest",
+                    data:$("#loginform").serialize(),
+                    success:function (data) {
+                        if (data.success){
+                            window.location.href="/login/toIndex";
+                        }else
+                            alert(data.msg);
+                    }
+                });
+            })
+        })
     </script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,7 +40,7 @@
             <canvas id="demo-canvas"></canvas>
             <div class="logo_box">
                 <h3>“背包出行”欢迎你</h3>
-                <form action="/login/loginTest" name="f" method="post" id="login">
+                <form action="/login/loginTest" name="f" method="post" id="loginform">
                     <div class="input_outer">
                         <span class="u_user"></span>
                         <input name="account" class="text" style="color: #FFFFFF !important" type="text" placeholder="请输入账户">
@@ -38,7 +50,7 @@
                         <input name="password" class="text" style="color: #FFFFFF !important; position:absolute; z-index:100;"value="" type="password" placeholder="请输入密码">
                     </div>
                     <div class="mb2">
-                        <a class="act-but submit" href="javascript:;" onclick="toLogin()" style="color: #FFFFFF " type="button">登录</a>
+                        <a class="act-but submit" href="javascript:;" id ="logbtn" style="color: #FFFFFF " type="button">登录</a>
                         <a class="act-but submit" href="/register/toRegist"  style="color: #FFFFFF " type="submit">注册</a>
                     </div>
                 </form>

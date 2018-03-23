@@ -25,6 +25,10 @@ public class UserService {
 
         RespEntity respEntity = new RespEntity();
         User userByAcc = userDao.getUserByAcc(user.getAccount());
+        if ("0".equals(userByAcc.getRank())){
+            respEntity.setRespCode(respCode.Login.RANKZERO);
+            return respEntity;
+        }
         if (userByAcc!=null){
               if (userByAcc.getPassword().equals(user.getPassword())){
                   respEntity.setData(userByAcc);
@@ -50,5 +54,9 @@ public class UserService {
 
     public User getUserByAcc(String account){
         return userDao.getUserByAcc(account);
+    }
+
+    public User getUserById(String Id){
+        return userDao.getUserById(Id);
     }
 }

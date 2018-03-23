@@ -70,6 +70,14 @@ public class OrderDao {
         return orderMapper.selectByUserIDAndRouteID(userid,routeid);
     }
 
+    /**
+     * 根据用户编号和路线号和状态查询订单信息
+     * @return
+     */
+    public Order listOrderByall(Order order){
+        return orderMapper.selectByall(order);
+    }
+
 
 
 

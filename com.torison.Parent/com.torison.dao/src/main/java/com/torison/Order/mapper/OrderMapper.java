@@ -100,4 +100,18 @@ public interface OrderMapper {
             @Result(column="Status", property="status", jdbcType=JdbcType.VARCHAR)
     })
     List<Order> selectByUserIDAndRouteID(@Param(value = "userid") Integer userid,@Param(value = "routeid") Integer routeid);
+ @Select({
+            "select",
+            "OrderID, UserID, RouteID, Num, Status",
+            "from orders",
+            "where UserID = #{userid,jdbcType=INTEGER} and RouteID = #{routeid,jdbcType=INTEGER} and Status = #{status,jdbcType=VARCHAR}"
+    })
+    @Results({
+            @Result(column="OrderID", property="orderid", jdbcType=JdbcType.INTEGER, id=true),
+            @Result(column="UserID", property="userid", jdbcType=JdbcType.INTEGER),
+            @Result(column="RouteID", property="routeid", jdbcType=JdbcType.INTEGER),
+            @Result(column="Num", property="num", jdbcType=JdbcType.INTEGER),
+            @Result(column="Status", property="status", jdbcType=JdbcType.VARCHAR)
+    })
+    Order selectByall(Order order);
 }

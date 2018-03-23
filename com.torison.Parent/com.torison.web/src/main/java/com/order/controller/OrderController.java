@@ -1,29 +1,32 @@
 package com.order.controller;
 
 import com.model.Result;
+import com.model.User;
 import com.order.model.OrderForm;
 import com.order.model.OrderStatus;
+import com.torison.Evaluation.Service.EvaluationService;
+import com.torison.Evaluation.model.Evaluation;
 import com.torison.Order.OrderService;
 import com.torison.Order.model.Order;
 import com.torison.Route.model.Route;
 import com.torison.Route.model.RoutePic;
+import com.torison.User.UserService;
 import com.torison.api.PayServiceApi;
+import com.torison.api.model.PayEntity;
+import com.torison.api.model.PayEnum;
+import com.torison.api.model.ResEntity;
 import com.torison.route.RoutePicService;
 import com.torison.route.RouteService;
-import model.PayEntity;
-import model.PayEnum;
-import model.ResEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.jws.WebParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 @Controller
 @RequestMapping(value = "/order")
@@ -41,25 +44,42 @@ public class OrderController {
     @Autowired
     private PayServiceApi payServiceApi;
 
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private EvaluationService evaluationService;
+
     /**
      * 添加订单到购物车
      * @param order
-     * @param routeid
+     * @param
      * @param num
      * @param request
      * @return
      */
     @RequestMapping(value = "/addOrder")
     @ResponseBody
-    public Result addOrder(Order order,Integer routeid,Integer num , HttpServletRequest request){
+    public Result addOrder(Order order,Integer num , HttpServletRequest request){
         Result result = new Result();
         HttpSession session = request.getSession();
-        System.out.println(session.getAttribute("userid"));
-        order.setUserid(Integer.parseInt(session.getAttribute("userid").toString()));
-        order.setRouteid(routeid);
+        int userid = Integer.parseInt(session.getAttribute("userid").toString());
+        order.setStatus(OrderStatus.UNPAY);
+        order.setUserid(userid);
+        Order order1 = orderService.listOrderByall(order);
+        if (order1!=null){
+            order1.setNum(order1.getNum()+order.getNum());
+            orderService.updateOrder(order1);
+            result.setSuccess(true);
+            result.setMsg("添加成功");
+        }
+        order.setUserid(userid);
         order.setNum(num);
         order.setStatus(OrderStatus.UNPAY);
         orderService.inserOrder(order);
+        Route route = routeService.selectRouteById(order.getRouteid());
+        route.setRoutelastpersonnum(route.getRoutelastpersonnum()-order.getNum());
+        routeService.updateRoute(route);
         result.setSuccess(true);
         result.setMsg("添加成功");
         return result;
@@ -112,8 +132,11 @@ public class OrderController {
     public Result deleteOrder(String routeId,HttpServletRequest request){
 
         Integer userId = Integer.parseInt(request.getSession().getAttribute("userid").toString());
-
-        Order order1 = orderService.listOrderByUseridAndRouteid(userId,Integer.parseInt(routeId));
+        Order order = new Order();
+        order.setRouteid(Integer.parseInt(routeId));
+        order.setUserid(userId);
+        order.setStatus(OrderStatus.PAYED);
+        Order order1 = orderService.listOrderByall(order);
         int flag =orderService.deleteOrderByOrderID(
                 order1.getOrderid()
         );
@@ -143,6 +166,9 @@ public class OrderController {
         payEntity.setStatus(PayEnum.PayStatus.DECREASE);
         ResEntity resEntity = payServiceApi.modifyMoney(payEntity);
         if (!resEntity.isSuccess()) {
+            for (Order order:orders) {
+                order.setStatus(OrderStatus.PAYED);
+            }
             result.setMsg(resEntity.getResMsg());
             result.setSuccess(false);
             return result;
@@ -189,6 +215,8 @@ public class OrderController {
         return result;
     }
 
+
+
     /**
      * 跳转到已完成订单
      * @return
@@ -227,6 +255,66 @@ public class OrderController {
             orderForms.add(orderForm);
         }
         return orderForms;
+    }
+
+    /**
+     * initialize evaluation view
+     * @param routeId
+     * @param
+     * @return
+     */
+    @RequestMapping(value = "/toEvaluation")
+    public String toEvaluation(String routeId,Model model){
+        System.out.println(routeId);
+        Integer routeid = Integer.parseInt(routeId);
+        Route route = routeService.selectRouteById(routeid);
+        RoutePic routePic = routePicService.selectPicByID(routeid);
+        model.addAttribute("route",route);
+        model.addAttribute("routePic",routePic);
+        return "test/Order/Evaluation";
+    }
+
+    /**
+     * Evaluation the order
+     * write to evaluation table for the maker's grade
+     * @param routeId
+     * @param optionsRadiosinline
+     * @param evaluationMsg
+     * @return
+     */
+    @RequestMapping(value = "/Evaluation")
+    @ResponseBody
+    public Result Evaluation(HttpServletRequest request,String routeId,String optionsRadiosinline,String evaluationMsg){
+        Result result = new Result();
+        System.out.println(routeId+optionsRadiosinline+evaluationMsg);
+        Evaluation evaluation = new Evaluation();
+        evaluation.setFromid(Integer.parseInt(request.getSession().getAttribute("userid").toString()));
+        evaluation.setGrade(Integer.parseInt(optionsRadiosinline));
+        evaluation.setMsg(evaluationMsg);
+        evaluation.setRouteid(Integer.parseInt(routeId));
+        evaluationService.insertEva(evaluation);
+        result.setSuccess(true);
+        return  result;
+    }
+
+
+    /**
+     * finished order
+     * @param routeId
+     * @return
+     */
+    @RequestMapping(value = "/finished")
+    @ResponseBody
+    public Result finished(HttpServletRequest request,String routeId){
+        Result result = new Result();
+        int userid = Integer.parseInt(request.getSession().getAttribute("userid").toString());
+        Order order  = new Order();
+        order.setStatus(OrderStatus.FINISH);
+        order.setUserid(userid);
+        order.setRouteid(Integer.parseInt(routeId));
+        orderService.updateOrder(order);
+        result.setSuccess(true);
+        return  result;
     }
 
 }

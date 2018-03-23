@@ -23,15 +23,12 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-    @Autowired
-    private PayServiceApi payServiceApi;
+
 
     @RequestMapping(value = "/toUpdate")
     public String toUpdate(Model model, HttpServletRequest request){
         HttpSession session = request.getSession();
         User user = userService.getUserByAcc(session.getAttribute("account").toString());
-        Double money = payServiceApi.queryMoneyByAccount(user.getAccount()).getData();
-        String moneys = money.toString();
         if (UserRank.MAKER.code().equals(user.getRank())){
             user.setRank("发布者");
         }
@@ -39,7 +36,6 @@ public class UserController {
             user.setRank("普通用户");
         }
         model.addAttribute("user",user);
-        model.addAttribute("money",moneys);
         return "test/User/UpdateUser";
     }
 

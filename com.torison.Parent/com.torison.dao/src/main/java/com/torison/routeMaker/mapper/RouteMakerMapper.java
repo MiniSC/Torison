@@ -14,7 +14,7 @@ public interface RouteMakerMapper {
 
     @Insert({
         "insert into route_maker (UserID, Pic1, ",
-        "Pic2, Introduce)",
+        "Pic2, Introduce,Status)",
         "values (#{userid,jdbcType=INTEGER}, #{pic1,jdbcType=VARCHAR}, ",
         "#{pic2,jdbcType=VARCHAR}, #{introduce,jdbcType=VARCHAR},",
         "#{status,jdbcType=VARCHAR})"

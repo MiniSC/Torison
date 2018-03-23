@@ -173,10 +173,10 @@
                             var h1_img = $("<h1 class='wdc_dis'>"+item.routename+"</h1>");
                             var h2_img = $("<h2 class='wdc_dis'>"+item.routefrom +"-->"+ item.routeend+"</h2>");
                             var p = $("<p class='wdc_p'></p>");
-                            var a1 = $("<a href='http://127.0.0.1:8000/route/listRouteDetail?routeId="+item.routeID+"'></a>");
+                            var a1 = $("<a href='/route/listRouteDetail?routeId="+item.routeID+"'></a>");
                             var i11 = $("<i class='icon-picture-outline'></i>");
                             var i12 = $("<i>查看详情</i>");
-                            var a2 = $("<a href='http://127.0.0.1:8000/route/deleteRoute?routeId="+item.routeID+"'></a>");
+                            var a2 = $("<a href='/route/deleteRoute?routeId="+item.routeID+"'></a>");
                             var i21 = $("<i class='icon-picture-outline'></i>");
                             var i22 = $("<i>删除路线</i>");
 
@@ -193,9 +193,7 @@
                             li_all.append(a_text);
                             li_all.append(p);
                             div_all.append(li_all);
-
                             li_all = $("<li></li>");
-
                         });
                     }
                 }
@@ -228,7 +226,7 @@
                                     <a href="/order/toMyOrder?">未支付订单</a>
                                 </li>
                                 <li>
-                                    <a href="/route/toFinishedOrder">已完成订单</a>
+                                    <a href="/order/toFinishedOrder">已完成订单</a>
                                 </li>
                                 <li>
                                     <a href="/order/toGoingOrder">进行中订单</a>
@@ -298,29 +296,7 @@
     </div>
     <div class="row clearfix">
         <div class="col-md-12 column">
-            <ul class="pagination">
-                <li>
-                    <a href="#">Prev</a>
-                </li>
-                <li>
-                    <a href="#">1</a>
-                </li>
-                <li>
-                    <a href="#">2</a>
-                </li>
-                <li>
-                    <a href="#">3</a>
-                </li>
-                <li>
-                    <a href="#">4</a>
-                </li>
-                <li>
-                    <a href="#">5</a>
-                </li>
-                <li>
-                    <a href="#">Next</a>
-                </li>
-            </ul>
+
         </div>
     </div>
 </div>

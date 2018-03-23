@@ -1,7 +1,9 @@
 package com.torison.Route.mapper;
 
+import com.torison.Route.model.BestEndAddress;
 import com.torison.Route.model.Route;
 import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.type.JdbcType;
 
 import java.util.List;
 
@@ -22,7 +24,7 @@ public interface RouteMapper {
         "#{routefromaddress,jdbcType=VARCHAR}, #{routeendaddress,jdbcType=VARCHAR}, ",
         "#{routeneedmoney,jdbcType=DOUBLE}, #{routeintroduce,jdbcType=VARCHAR}, ",
         "#{routefromid,jdbcType=VARCHAR}, #{routemaxpersonnum,jdbcType=INTEGER}, ",
-        "#{routelastpersonnum,jdbcType=INTEGER}, #{deposite,jdbcType=DOUBLE})"
+        "#{routelastpersonnum,jdbcType=INTEGER}, #{deposite,jdbcType=VARCHAR})"
     })
     @Options(useGeneratedKeys = true, keyProperty = "routeid")
     int insert(Route record);
@@ -56,6 +58,22 @@ public interface RouteMapper {
             "from ROUTE GROUP BY routeID DESC LIMIT 10"
     })
     List<Route> queryTopTenRoute();
+
+    /**
+     * 查询最热门的目的地
+     * @return
+     */
+    @Select({
+            " select routeEndAddress ,count(routeEndAddress) num",
+            " from route ",
+            " JOIN orders on route.routeID= orders.RouteID",
+            " GROUP BY routeEndAddress",
+            " LIMIT 10"
+    })
+    @Results({
+            @Result(column="routeEndAddress", property="routeendaddress", jdbcType= JdbcType.VARCHAR),
+            @Result(column="num", property="num", jdbcType=JdbcType.INTEGER)})
+    List<BestEndAddress> listbestend();
 
     /**
      * 根据ID查询路线
@@ -100,5 +118,19 @@ public interface RouteMapper {
             "where routeID = #{routeid,jdbcType=INTEGER}"
     })
     int deleteByID(Integer routeid);
+
+
+    /**
+     * 根据发布者ID查询路线
+     * @param endaddress
+     * @return
+     */
+    @Select({
+            "select",
+            "*",
+            "from ROUTE",
+            "where routeEndAddress=#{endaddress,jdbcType=VARCHAR}"
+    })
+    List<Route> queryRouteByEnd(String endaddress);
 
 }

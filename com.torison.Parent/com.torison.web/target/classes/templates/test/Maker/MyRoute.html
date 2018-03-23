@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <meta charset="utf-8" />
+    <!--页面优化-->
+    <meta name="MobileOptimized" content="320">
+    <!--默认宽度320-->
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <!--viewport 等比 不缩放-->
+    <meta http-equiv="cleartype" content="on">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!--删除苹果菜单-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!--默认颜色-->
+    <meta name="apple-mobile-web-app-title" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <!--加载全部后 显示-->
+    <meta content="telephone=no" name="format-detection" />
+    <!--不识别电话-->
+    <meta content="email=no" name="format-detection" />
+    <style>
+        body {
+            width: 100%;
+            max-width: 720px;
+            background-color: #e9e9eb;
+            margin: 0 auto;
+        }
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        @font-face {
+            font-family: 'fontello';
+            src: url('../static/font/fontello.eot?58052851');
+            src: url('../static/font/fontello.eot?58052851#iefix') format('embedded-opentype'),
+            url('../static/font/fontello.woff?58052851') format('woff'),
+            url('../static/font/fontello.ttf?58052851') format('truetype'),
+            url('../static/font/fontello.svg?58052851#fontello') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        [class^="icon-"]:before, [class*=" icon-"]:before {
+            font-family: "fontello";
+            font-style: normal;
+            font-weight: normal;
+            speak: none;
+            display: inline-block;
+            text-decoration: inherit;
+            width: 1em;
+            margin-right: .2em;
+            text-align: center;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1em;
+            margin-left: .2em;
+        }
+        .icon-phone-outline:before {
+            content: '\eb0f';
+        }
+        .icon-direction-outline:before {
+            content: '\eb21';
+        }
+        .icon-picture-outline:before {
+            content: '\ead1';
+        }
+        #wdc_index {
+            padding: 10px;
+        }
+        #wdc_index, li {
+            list-style: none;
+        }
+        #wdc_index li {
+            float: left;
+            background-color: #FFFFFF;
+            box-shadow: 1px 1px 2px #e3e3e5, -1px -1px 2px #e3e3e5;
+            border: 1px solid #dbdbdd;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        #wdc_index li .wdc_a {
+            text-decoration: none;
+            color: #5e6060;
+            display: block;
+            padding: 10px 5px;
+            overflow: hidden;
+            border-bottom: 1px solid #dbdbdd;
+        }
+        #wdc_index .wdc_img {
+            width: 75px;
+            height: 60px;
+            float: left;
+            margin-right: 5px;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        #wdc_index .wdc_img img {
+            width: 100%;
+            height: 100%;
+        }
+        .wdc_dis {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 70%;
+        }
+        #wdc_index h1 {
+            font-size: 1em;
+            font-weight: 100;
+            line-height: 32px;
+        }
+        #wdc_index h2 {
+            font-size: 0.8em;
+            font-weight: 100;
+            color: #969696;
+        }
+        .wdc_p {
+            height: 25px;
+            text-align: center;
+            padding: 5px 0;
+        }
+        .wdc_p a {
+            width: 33.2%;
+            display: block;
+            float: left;
+            line-height: 25px;
+            border-right: 1px solid #e8eaeb;
+            color: #36b35f;
+            text-decoration: none;
+        }
+        .wdc_p a:last-child {
+            border-right: 0px;
+        }
+        .wdc_p i {
+            font-style: normal;
+            font-size: 0.8em;
+        }
+        .wdc_p i[class*="icon"] {
+            font-size: 0.9em;
+        }
+    </style>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- 可选的Bootstrap主题文件（一般不使用） -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"></script>
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--页面异步加载-->
+    <script>
+        $(document).ready(function () {
+
+            $.ajax({
+                url:'/route/getMyRoute',
+                type:'POST',
+                dataType:'json',
+                data : {status:'00'},
+                success:function (value) {
+                    if (value.success){
+                        var div_all = $("#wdc_index");
+                        var li_all = $("<li></li>");
+                        jQuery.each(value.obj, function(i,item){
+                            var a_text = $("<a href='#' class='wdc_a'></a>");
+                            var div_img = $("<div class='wdc_img'></div>");
+                            var img = $("<img src='../static/pic/"+item.pic+"'>");
+                            var h1_img = $("<h1 class='wdc_dis'>"+item.routeName+"</h1>");
+                            var h2_img = $("<h2 class='wdc_dis'>出发地点："+item.routeFrom +"-->到达地点："+ item.routeEnd+"</h2>");
+                            var h3_img = $("<h2 class='wdc_dis'>预订数量："+item.num +"</h2>");
+                            var p = $("<p class='wdc_p'></p>");
+                            var a1 = $("<a href='/route/listRouteDetail?routeId="+item.routeID+"'></a>");
+                            var i11 = $("<i class='icon-picture-outline'></i>");
+                            var i12 = $("<i>查看详情</i>");
+                            var a2 = $("<a href='/order/deleteOrder?routeId="+item.routeID+"'></a>");
+                            var i21 = $("<i class='icon-picture-outline'></i>");
+                            var i22 = $("<i>评价留言</i>");
+                            var a3 = $("<a href='/order/deleteOrder?routeId="+item.routeID+"'></a>");
+                            var i31 = $("<i class='icon-picture-outline'></i>");
+                            var i32 = $("<i>申诉</i>");
+                            div_img.append(img);
+                            a_text.append(div_img);
+                            a_text.append(h1_img);
+                            a_text.append(h2_img);
+                            a_text.append(h3_img)
+                            a1.append(i11);
+                            a1.append(i12);
+                            a2.append(i21);
+                            a2.append(i22);
+                            a3.append(i31);
+                            a3.append(i32)
+                            p.append(a1);
+                            p.append(a2);
+                            li_all.append(a_text);
+                            li_all.append(p);
+                            div_all.append(li_all);
+                            li_all = $("<li></li>");
+
+                        });
+                    }
+                }
+            });
+        });
+        function payMyOrder(allmoney) {
+            alert(allmoney);
+            $.ajax({
+                url:'/order/payOrder',
+                type:'POST',
+                data: { allmoney:allmoney },
+                dataType:'json',
+                success:function (data) {
+                    if (data.success){
+                        alert("支付成功");
+                    }
+                    else
+                        alert("支付失败："+data.msg);
+                }
+
+            });
+        }
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">Brand</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="/index">首页</a>
+                        </li>
+                        <li>
+                            <a href="/route/tolistCollect">路线收藏</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">订单管理<strong class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/order/toMyOrder?">未支付订单</a>
+                                </li>
+                                <li>
+                                    <a href="/order/toFinishedOrder">已完成订单</a>
+                                </li>
+                                <li>
+                                    <a href="/order/toGoingOrder">进行中订单</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <#if Session.userrank??>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">领队工具箱<strong class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/listRouteMake">制作路线</a>
+                                </li>
+                                <li>
+                                    <a href="/route/toGetMyRoute">订单管理</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </#if>
+                    </ul>
+                    </ul>
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input class="form-control" type="text" />
+                        </div> <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <#if Session.username??>
+                            <a>欢迎${Session.username}</a>
+                            <#else>
+                            <a href="/login/toLogin">登录</a>
+                        </#if>
+                        </li>
+                        <li>
+                            <#if Session.username??>
+                            <a href="/user/toUpdate">账号管理</a>
+                        </#if>
+                        </li>
+                        <li>
+                            <#if Session.username??>
+                            <a href="/login/logOut">退出登录</a>
+                        </#if>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">好友管理<strong class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">关注列表</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </nav>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-md-6 column">
+            <ul id="wdc_index">
+            </ul>
+        </div>
+        <div class="col-md-6 column">
+        </div>
+    </div>
+    <div class="row clearfix">
+
+    </div>
+</div>
+
+
+</body>
+</html>

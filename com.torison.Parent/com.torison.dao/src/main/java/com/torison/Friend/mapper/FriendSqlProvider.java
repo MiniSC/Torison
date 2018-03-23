@@ -17,6 +17,10 @@ public class FriendSqlProvider {
             sql.VALUES("FriendID", "#{friendid,jdbcType=INTEGER}");
         }
         
+        if (record.getStatus() != null) {
+            sql.VALUES("Status", "#{status,jdbcType=INTEGER}");
+        }
+        
         return sql.toString();
     }
 
@@ -26,6 +30,10 @@ public class FriendSqlProvider {
         
         if (record.getFriendid() != null) {
             sql.SET("FriendID = #{friendid,jdbcType=INTEGER}");
+        }
+        
+        if (record.getStatus() != null) {
+            sql.SET("Status = #{status,jdbcType=INTEGER}");
         }
         
         sql.WHERE("UserID = #{userid,jdbcType=INTEGER}");

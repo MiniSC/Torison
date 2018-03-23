@@ -28,8 +28,8 @@
                        var div_all = $("#div1");
                     jQuery.each(value.obj, function(i,item){
                            var a_img =$("<img alt='140x140'width='140' height='140' src='../static/pic/"+item.path+"'>");
-                           var a_h2=$("<h2>"+item.maker+"</h2>");
-                           var a_p1=$("<p>"+item.introduce+"</p>");
+                           var a_h2=$("<p style='font-family: 华文行楷;font-size: 16px;'>"+item.routename+"</p>");
+                           var a_p1=$("<p>"+item.makername+"</p>");
                            var a_p2=$("<p><a class='btn' href='/route/listRouteDetail?routeId=3'>查看详情</a></p>");
                            div_per.append(a_img);
                            div_per.append(a_h2)
@@ -45,25 +45,35 @@
              * 目的地下拉列表的出现
              */
             $.ajax({
-                url:'/route/getRoute',
+                url:'/route/getNewRoute',
                 type:'POST',
-                data:'id='+1,
                 dataType:'json',
                 success:function (value) {
                     if (value.success){
-                        var div_per = $("<div class='col-md-4 column'>");
-                        var div_all = $("#div1");
+                        var activityUl = $("#newactivity");
                         jQuery.each(value.obj, function(i,item){
-                            var a_img =$("<img alt='140x140'width='140' height='140' src='../static/pic/"+item.path+"'>");
-                            var a_h2=$("<h2>"+item.maker+"</h2>");
-                            var a_p1=$("<p>"+item.introduce+"</p>");
-                            var a_p2=$("<p><a class='btn' href='/route/listRouteDetail?routeId=3'>查看详情</a></p>");
-                            div_per.append(a_img);
-                            div_per.append(a_h2)
-                            div_per.append(a_p1);
-                            div_per.append(a_p2);
-                            div_all.append(div_per);
-                            div_per = $("<div class='col-md-4 column'>");
+                            var li =$("<li>");
+                            var a=$("<a href='/route/listRouteDetail?routeId="+item.routeid+"'>"+item.routename+"</a>");
+                            li.append(a);
+                            activityUl.append(li);
+                            li =$("<li>");
+                        });
+                    }
+                }
+            });
+            $.ajax({
+                url:'/route/getBestEndRoute',
+                type:'POST',
+                dataType:'json',
+                success:function (value) {
+                    if (value.success){
+                        var activityUl = $("#endaddress");
+                        jQuery.each(value.obj, function(i,item){
+                            var li =$("<li>");
+                            var a=$("<a href='/route/getRoutesByend?routeEndAddress="+item.routeendaddress+"'>"+item.routeendaddress+"</a>");
+                            li.append(a);
+                            activityUl.append(li);
+                            li =$("<li>");
                         });
                     }
                 }
@@ -96,7 +106,7 @@
                                         <a href="/order/toMyOrder">未支付订单</a>
                                     </li>
                                     <li>
-                                        <a href="/route/toGetMyRoute">已完成订单</a>
+                                        <a href="/order/toFinishedOrder">已完成订单</a>
                                     </li>
                                     <li>
                                         <a href="/order/toMyOrder">进行中订单</a>
@@ -141,7 +151,7 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">欢迎${Session.username}<strong class="caret"></strong></a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="/login/logOut">账号管理</a>
+                                        <a href="/user/toUpdate">账号管理</a>
                                     </li>
                                     <li>
                                         <a href="/route/tolistCollect">我的收藏</a>
@@ -158,10 +168,10 @@
 
 
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">好友管理<strong class="caret"></strong></a>
+                                <a href="/friend/toFriend" class="dropdown-toggle" data-toggle="dropdown">好友管理<strong class="caret"></strong></a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="#">关注列表</a>
+                                        <a href="/friend/toFriend">我的好友</a>
                                     </li>
                                 </ul>
                             </li>
@@ -186,10 +196,10 @@
                             <img alt="" src="../static/pic/2.jpg" />
                             <div class="carousel-caption">
                                 <h4>
-                                    First Thumbnail label
+                                   背包客旅行
                                 </h4>
                                 <p>
-                                    Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                                    让你在旅行中享受生活，结交好友
                                 </p>
                             </div>
                         </div>

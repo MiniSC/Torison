@@ -181,7 +181,7 @@
                             var a2 = $("<a href='/order/deleteOrder?routeId="+item.routeID+"'></a>");
                             var i21 = $("<i class='icon-picture-outline'></i>");
                             var i22 = $("<i>取消预订</i>");
-                            var a3 = $("<a href='/order/payOneOrder?routeId="+item.routeID+"'></a>");
+                            var a3 = $("<a onclick='payOneOrder("+item.routeID+")'></a>");
                             var i31 = $("<i class='icon-picture-outline'></i>");
                             var i32 = $("<i>订单支付</i>");
                             div_img.append(img);
@@ -208,7 +208,6 @@
             });
         });
         function payMyOrder(allmoney) {
-         alert(allmoney);
            $.ajax({
                 url:'/order/payOrder',
                 type:'POST',
@@ -220,6 +219,23 @@
                         }
                         else
                             alert("支付失败："+data.msg);
+                }
+
+            });
+        }
+
+        function payOneOrder(routeId) {
+            $.ajax({
+                url:'/order/payOneOrder',
+                type:'POST',
+                data: { routeId:routeId },
+                dataType:'json',
+                success:function (data) {
+                    if (data.success){
+                        alert("支付成功");
+                    }
+                    else
+                        alert("支付失败："+data.msg);
                 }
 
             });
@@ -250,7 +266,7 @@
                                     <a href="/order/toMyOrder?">未支付订单</a>
                                 </li>
                                 <li>
-                                    <a href="/route/toFinishedOrder">已完成订单</a>
+                                    <a href="/order/toFinishedOrder">已完成订单</a>
                                 </li>
                                 <li>
                                     <a href="/order/toGoingOrder">进行中订单</a>

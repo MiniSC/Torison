@@ -26,9 +26,9 @@
                     data:$("#userMessage").serialize(),
                     success:function (data) {
                        if (data.success){
-                           alert("注册成功,可以使用邮箱登录账号");
+                           alert(data.msg);
                        }else
-                           alert("注册失败");
+                           alert(data.msg);
                     }
                 });
             })
@@ -37,16 +37,14 @@
     </script>
 
 </head>
-<body>
+<body >
 <div class="container">
     <div class="row clearfix">
         <div class="col-md-12 column">
             <nav class="navbar navbar-default" role="navigation">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">Brand</a>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">背包出行</a>
                 </div>
-
-
             </nav>
         </div>
     </div>
@@ -77,12 +75,24 @@
                     <label for="password">密码</label>
                     <input class="form-control" id="password" name="password"  type="password" />
                 </div>
-                <input  type="button" class="btn btn-default" value="提交" id="subBtn"></input>
+                <input  type="button" class="btn btn-default" value="提交" id="subBtn"/>
             </form>
+        </div>
+        <div class="col-md-6 column"  style="background: #e1e3e3">
+            <div>
+                <h2>注册</h2>
+                <br>
+                请认真填写您的注册信息<br>
+                特别是您的邮箱<br>
+                注册成功后我们将发送邮件到您的邮箱<br>
+                告知您的账号并要求您激活账号<br>
+                账号激活之后就可以在“背包出行”使用啦<br>
+            </div>
         </div>
     </div>
     <div class="row clearfix">
         <div class="col-md-12 column">
+
         </div>
     </div>
 </div>

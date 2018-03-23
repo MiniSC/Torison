@@ -46,7 +46,7 @@ public class RouteSqlProvider {
         }
         
         if (record.getDeposite() != null) {
-            sql.VALUES("deposite", "#{deposite,jdbcType=DOUBLE}");
+            sql.VALUES("deposite", "#{deposite,jdbcType=VARCHAR}");
         }
         
         return sql.toString();
@@ -76,7 +76,7 @@ public class RouteSqlProvider {
         }
 
         if (record.getRouteintroduce() != null) {
-            sql.SET("routeIntroduc = #{routeintroduce,jdbcType=VARCHAR");
+            sql.SET("routeIntroduce = #{routeintroduce,jdbcType=VARCHAR}");
         }
 
         if (record.getRoutefromid() != null) {
@@ -84,7 +84,7 @@ public class RouteSqlProvider {
         }
 
         if (record.getRoutemaxpersonnum() != null) {
-            sql.SET("routeMaxPersonNum = #{routemaxpersonnum,jdbcType=VARCHAR");
+            sql.SET("routeMaxPersonNum = #{routemaxpersonnum,jdbcType=VARCHAR}");
         }
 
         if (record.getRoutelastpersonnum() != null) {
@@ -92,7 +92,7 @@ public class RouteSqlProvider {
         }
 
         if (record.getDeposite() != null) {
-            sql.SET("deposite = #{deposite,jdbcType=DOUBLE}");
+            sql.SET("deposite = #{deposite,jdbcType=VARCHAR}");
         }
 
         sql.WHERE("routeID = #{routeid,jdbcType=INTEGER}");

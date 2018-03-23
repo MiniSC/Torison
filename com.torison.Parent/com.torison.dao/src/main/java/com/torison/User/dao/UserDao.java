@@ -23,6 +23,14 @@ public class UserDao {
     public User getUserByAcc(String account){
         return userMapper.queryUserByAcc(account).get(0);
     }
+    /**
+     * 根据账号查询用户
+     * @param account
+     * @return
+     */
+    public User getUserById(String id){
+        return userMapper.queryUserById(id).get(0);
+    }
 
     /**
      * 添加用户

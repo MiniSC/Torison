@@ -6,7 +6,6 @@
 
     <script src="../static/js/jquery-1.9.1.min.js"></script>
     <script src="../static/js/index.js"></script>
-
     <script>
         $(document).ready(function () {
 
@@ -14,12 +13,11 @@
                 $.ajax({
                     type:"POST",
                     url:"/route/addCollectRoute",
-                    data: { routeid: ${route.routeid}},
+                    data: { routeid: ${routeid}},
                     success:function (data) {
                         if (data.success){
                             alert(""+data.msg);
                             $("#addCollect").hide();
-
                         }else
                             alert("添加路线收藏失败:"+data.msg);
                     }
@@ -29,16 +27,66 @@
                 $.ajax({
                     type:"POST",
                     url:"/order/addOrder",
-                    data: { routeid: ${route.routeid},num: $("#ordernum").val()},
+                    data: { routeid:${routeid},num: $("#ordernum").val()},
                     success:function (data) {
                         if (data.success){
                             alert(data.msg);
+                            load();
                         }else
                             alert("预定失败");
                     }
                 });
             });
         });
+    </script>
+    <script>
+        function load() {
+
+            $.ajax({
+                type:"POST",
+                url:"/route/listRouteDetailMsg",
+                data: { routeId:${routeid}},
+                success:function (data) {
+                    if (data.success){
+                        jQuery.each(data.obj, function(i,item){
+                            $("#pic").attr("src","../static/pic/"+item.pic1);
+                            $("#pic_1").attr("src","../static/pic/"+item.pic1);
+                            $("#pic1").attr("src","../static/pic/"+item.pic2);
+                            $("#pic_11").attr("src","../static/pic/"+item.pic2);
+                            $("#pic2").attr("src","../static/pic/"+item.pic3);
+                            $("#pic_12").attr("src","../static/pic/"+item.pic3);
+                            var aall = $("<a >"+item.routemaxperson+"</a>");
+                            var lall = $("<a>"+item.routelastperson+"</a>");
+                            var price = $("<a>"+item.routeprice+"</a>");
+                            var time = $("<a>"+item.routetime+"</a>");
+                            var fte = $("<a>"+item.routefromaddress+"--->"+item.routeendaddress+"</a>");
+
+                            var intro = $("<a>"+item.routeintroduce+"</a>");
+                            $("#allnum").html("");
+                            $("#lastnum").html("");
+                            $("#time").html("");
+                            $("#price").html("");
+                            $("#routefte").html("");
+                            $("#routeintro").html("");
+
+                            $("#allnum").append(aall);
+                            $("#lastnum").append(lall);
+                            $("#time").append(time);
+                            $("#price").append(price);
+                            $("#routefte").append(fte);
+                            $("#routeintro").append(intro);
+                        });
+                    }
+                }
+            });
+        }
+        $(document).ready(function () {
+            load();
+            }
+
+
+        );
+
     </script>
 
     <!-- 新 Bootstrap 核心 CSS 文件 -->
@@ -81,7 +129,7 @@
                                     <a href="/order/toMyOrder?">未支付订单</a>
                                 </li>
                                 <li>
-                                    <a href="/route/toFinishedOrder">已完成订单</a>
+                                    <a href="/order/toFinishedOrder">已完成订单</a>
                                 </li>
                                 <li>
                                     <a href="/order/toGoingOrder">进行中订单</a>
@@ -143,54 +191,67 @@
     </div>
     <div class="row clearfix">
         <div class="col-md-6 column">
-                <!-- 存放大图的容器-->
-                <div class="allleft">
-                    <div class="top-img">
-                        <div class="activeimg">
-                            <img src="../static/img/1.jpg">
-                            <img src="../static/img/2.jpg">
-                            <img src="../static/img/3.jpg">
-                            <img src="../static/img/4.jpg">
-                            <img src="../static/img/5.jpg">
-                        </div>
-                        <div class="left"><img src="../static/img/left.png"> </div>
-                        <div class="right"><img src="../static/img/right.png"></div>
+            <!-- 存放大图的容器-->
+            <div class="allleft">
+                <div class="top-img">
+                    <div class="activeimg">
+                        <img id="pic_1" >
+                        <img id="pic_11" >
+                        <img id="pic_12" >
                     </div>
-                    <!-- 存放缩略图的容器-->
-                    <div class="bot-img">
-                        <ul>
-                            <li class="active"><img src="../static/img/1.jpg"> </li>
-                            <li><img src="../static/img/2.jpg"> </li>
-                            <li><img src="../static/img/3.jpg"> </li>
-                            <li><img src="../static/img/4.jpg"> </li>
-                            <li><img src="../static/img/5.jpg"> </li>
-                        </ul>
-                    </div>
+                    <div class="left"><img src="../static/img/left.png"> </div>
+                    <div class="right"><img src="../static/img/right.png"></div>
                 </div>
+                <!-- 存放缩略图的容器-->
+                <div class="bot-img">
+                    <ul>
+                        <li class="active"><img id="pic" > </li>
+                        <li><img id="pic1" > </li>
+                        <li><img id="pic2" > </li>
+                    </ul>
+                </div>
+            </div>
         </div>
         <div class="col-md-6 column" style="border:1px solid #bbe1f1;background:#eefaff">
+            <div class="row clearfix">
+                <br><br>
+                <div class="col-md-6 column">
+                    <div class="form-group">
+                        <label for="allnum">总出团人数</label>
+                        <br>
+                        <label id="allnum"></label>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastnum">剩余可预订</label>
+                        <br>
+                        <label id="lastnum"></label>
+                    </div>
+                </div>
+                <div class="col-md-6 column">
+                    <div class="form-group">
+                        <label for="time">出发时间</label>
+                        <br>
+                        <label id="time"></label>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">价格</label>
+                        <br>
+                        <label id="price"></label>
+                    </div>
+                </div>
+            </div>
             <!--div class all 增加了上下边距，来自于轮播的js的模板css样式-->
             <div class="all">
-            <form id="order" >
-                <div class="form-group">
-                    <label for="allnum">总出团人数</label>
-                    <br>
-                    <label id="allnum">${route.routemaxpersonnum}</label>
-                </div>
-                <div class="form-group">
-                    <label for="lastnum">剩余可预订</label>
-                    <br>
-                    <label id="lastnum">${route.routelastpersonnum}</label>
-                </div>
-                <div class="form-group">
-                    <label for="ordernum">预定人数</label>
-                    <input class="form-control" id="ordernum" name="num" type="text"/>
-                </div>
-                <div class="checkbox">
-                </div> <input id="addRouteBtn" type="button" class="btn btn-default" value="预定"/>
-            </form>
-                <br>
-                <input id="addCollect" class="btn btn-default" type="button" value="添加收藏">
+                <form id="order" >
+
+                    <div class="form-group">
+                        <label for="ordernum">预定人数</label>
+                        <input class="form-control" id="ordernum" name="num" type="text"/>
+                    </div>
+                    <div class="checkbox">
+                    </div> <input id="addRouteBtn" type="button" class="btn btn-default" value="预定"/>
+                </form>
+                <a id="addCollect" style="cursor: pointer;">添加收藏</a>
             </div>
         </div>
     </div>
@@ -199,36 +260,19 @@
         <div class="col-md-12 column">
             <dl>
                 <dt>
-                    <div style="border-left:solid 10px #96f2ff;border-right:5px solid #5eecff; height: 30px">
-                    <strong>路线行程</strong>
+                    <div style="border-left:solid 10px #8cfff7;border-right:5px solid #bcfffa; height: 30px">
+                        <strong>路线行程</strong>
                     </div>
                 </dt>
-                <dd>
-                   <p>${route.routefromaddress}-----${route.routeendaddress}</p>
+                <dd id="routefte">
+
                 </dd>
-                <br/><br/>
+                <br><br>
                 <dt>
-                    <div style="border-left:solid 10px #96f2ff;border-right:5px solid #5eecff; height: 30px">
                     路线简介
-                    </div>
                 </dt>
-                <dd>
-                    <p>${route.routeintroduce!''}</p>
-                </dd>
-                <dd>
-                    Donec id elit non mi porta gravida at eget metus.
-                </dd>
-                <dt>
-                    Malesuada porta
-                </dt>
-                <dd>
-                    Etiam porta sem malesuada magna mollis euismod.
-                </dd>
-                <dt>
-                    Felis euismod semper eget lacinia
-                </dt>
-                <dd>
-                    Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+                <dd id="routeintro">
+
                 </dd>
             </dl>
         </div>

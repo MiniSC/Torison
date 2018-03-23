@@ -80,6 +80,18 @@ public class OrderService {
         return null;
     }
 
+    /**
+     * 根据路线id和userid和状态查询订单信息
+     * 在订单新增前检查
+     * @param userid
+     * @param routeid
+     * @return
+     */
+    public Order listOrderByall(Order order) {
+       return orderDao.listOrderByall(order);
+
+    }
+
 
 
 

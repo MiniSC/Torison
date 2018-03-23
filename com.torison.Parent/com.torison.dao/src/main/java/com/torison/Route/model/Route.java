@@ -1,25 +1,61 @@
 package com.torison.Route.model;
 
+/**
+ * @author dongjj
+ * @time 18.3.22
+ * route entity
+ */
 public class Route {
+
+    /**
+     * 路线ID
+     */
     private Integer routeid;
 
+    /**
+     * 路线名称
+     */
     private String routename;
 
+    /**
+     * 路线出发地
+     */
     private String routefromaddress;
 
+    /**
+     * 路线到达地
+     */
     private String routeendaddress;
 
+    /**
+     * 路线定金
+     */
     private Double routeneedmoney;
 
+    /**
+     * 路线介绍
+     */
     private String routeintroduce;
 
+    /**
+     * 制作人ID
+     */
     private String routefromid;
 
+    /**
+     * 最大可容人数
+     */
     private Integer routemaxpersonnum;
 
+    /**
+     * 剩余可定人数
+     */
     private Integer routelastpersonnum;
 
-    private Double deposite;
+    /**
+     * 出发时间
+     */
+    private String deposite;
 
     public Integer getRouteid() {
         return routeid;
@@ -93,11 +129,11 @@ public class Route {
         this.routelastpersonnum = routelastpersonnum;
     }
 
-    public Double getDeposite() {
+    public String getDeposite() {
         return deposite;
     }
 
-    public void setDeposite(Double deposite) {
+    public void setDeposite(String deposite) {
         this.deposite = deposite;
     }
 }

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50018
 File Encoding         : 65001
 
-Date: 2018-03-13 17:37:38
+Date: 2018-03-15 17:37:13
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -62,9 +62,10 @@ CREATE TABLE `orders` (
 -- ----------------------------
 -- Records of orders
 -- ----------------------------
-INSERT INTO `orders` VALUES ('7', '1', '3', '23', '01');
-INSERT INTO `orders` VALUES ('9', '2', '3', '2', '01');
+INSERT INTO `orders` VALUES ('7', '2', '3', '23', '00');
+INSERT INTO `orders` VALUES ('9', '2', '3', '2', '02');
 INSERT INTO `orders` VALUES ('10', '2', '3', '3', '01');
+INSERT INTO `orders` VALUES ('11', '2', '3', '2', '01');
 
 -- ----------------------------
 -- Table structure for `route`
@@ -102,13 +103,14 @@ CREATE TABLE `route_collection` (
 -- Records of route_collection
 -- ----------------------------
 INSERT INTO `route_collection` VALUES ('1', '3');
+INSERT INTO `route_collection` VALUES ('2', '3');
 
 -- ----------------------------
 -- Table structure for `route_maker`
 -- ----------------------------
 DROP TABLE IF EXISTS `route_maker`;
 CREATE TABLE `route_maker` (
-  `UserID` int(11) NOT NULL auto_increment,
+  `UserID` int(11) NOT NULL,
   `Pic1` varchar(255) default NULL,
   `Pic2` varchar(255) default NULL,
   `Introduce` varchar(255) default NULL,
@@ -119,8 +121,7 @@ CREATE TABLE `route_maker` (
 -- ----------------------------
 -- Records of route_maker
 -- ----------------------------
-INSERT INTO `route_maker` VALUES ('1', null, null, 'dsfasfdsaf', '2');
-INSERT INTO `route_maker` VALUES ('2', null, null, 'dsfasfdsaf', null);
+INSERT INTO `route_maker` VALUES ('2', '6a215812-7c25-4753-bbd8-7b9bbefd1872.jpg', 'cb0a0a10-ccf0-4881-942a-caedc952a246.jpg', '的辅导辅导书发多少', '1');
 
 -- ----------------------------
 -- Table structure for `route_pic`
@@ -181,11 +182,12 @@ CREATE TABLE `user` (
   `rank` varchar(255) default NULL,
   `email` varchar(255) default NULL,
   `age` varchar(255) default NULL,
+  `userid` int(11) NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', '123', '董金杰', '123', '2018-1-1', '浙江省舟山市定海区', '0', '222@qq.com', '2');
-INSERT INTO `user` VALUES ('2', '1234', '周文和', '123', '2018-03-15', '清乐园1幢401-2', '0', '12313123@qq.com', '22');
+INSERT INTO `user` VALUES ('1', '123', '董金杰', '123', '2018-1-1', '浙江省舟山市定海区', '0', '222@qq.com', '2', '0');
+INSERT INTO `user` VALUES ('2', '1234', '周文和', '123', '2018-03-15', '清乐园1幢401-2', '0', '12313123@qq.com', '22', '0');

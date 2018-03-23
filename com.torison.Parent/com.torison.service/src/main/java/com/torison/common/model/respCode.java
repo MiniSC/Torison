@@ -9,5 +9,6 @@ public class respCode {
         public static final String TREUUSER = "00";
         public static final String WRONGPWD = "01";
         public static final String NOTEXIST = "02";
+        public static final String RANKZERO = "03";
     }
 }

@@ -3,15 +3,19 @@ package com.route.controller;
 import com.alibaba.fastjson.JSON;
 import com.common.Enum.Path;
 import com.model.Result;
-import com.model.User;
+import com.route.form.RouteDetailForm;
 import com.route.form.RouteListForm;
+import com.torison.Route.model.BestEndAddress;
 import com.torison.Route.model.Route;
 import com.torison.Route.model.RoutePic;
 import com.torison.RouteCollect.model.RouteCollection;
+import com.torison.User.UserService;
+import com.torison.User.model.User;
 import com.torison.route.RoutePicService;
 import com.torison.route.RouteService;
 import com.torison.route.model.RouteForm;
 import com.torison.routeCollection.RouteCollectionService;
+import com.torison.routeMaker.model.RouteMaker;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,11 +28,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.annotation.processing.RoundEnvironment;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.LinkedBlockingDeque;
@@ -51,6 +57,9 @@ public class RouteController {
 
     @Autowired
     private RouteCollectionService routeCollectionService;
+
+    @Autowired
+    private UserService userService;
 
     /**
      * 添加路线信息，上传图片到本地
@@ -76,12 +85,14 @@ public class RouteController {
       }
       /**最后使用前补全所有必须参数是否为空的判断*/
       Route route = routeForm.transTo(new Route());
+      route.setRoutelastpersonnum(route.getRoutemaxpersonnum());
+      route.setRoutefromid(request.getSession().getAttribute("userid").toString());
       log.info("开始添加路线："+JSON.toJSONString(route));
       int routeID;
         /**
          * 添加路线并且获取保存ID
          */
-      if((routeID=routeService.inserRoute(routeForm))!=0){
+      if((routeID=routeService.inserRoute(route))!=0){
           log.info("主键"+routeID);
           List<MultipartFile> files = new ArrayList<>();
           files.add(file1);files.add(file2);files.add(file3);
@@ -97,11 +108,17 @@ public class RouteController {
                               try {
                                   String fileName = UUID.randomUUID().toString();
                                   BufferedOutputStream out = new BufferedOutputStream(
-                                          new FileOutputStream(new File(Path.PicURL.PicUpload + fileName + ".jpg")));
+                                  new FileOutputStream(new File(Path.PicURL.PicUpload + fileName + ".jpg")));
+
+                                  BufferedOutputStream out2 = new BufferedOutputStream(
+                                          new FileOutputStream(new File(Path.PicURL.PicUpload2 + fileName + ".jpg")));
                                   routePaths.add(fileName+".jpg");
+                                  out2.write(file.getBytes());
                                   out.write(file.getBytes());
                                   out.flush();
+                                  out2.flush();
                                   out.close();
+                                  out2.close();
                               } catch (FileNotFoundException e) {
                                   e.printStackTrace();
                               } catch (IOException e) {
@@ -132,11 +149,13 @@ public class RouteController {
 
         Result result = new Result();
         List<Route> listroute = routeService.queryAllRoute();
+
         List<com.model.RouteListForm> listToList = new ArrayList<>();
         for (Route route:listroute){
+            User user = userService.getUserById(route.getRoutefromid());
             com.model.RouteListForm routeListForm = new com.model.RouteListForm();
-            routeListForm.setIntroduce(route.getRouteintroduce());
-            routeListForm.setMaker(route.getRoutefromid());
+            routeListForm.setMakername(user.getUsername());
+            routeListForm.setRoutename(route.getRoutename());
             routeListForm.setPath(routePicService.selectPicByID(route.getRouteid()).getRoutepic1());
             listToList.add(routeListForm);
         }
@@ -160,10 +179,42 @@ public class RouteController {
      * @return
      */
     @RequestMapping(value = "/listRouteDetail")
-    public String getRouteDetail(Model model, Integer routeId){
-        Route route = routeService.selectRouteById(routeId);
-        model.addAttribute("route",route);
+    public String togetRouteDetail(Model model, Integer routeId){
+        model.addAttribute("routeid",routeId);
         return "test/Route/ListRoute";
+    }
+    /**
+     * 查看路线的详情信息
+     * @param model
+     * @param routeId
+     * @return
+     */
+    @RequestMapping(value = "/listRouteDetailMsg")
+    @ResponseBody
+    public Result getRouteDetail(Model model, Integer routeId){
+        Route route = routeService.selectRouteById(routeId);
+        RoutePic routePic = routePicService.selectPicByID(routeId);
+        User user = userService.getUserById(route.getRoutefromid());
+        RouteDetailForm routeDetailForm = new RouteDetailForm();
+        routeDetailForm.setPic1(routePic.getRoutepic1());
+        routeDetailForm.setPic2(routePic.getRoutepic2());
+        routeDetailForm.setPic3(routePic.getRoutepic3());
+        routeDetailForm.setRouteid(route.getRouteid().toString());
+        routeDetailForm.setRouteendaddress(route.getRouteendaddress());
+        routeDetailForm.setRoutefromaddress(route.getRoutefromaddress());
+        routeDetailForm.setRouteintroduce(route.getRouteintroduce());
+        routeDetailForm.setRoutelastperson(route.getRoutelastpersonnum().toString());
+        routeDetailForm.setRoutemaxperson(route.getRoutemaxpersonnum().toString());
+        routeDetailForm.setRoutename(route.getRoutename());
+        routeDetailForm.setRoutemakername(user.getUsername());
+        routeDetailForm.setRouteprice(route.getRouteneedmoney().toString());
+        routeDetailForm.setRoutetime(route.getDeposite());
+        List<RouteDetailForm> routeDetailForms = new LinkedList<>();
+        routeDetailForms.add(routeDetailForm);
+        Result result = new Result();
+        result.setSuccess(true);
+        result.setObj(routeDetailForms);
+        return result;
     }
 
 
@@ -296,6 +347,73 @@ public class RouteController {
         result.setObj(listRoute);
         return result;
 
+    }
+
+    /**
+     * 查询最新发布的十条路线
+     * @return
+     */
+    @RequestMapping("/getNewRoute")
+    @ResponseBody
+    public Result getNewRoute(){
+        List<Route> newRoutes = routeService.queryTopTenRoute();
+        Result result = new Result();
+        result.setObj(newRoutes);
+        result.setSuccess(true);
+        return result;
+    }
+
+    /**
+     * 查询最热门的十条路线
+     * @return
+     */
+    @RequestMapping("/getBestEndRoute")
+    @ResponseBody
+    public Result getBestEndRoute(){
+        List<BestEndAddress> newRoutes = routeService.selectBestEndRoute();
+        Result result = new Result();
+        result.setObj(newRoutes);
+        result.setSuccess(true);
+        return result;
+    }
+
+    /**
+     * 初始化路线信息
+     * @param routeEndAddress
+     * @param model
+     * @return
+     */
+    @RequestMapping("/getRoutesByend")
+    public String  getRoutesByend(String routeEndAddress,Model model){
+        model.addAttribute("routeendaddress", routeEndAddress);
+        return "test/Route/listRoutebyend";
+    }
+
+    /**
+     * 初始化路线列表信息
+     * @param routeEndAddress
+     * @return
+     */
+    @RequestMapping("/getRouteslist")
+    @ResponseBody
+    public Result getRouteslist(String routeEndAddress){
+        Result result = new Result();
+        List<Route> routes = routeService.listRoutebyendaddress(routeEndAddress);
+        //这里使用了routesform，主要为了显示，不想再多写个bean了
+        List<RouteListForm> routesform = new LinkedList<>();
+        for (Route route:routes){
+            RouteListForm routeListForm = new RouteListForm();
+            RoutePic routePic = routePicService.selectPicByID(route.getRouteid());
+            routeListForm.setRouteID(route.getRouteid());
+            routeListForm.setPic(routePic.getRoutepic1());
+            routeListForm.setRouteend(route.getRouteendaddress());
+            routeListForm.setRoutefrom(route.getRoutefromaddress());
+            routeListForm.setRoutename(route.getRoutename());
+            routesform.add(routeListForm);
+        }
+        result.setSuccess(true);
+        result.setObj(routesform);
+        return result;
     }
 
 

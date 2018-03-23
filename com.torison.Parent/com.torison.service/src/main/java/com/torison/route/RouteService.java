@@ -1,11 +1,14 @@
 package com.torison.route;
 
 import com.torison.Route.dao.RouteDao;
+import com.torison.Route.model.BestEndAddress;
 import com.torison.Route.model.Route;
 import com.torison.route.model.RouteForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -19,9 +22,7 @@ public class RouteService {
      * @param form
      *
      */
-    public int inserRoute(RouteForm form){
-        Route route = new Route();
-        form.transTo(route);
+    public int inserRoute(Route route){
         routeDao.insert(route);
         return route.getRouteid();
     }
@@ -76,4 +77,20 @@ public class RouteService {
         return routeDao.selectRouteByMakerId(makerid);
     }
 
+    /**
+     * 查询最热门的旅游目的地
+     * @return
+     */
+    public List<BestEndAddress> selectBestEndRoute(){
+       return routeDao.selectBestEndAddress();
+    }
+
+    /**
+     * 通过地址查询路线
+     * @param endaddress
+     * @return
+     */
+    public List<Route> listRoutebyendaddress(String endaddress){
+        return routeDao.listRouteByendAddress(endaddress);
+    }
 }

@@ -1,17 +1,14 @@
 import com.torison.Application_Dao;
 import com.torison.Friend.FriendSerivce;
-import com.torison.Friend.model.Friend;
 import com.torison.Order.OrderService;
-import com.torison.Order.dao.OrderDao;
 import com.torison.Order.model.Order;
+import com.torison.Route.model.BestEndAddress;
 import com.torison.Route.model.Route;
 import com.torison.Route.model.RoutePic;
 import com.torison.nomalUser.model.nomalUser;
 import com.torison.nomalUser.nomalUserService;
 import com.torison.route.RoutePicService;
 import com.torison.route.RouteService;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -89,13 +86,23 @@ public class nomalUserTest {
         order.setUserid(1);
         orderService.inserOrder(order);
     }
-
+/*
     @Test
     public void testFriend(){
         Friend friend = new Friend();
         friend.setUserid(1);
         friend.setFriendid(2);
         friendSerivce.addFriend(friend);
+    }*/
+
+    @Test
+    public void test1(){
+        List<BestEndAddress> list = routeService.selectBestEndRoute();
+        for (BestEndAddress bestEndAddress:list){
+            System.out.println(bestEndAddress.toString());
+        }
+
+
     }
 
 }

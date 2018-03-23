@@ -178,7 +178,7 @@
                             var a1 = $("<a href='/route/listRouteDetail?routeId="+item.routeID+"'></a>");
                             var i11 = $("<i class='icon-picture-outline'></i>");
                             var i12 = $("<i>查看详情</i>");
-                            var a2 = $("<a href='/order/deleteOrder?routeId="+item.routeID+"'></a>");
+                            var a2 = $("<a href='/order/toEvaluation?routeId="+item.routeID+"'></a>");
                             var i21 = $("<i class='icon-picture-outline'></i>");
                             var i22 = $("<i>评价留言</i>");
                             var a3 = $("<a href='/order/deleteOrder?routeId="+item.routeID+"'></a>");
@@ -197,6 +197,7 @@
                             a3.append(i32)
                             p.append(a1);
                             p.append(a2);
+                            p.append(a3);
                             li_all.append(a_text);
                             li_all.append(p);
                             div_all.append(li_all);
@@ -250,7 +251,7 @@
                                     <a href="/order/toMyOrder?">未支付订单</a>
                                 </li>
                                 <li>
-                                    <a href="/route/toFinishedOrder">已完成订单</a>
+                                    <a href="/order/toFinishedOrder">已完成订单</a>
                                 </li>
                                 <li>
                                     <a href="/order/toGoingOrder">进行中订单</a>
@@ -306,7 +307,6 @@
                         </li>
                     </ul>
                 </div>
-
             </nav>
         </div>
     </div>

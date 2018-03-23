@@ -2,18 +2,19 @@ package com.torison.service;
 
 
 import com.torison.JPA.UserJPA;
+
+
 import com.torison.api.PayServiceApi;
-import com.torison.model.UserEntity;
-import model.PayEntity;
-import model.PayEnum;
-import model.ResEntity;
+import com.torison.api.model.PayEntity;
+import com.torison.api.model.PayEnum;
+import com.torison.api.model.ResEntity;
+import com.torison.api.model.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 
 @Service
-
 public class PayServiceImp implements PayServiceApi {
 
 
@@ -40,12 +41,12 @@ public class PayServiceImp implements PayServiceApi {
         return resEntity;
     }
 
+
     /**
      * 修改用户金额，支付或充值功能
      * @param payEntity
      * @return
      */
-
     @Override
     @Transactional
     public ResEntity modifyMoney(PayEntity payEntity)
@@ -83,7 +84,6 @@ public class PayServiceImp implements PayServiceApi {
 
     @Override
     public ResEntity<Double> queryMoneyByAccount(String account) {
-
        UserEntity userEntity =  userJPA.queryUserEntityByAccount(account).get(0);
        ResEntity resEntity = new ResEntity();
        resEntity.setData(userEntity.getMoney());

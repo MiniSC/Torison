@@ -9,31 +9,31 @@ import com.common.model.Form;
  */
 public class RouteListForm extends Form {
 
-    private String Path;
-    private String introduce;
-    private String maker;
+    private String path;
+    private String routename;
+    private String makername;
 
     public String getPath() {
-        return Path;
+        return path;
     }
 
     public void setPath(String path) {
-        Path = path;
+        this.path = path;
     }
 
-    public String getIntroduce() {
-        return introduce;
+    public String getRoutename() {
+        return routename;
     }
 
-    public void setIntroduce(String introduce) {
-        this.introduce = introduce;
+    public void setRoutename(String routename) {
+        this.routename = routename;
     }
 
-    public String getMaker() {
-        return maker;
+    public String getMakername() {
+        return makername;
     }
 
-    public void setMaker(String maker) {
-        this.maker = maker;
+    public void setMakername(String makername) {
+        this.makername = makername;
     }
 }

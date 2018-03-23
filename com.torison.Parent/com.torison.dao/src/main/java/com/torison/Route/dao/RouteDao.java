@@ -1,6 +1,7 @@
 package com.torison.Route.dao;
 
 import com.torison.Route.mapper.RouteMapper;
+import com.torison.Route.model.BestEndAddress;
 import com.torison.Route.model.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,7 +32,7 @@ public class RouteDao {
     }
 
     /**
-     * 查询所有路线
+     * 查询最新的十条路线
      * @return listRoute
      */
     public List<Route> queryTopTenRoute(){
@@ -74,5 +75,21 @@ public class RouteDao {
         return routeMapper.queryRouteByMakerID(makerid);
     }
 
+    /**
+     * 查询最热门的十条路线的路线名和数量
+     * @return
+     */
+    public List<BestEndAddress> selectBestEndAddress(){
+        return routeMapper.listbestend();
+    }
+
+    /**
+     * 通过目的地查询路线列表
+     * @param endaddress
+     * @return
+     */
+    public List<Route> listRouteByendAddress(String endaddress){
+        return routeMapper.queryRouteByEnd(endaddress);
+    }
 
 }

@@ -84,7 +84,7 @@
                     <overwrite>true</overwrite>
 
                     <configurationFile>
-                       src\main\resources\mybatis-generator</configurationFile>
+                       src\main\resources\mybatis-generator.xml</configurationFile>
                 </configuration>
             </plugin>
         </plugins>
