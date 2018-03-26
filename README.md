@@ -35,3 +35,6 @@ com.torison.Server will be put on dubbo and provide server for send email
 
 ##18.3.5
 使用SpringDataJPA完成用户支付功能的接口
+
+##18.3.26
+遗留问题，两个图片上传有问题，最后完成图片上传问题和提交申请发布者后的处理页面就可以了
