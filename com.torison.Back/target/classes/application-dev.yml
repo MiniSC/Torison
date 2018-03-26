@@ -28,3 +28,14 @@ spring:
       format_sql: true
       show_sql: true
       ddl-auto: update
+  mail:
+         host: smtp.qq.com
+         username:  294879521@qq.com
+         password:  lspkftovkpafbhjd
+         properties:
+            mail:
+              smtp:
+                auth: true
+                starttls:
+                    enable: true
+                    required: true

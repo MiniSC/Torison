@@ -3,31 +3,18 @@
     var first = true;
     var first_bank = true;
     $(function () {
-        $("#pass").click(function () {
-            var userid = $("#routeId").val();
+        $("#delete").click(function () {
+            var routeid = $("#routeIds").val();
+            alert(""+$("#routeIds").val());
             $.ajax({
                 type:"POST",
-                url:"/usermanage/confirmPass",
-                data: { id: userid },
+                url:"/route/deleteRoute",
+                data: { routeId: routeid},
                 success:function (data) {
                     if (data.success){
-                        alert("通过成功");
+                        alert("删除成功");
                     }else
-                        alert("通过失败");
-                }
-            });
-        });
-        $("#pass").click(function () {
-            var userid = $("#routeId").val();
-            $.ajax({
-                type:"POST",
-                url:"/usermanage/confirmRej",
-                data: { id: userid },
-                success:function (data) {
-                    if (data.success){
-                        alert("修改成功");
-                    }else
-                        alert("修改失败"+data.msg);
+                        alert("删除失败");
                 }
             });
         });
@@ -66,8 +53,8 @@
 </script>
 <div class="easyui-layout" data-options="fit:true,border:false">
     <div data-options="region:'center',border:false" title="" style="overflow: hidden;height:300px;width:400px;overflow-x:scroll;overflow-y:scroll;word-break:break-all" >
+        <input id="routeIds" value="${route.routeId}" hidden="true" />
         <form id="form" method="post">
-
             <table class="ftbs" >
                 <tr class="fitem">
                     <th>路线详情：</th>
@@ -78,28 +65,27 @@
                 <tr class="fitem">
                     <th>路线图片1：</th>
                     <td>
-                        <a>${routepic.routepic1!''}</a>
+                        <img src="../../static/pic/${routepic.routepic1!''}" style="width: 140px;height: 140px"/>
                         <input hidden datatype="*" name="channelCode" maxlength="30" class="easyui-validatebox" id="channelId_show" required="true" type="text" value=""/></td>
                 </tr>
                 <tr class="fitem">
                     <th>路线图片2：</th>
                     <td width="140px">
-                        <a>${routepic.routepic2!''}</a>
+                        <img src="../../static/pic/${routepic.routepic2!''}" style="width: 140px;height: 140px"/>
                         <input name="type" id="type" type="text" value="" hidden="true" style="width:135px" autocomplete="off"/>
                     </td>
                 </tr>
                 <tr class="fitem">
                     <th>路线图片3：</th>
                     <td width="140px">
-                        <a>${routepic.routepic3!''}</a>
+                        <img src="../../static/pic${routepic.routepic3!''}" style="width: 140px;height: 140px"/>
                         <input name="type" id="introduce" type="text" value="" hidden="true" style="width:135px" autocomplete="off"/>
                     </td>
                 </tr>
                 <tr class="fitem">
                     <th>操作：</th>
                     <td width="140px">
-                        <input  type="button" value="通过" id="pass"/>
-                        <input  type="button" value="拒绝" id="rej"/>
+                        <input  type="button" value="禁开" id="delete"/>
                     </td>
                 </tr>
 

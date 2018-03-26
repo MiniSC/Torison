@@ -29,4 +29,12 @@ public class RouteService {
        return  routejpa.findAll(ex_user);
     }
 
+    /**
+     * deleteRoute
+     * @param route
+     */
+    public void deleteRoute(Route route){
+         routejpa.delete(route);
+    }
+
 }

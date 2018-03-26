@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <!--页面优化-->
     <meta name="MobileOptimized" content="320">
     <!--默认宽度320-->
@@ -18,9 +18,9 @@
     <meta name="apple-mobile-web-app-title" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
     <!--加载全部后 显示-->
-    <meta content="telephone=no" name="format-detection" />
+    <meta content="telephone=no" name="format-detection"/>
     <!--不识别电话-->
-    <meta content="email=no" name="format-detection" />
+    <meta content="email=no" name="format-detection"/>
     <style>
         body {
             width: 100%;
@@ -28,10 +28,12 @@
             background-color: #e9e9eb;
             margin: 0 auto;
         }
+
         * {
             padding: 0;
             margin: 0;
         }
+
         @font-face {
             font-family: 'fontello';
             src: url('../static/font/fontello.eot?58052851');
@@ -58,21 +60,27 @@
             line-height: 1em;
             margin-left: .2em;
         }
+
         .icon-phone-outline:before {
             content: '\eb0f';
         }
+
         .icon-direction-outline:before {
             content: '\eb21';
         }
+
         .icon-picture-outline:before {
             content: '\ead1';
         }
+
         #wdc_index {
             padding: 10px;
         }
+
         #wdc_index, li {
             list-style: none;
         }
+
         #wdc_index li {
             float: left;
             background-color: #FFFFFF;
@@ -81,6 +89,7 @@
             width: 100%;
             margin-bottom: 10px;
         }
+
         #wdc_index li .wdc_a {
             text-decoration: none;
             color: #5e6060;
@@ -89,6 +98,7 @@
             overflow: hidden;
             border-bottom: 1px solid #dbdbdd;
         }
+
         #wdc_index .wdc_img {
             width: 75px;
             height: 60px;
@@ -97,10 +107,12 @@
             border-radius: 3px;
             overflow: hidden;
         }
+
         #wdc_index .wdc_img img {
             width: 100%;
             height: 100%;
         }
+
         .wdc_dis {
             overflow: hidden;
             text-overflow: ellipsis;
@@ -108,21 +120,25 @@
             white-space: nowrap;
             width: 70%;
         }
+
         #wdc_index h1 {
             font-size: 1em;
             font-weight: 100;
             line-height: 32px;
         }
+
         #wdc_index h2 {
             font-size: 0.8em;
             font-weight: 100;
             color: #969696;
         }
+
         .wdc_p {
             height: 25px;
             text-align: center;
             padding: 5px 0;
         }
+
         .wdc_p a {
             width: 33.2%;
             display: block;
@@ -132,13 +148,16 @@
             color: #36b35f;
             text-decoration: none;
         }
+
         .wdc_p a:last-child {
             border-right: 0px;
         }
+
         .wdc_p i {
             font-style: normal;
             font-size: 0.8em;
         }
+
         .wdc_p i[class*="icon"] {
             font-size: 0.9em;
         }
@@ -159,11 +178,11 @@
         $(document).ready(function () {
                 $("#evaluationsub").click(function () {
                     $.ajax({
-                        url:'/order/Evaluation',
-                        type:'POST',
+                        url: '/order/Evaluation',
+                        type: 'POST',
                         data: $("#evaluation").serialize(),
-                        success:function (data) {
-                            if (data.success){
+                        success: function (data) {
+                            if (data.success) {
                                 alert('提交成功');
                             }
                         }
@@ -179,7 +198,11 @@
         <div class="col-md-12 column">
             <nav class="navbar navbar-default" role="navigation">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">Brand</a>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1"><span
+                            class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
+                            class="icon-bar"></span><span class="icon-bar"></span></button>
+                    <a class="navbar-brand" href="#">Brand</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -191,7 +214,8 @@
                             <a href="/route/tolistCollect">路线收藏</a>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">订单管理<strong class="caret"></strong></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">订单管理<strong
+                                    class="caret"></strong></a>
                             <ul class="dropdown-menu">
                                 <li>
                                     <a href="/order/toMyOrder?">未支付订单</a>
@@ -206,7 +230,8 @@
                         </li>
                         <#if Session.userrank??>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">领队工具箱<strong class="caret"></strong></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">领队工具箱<strong
+                                    class="caret"></strong></a>
                             <ul class="dropdown-menu">
                                 <li>
                                     <a href="/listRouteMake">制作路线</a>
@@ -216,13 +241,15 @@
                                 </li>
                             </ul>
                         </li>
-                    </#if>
+                    </
+                    #if>
                     </ul>
                     </ul>
                     <form class="navbar-form navbar-left" role="search">
                         <div class="form-group">
-                            <input class="form-control" type="text" />
-                        </div> <button type="submit" class="btn btn-default">Submit</button>
+                            <input class="form-control" type="text"/>
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
                     </form>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
@@ -230,21 +257,25 @@
                             <a>欢迎${Session.username}</a>
                             <#else>
                             <a href="/login/toLogin">登录</a>
-                        </#if>
+                        </
+                        #if>
                         </li>
                         <li>
                             <#if Session.username??>
                             <a href="/user/toUpdate">账号管理</a>
-                        </#if>
+                        </
+                        #if>
                         </li>
                         <li>
                             <#if Session.username??>
                             <a href="/login/logOut">退出登录</a>
-                        </#if>
+                        </
+                        #if>
                         </li>
 
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">好友管理<strong class="caret"></strong></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">好友管理<strong
+                                    class="caret"></strong></a>
                             <ul class="dropdown-menu">
                                 <li>
                                     <a href="#">关注列表</a>
@@ -260,19 +291,20 @@
     <div class="row clearfix">
         <!--这里用动态加载-->
         <div class="col-md-6 column">
-            <img alt="140x140" src="/static/pic/${routePic.routepic1}" class="img-rounded" width="140px" height="140px" />
+            <img alt="140x140" src="/static/pic/${routePic.routepic1}" class="img-rounded" width="140px"
+                 height="140px"/>
             <dl>
                 <dt>
                     路线制作人
                 </dt>
                 <dd>
-                   周文和
+                    周文和
                 </dd>
                 <dt>
-                   路线行程：
+                    路线行程：
                 </dt>
                 <dd>
-                   ${route.routefromaddress}->${route.routeendaddress}
+                    ${route.routefromaddress}->${route.routeendaddress}
                 </dd>
             </dl>
         </div>
@@ -280,9 +312,10 @@
         <div class="col-md-6 column">
             <form role="form" action="/order/Evaluation" id="evaluation">
                 <div class="form-group">
-                    <input hidden="true" type="text" name="routeId" value="${route.routeid}" />
+                    <input hidden="true" type="text" name="routeId" value="${route.routeid}"/>
                     <label for="evaluationMsg">评价信息</label>
-                    <textarea class="form-control" name="evaluationMsg" id="evaluationMsg" type="" style="height: 300px" >
+                    <textarea class="form-control" name="evaluationMsg" id="evaluationMsg" type=""
+                              style="height: 300px">
                     </textarea>
                 </div>
                 <div>
@@ -290,13 +323,13 @@
                         <input type="radio" name="optionsRadiosinline" id="optionsRadios1" value="1" checked> 好评
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" name="optionsRadiosinline" id="optionsRadios2"  value="2"> 中评
+                        <input type="radio" name="optionsRadiosinline" id="optionsRadios2" value="2"> 中评
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" name="optionsRadiosinline" id="optionsRadios3"  value="3"> 差评
+                        <input type="radio" name="optionsRadiosinline" id="optionsRadios3" value="3"> 差评
                     </label>
                 </div>
-                <a  class="btn btn-default" id="evaluationsub">提交</a>
+                <a class="btn btn-default" id="evaluationsub">提交</a>
             </form>
         </div>
     </div>

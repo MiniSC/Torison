@@ -49,7 +49,7 @@
                 width : 200,
                 formatter : function(value, row, index) {
                     var str = '';
-                    str += $.formatString('<img onclick="editFun(\'{0}\');" src="{1}" title="查看详情"/>查看详情', row.routeId, '../static/style/images/extjs_icons/pencil.png');
+                    str += $.formatString('<img onclick="editFun(\'{0}\');" src="{1}" title="查看详情"/>查看详情', row.userId, '../static/style/images/extjs_icons/pencil.png');
                     return str;
                 }
             } ] ],
@@ -74,12 +74,11 @@
 
     function editFun(id) {
         $.modalDialog({
-            title : '编辑鉴权渠道',
+            title : '用户详情',
             width : 500,
             height : 500,
-            href : '/route/toRouteDetail?id=' + id,
+            href : '/user/listUserDetail?userid=' + id,
             buttons : [ {
-                text : '编辑',
                 handler : function() {
                     $.modalDialog.openner_dataGrid = dataGrid;//因为添加成功之后，需要刷新这个dataGrid，所以先预定义好
                     var f = $.modalDialog.handler.find('#form');
@@ -105,10 +104,6 @@
                     <td style="text-align:right;">路线编号</td>
                     <td width="140px">
                         <input  name="routeId" id="routeId" type="text"  style="width:135px" autocomplete="off"/>
-                    </td>
-                    <td style="text-align:right;">制作者编号</td>
-                    <td width="140px">
-                        <input class="easyui-combobox"  name="routeFromId" id="routeFromId"  type="text"  style="width:135px" autocomplete="off"/>
                     </td>
 
                     <td style="padding-left:10px">

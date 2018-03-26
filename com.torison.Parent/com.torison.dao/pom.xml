@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>com.torison.dao</artifactId>
+    <packaging>jar</packaging>
 
     <dependencies>
         <!--MySql依赖-->
@@ -87,7 +88,14 @@
                        src\main\resources\mybatis-generator.xml</configurationFile>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>1.5.2.RELEASE</version>
+            </plugin>
         </plugins>
+
     </build>
+
 
 </project>

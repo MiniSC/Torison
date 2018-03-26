@@ -1,5 +1,8 @@
 package com.torison.common.model;
 
+/**
+ *
+ */
 public class BestEndAddress {
 
     String routeendaddress;

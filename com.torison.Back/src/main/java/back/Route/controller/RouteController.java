@@ -4,8 +4,13 @@ import back.Route.dao.model.Route;
 import back.Route.dao.model.RoutePic;
 import back.Route.service.RoutePicService;
 import back.Route.service.RouteService;
+import back.UserManage.dao.model.User;
+import back.UserManage.service.UserService;
 import back.common.model.DataGrid;
 import back.common.model.Result;
+import back.util.EmailSentService;
+import back.util.model.MailCode;
+import back.util.model.MailMsg;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +29,12 @@ public class RouteController {
     @Autowired
     private RoutePicService routePicService;
 
+    @Autowired
+    private EmailSentService emailSentService;
+
+
+    @Autowired
+    private UserService userService;
     /**
      * 初始化路线信息
      * @return
@@ -72,5 +83,36 @@ public class RouteController {
         model.addAttribute("route",route);
         model.addAttribute("routepic",routePic);
         return "/Route/RouteDetail";
+    }
+
+    /**
+     * 删除路线
+     * @param routeId
+     * @return
+     */
+    @RequestMapping("/deleteRoute")
+    @ResponseBody
+    public Result deleteRoute(String routeId){
+        Result result = new Result();
+        Route route = new Route();
+        route.setRouteId(Integer.parseInt(routeId));
+        route = routeService.listRoute(route).get(0);
+        try{
+        routeService.deleteRoute(route);}
+        catch (RuntimeException e){
+            result.setSuccess(false);
+            return result;
+        }
+        User userModel = new User();
+        userModel.setUserId(Integer.parseInt(route.getRouteFromId()));
+        User user = userService.listUser(userModel).get(0);
+        try {
+            emailSentService.sendSimpleEmail(user.getEmail(), MailMsg.MAIL_TITLE,"您发布的"+route.getRouteName()+"路线信息存在违规，已被删除，请重新发布，您的此次行为被记录，请注意，如有疑问，请联系客服");
+        }catch (RuntimeException e){
+            result.setSuccess(false);
+            return result;
+        }
+        result.setSuccess(true);
+        return result;
     }
 }

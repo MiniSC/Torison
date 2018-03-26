@@ -7,6 +7,7 @@ import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -24,5 +25,11 @@ public class UserService {
                 .withMatcher("routeId", ExampleMatcher.GenericPropertyMatchers.startsWith());
         Example<User> ex_user = Example.of(user,matcher_user);
         return  userJPA.findAll(ex_user);
+    }
+
+    @Transactional
+    public int updateUser(String userid){
+      return  userJPA.changeRank("2",Integer.parseInt(userid));
+
     }
 }

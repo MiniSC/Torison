@@ -1,0 +1,100 @@
+<#assign ctx = request.contextPath />
+<script type="text/javascript">
+    var first = true;
+    var first_bank = true;
+    $(function () {
+        $("#freeze").click(function () {
+            var userid = $("#userId").val();
+            $.ajax({
+                type:"POST",
+                url:"/user/freezeUser",
+                data: { userId: userid },
+                success:function (data) {
+                    if (data.success){
+                        alert("已冻结");
+                    }else
+                        alert("冻结失败");
+                }
+            });
+        });
+    })
+
+
+
+
+    //校验规则
+    $.extend($.fn.validatebox.defaults.rules, {
+//验证汉字
+        CHS: {
+            validator: function (value) {
+                return /^[\u0391-\uFFE5]+$/.test(value);
+            },
+            message: '只能为中文'
+        },
+//数字
+        Number: {
+            validator: function (value) {
+                var reg =/^([0-9][0-9]*)+(.[0-9]{1,2})?$/;
+                return reg.test(value);
+            },
+            message: '只能为数字，保留两位小数'
+        },
+        NumberAndChar: {
+            validator: function (value) {
+                var reg =/^[a-zA-Z0-9]*$/;
+                return reg.test(value);
+            },
+            message: '只能为数字和字母'
+        }
+
+
+    })
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+    <div data-options="region:'center',border:false" title="" style="overflow: hidden;height:300px;width:400px;overflow-x:scroll;overflow-y:scroll;word-break:break-all" >
+        <form id="form" method="post">
+            <input id="userId" value="${user.userId}" hidden/>
+            <table class="ftbs" >
+                <tr class="fitem">
+                    <th>姓名：</th>
+                    <td>
+                        <a>${user.userName!''}</a>
+                </tr>
+                <tr class="fitem">
+                    <th>年龄：</th>
+                    <td>
+                        <a>${user.age!''}</a>
+                </tr>
+                <tr class="fitem">
+                    <th>地址：</th>
+                    <td width="140px">
+                        <a>${user.address!''}</a>
+                    </td>
+                </tr>
+                <tr class="fitem">
+                    <th>邮箱：</th>
+                    <td width="140px">
+                        <a>${user.email!''}</a>
+                    </td>
+                </tr>
+                <#if user.rank=='1'>
+                <tr class="fitem">
+                    <th>操作：</th>
+                    <td width="140px">
+                        <input  type="button" value="冻结" id="freeze"/>
+                    </td>
+                </tr>
+                </#if>
+            <#if user.rank=='2'>
+            <tr class="fitem">
+                <th>操作：</th>
+                <td width="140px">
+                    <input  type="button" value="解冻" id="refreeze"/>
+                </td>
+            </tr>
+        </#if>
+            </table>
+        </form>
+    </div>
+</div>
+
