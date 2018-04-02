@@ -58,15 +58,7 @@ public class EmailTask{
     private void executeQuery(List<Route> routes, List<User> users, List<Order> orders){
 
 
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(4,100,200, TimeUnit.MICROSECONDS, new LinkedBlockingQueue(400),new ThreadPoolExecutor.CallerRunsPolicy());
-        threadPoolExecutor.execute(
-                ()->{
-                    List<Route> route_all = routeService.queryAllRoute();
-                    for (Route route : route_all){
-                        routes.add(route);
-                    }
-                }
-        );
+
 
 
 

@@ -19,7 +19,7 @@ public class Test {
         properties.put("bootstrap.servers","123.207.68.131:9092");
         AdminClient adminClient = AdminClient.create(properties);
         ArrayList<NewTopic> topics = new ArrayList<NewTopic>();
-        NewTopic newTopic = new NewTopic("topic-test1",1,(short) 1);
+        NewTopic newTopic = new NewTopic("emailsend",1,(short) 1);
         topics.add(newTopic);
         CreateTopicsResult result = adminClient.createTopics(topics);
         try{

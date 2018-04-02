@@ -16,8 +16,8 @@ public class Producers {
         props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
 
         Producer<String, String> producer = new KafkaProducer<String, String>(props);
-        for (int i = 0; i < 100; i++) {
-            producer.send(new ProducerRecord<String, String>("topic-test", Integer.toString(i), Integer.toString(i)), new Callback() {
+
+            producer.send(new ProducerRecord<String, String>("emailsend","471301240@qq.com"), new Callback() {
                 @Override
                 public void onCompletion(RecordMetadata metadata, Exception e) {
                     if(e != null) {
@@ -25,7 +25,7 @@ public class Producers {
                     }
                 }
             });
-        }
+
         producer.close();
 
     }

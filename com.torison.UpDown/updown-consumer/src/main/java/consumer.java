@@ -24,7 +24,7 @@ public class consumer {
         props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         final KafkaConsumer<String, String> consumer = new KafkaConsumer<String,String>(props);
-        consumer.subscribe(Arrays.asList("topic-test"),new ConsumerRebalanceListener() {
+        consumer.subscribe(Arrays.asList("emailsend"),new ConsumerRebalanceListener() {
             @Override
             public void onPartitionsRevoked(Collection<TopicPartition> collection) {
             }
@@ -43,19 +43,8 @@ public class consumer {
                         ConcurrentHashMap<String,String> concurrentHashMap = new ConcurrentHashMap<>();
                         for (ConsumerRecord<String, String> record : records) {
                             System.out.printf("offset = %d, key = %s, value = %s%n", record.offset(), record.key(), record.value());
-                            System.out.println("t1");
-
-                            ThreadPoolExecutor threadPoolExecutor2 = new ThreadPoolExecutor(4,100,200, TimeUnit.MICROSECONDS, new LinkedBlockingQueue(400),new ThreadPoolExecutor.CallerRunsPolicy());
-                                threadPoolExecutor2.execute(()->{
-                                    concurrentHashMap.put(record.key(),record.value());
-                                });
-
                         }
-                        System.out.println(concurrentHashMap.size());
-                        for (Map.Entry entry:concurrentHashMap.entrySet()){
-                            System.out.println(entry.getValue());
 
-                        }
                     }
                 }
         );
