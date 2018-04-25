@@ -71,8 +71,7 @@ public class RouteController {
      * @return
      */
     @RequestMapping(value = "/addRoute", method = RequestMethod.POST)
-    @ResponseBody
-    public Result route(HttpServletRequest request, @Valid RouteForm routeForm, BindingResult bindingResult,
+    public String route(HttpServletRequest request, @Valid RouteForm routeForm, BindingResult bindingResult,
                         MultipartFile file1,
                         MultipartFile file2,
                         MultipartFile file3) {
@@ -97,24 +96,17 @@ public class RouteController {
           List<MultipartFile> files = new ArrayList<>();
           files.add(file1);files.add(file2);files.add(file3);
           List<String> routePaths = new ArrayList<>();
-          /**
-           * 图片上传使用多线程上传
-           */
-          ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(4,100,200, TimeUnit.MICROSECONDS,new LinkedBlockingDeque<>(400),new ThreadPoolExecutor.CallerRunsPolicy());
-          threadPoolExecutor.execute(
-                  ()->{
                       for (MultipartFile file:files) {
-                          if (file!=null) {
+                          if (!file.isEmpty()) {
                               try {
                                   String fileName = UUID.randomUUID().toString();
                                   BufferedOutputStream out = new BufferedOutputStream(
-                                  new FileOutputStream(new File(Path.PicURL.PicUpload + fileName + ".jpg")));
-
+                                          new FileOutputStream(new File(Path.PicURL.PicUpload + fileName + ".jpg")));
                                   BufferedOutputStream out2 = new BufferedOutputStream(
                                           new FileOutputStream(new File(Path.PicURL.PicUpload2 + fileName + ".jpg")));
-                                  routePaths.add(fileName+".jpg");
-                                  out2.write(file.getBytes());
                                   out.write(file.getBytes());
+                                  out2.write(file.getBytes());
+                                  routePaths.add(fileName + ".jpg");
                                   out.flush();
                                   out2.flush();
                                   out.close();
@@ -130,9 +122,9 @@ public class RouteController {
                           result.setSuccess(true);
                           result.setMsg("添加成功");
                       }
-                  });
+
       }
-      return result;
+      return "/test/Route/RouteUploadEnd";
 
     }
 
@@ -156,6 +148,7 @@ public class RouteController {
             com.model.RouteListForm routeListForm = new com.model.RouteListForm();
             routeListForm.setMakername(user.getUsername());
             routeListForm.setRoutename(route.getRoutename());
+            routeListForm.setRouteid(route.getRouteid());
             routeListForm.setPath(routePicService.selectPicByID(route.getRouteid()).getRoutepic1());
             listToList.add(routeListForm);
         }

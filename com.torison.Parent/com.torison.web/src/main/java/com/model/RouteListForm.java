@@ -12,6 +12,15 @@ public class RouteListForm extends Form {
     private String path;
     private String routename;
     private String makername;
+    private Integer routeid;
+
+    public Integer getRouteid() {
+        return routeid;
+    }
+
+    public void setRouteid(Integer routeid) {
+        this.routeid = routeid;
+    }
 
     public String getPath() {
         return path;

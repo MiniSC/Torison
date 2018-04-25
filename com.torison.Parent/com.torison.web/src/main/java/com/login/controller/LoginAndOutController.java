@@ -59,7 +59,7 @@ public class LoginAndOutController {
             session.setAttribute("userid",respEntity.getData().getId());
             RouteMaker routeMaker = routeMakerService.queryMaker(respEntity.getData().getId());
             if (routeMaker!=null) {
-                if (UserRank.MAKER.code().equals(routeMaker.getStatus())) {
+                if ("0".equals(routeMaker.getStatus())) {
                     session.setAttribute("userrank", UserRank.MAKER.code());
                 }
             }

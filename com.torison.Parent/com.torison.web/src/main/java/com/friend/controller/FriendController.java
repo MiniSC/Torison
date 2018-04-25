@@ -153,6 +153,7 @@ public class FriendController {
         friendWords.setToid(Integer.parseInt(toId));
         friendWords.setWords(msg);
         friendSerivce.inserWords(friendWords);
+        result.setSuccess(true);
         return result;
     }
 
@@ -175,7 +176,7 @@ public class FriendController {
     /**
      * delete Friend by ids
      * @param request
-     * @param Fid
+     * @param
      * @return
      */
     @RequestMapping("/deleteFriend")

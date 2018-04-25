@@ -5,7 +5,6 @@
     $(function () {
         $("#delete").click(function () {
             var routeid = $("#routeIds").val();
-            alert(""+$("#routeIds").val());
             $.ajax({
                 type:"POST",
                 url:"/route/deleteRoute",
@@ -78,7 +77,7 @@
                 <tr class="fitem">
                     <th>路线图片3：</th>
                     <td width="140px">
-                        <img src="../../static/pic${routepic.routepic3!''}" style="width: 140px;height: 140px"/>
+                        <img src="../../static/pic/${routepic.routepic3!''}" style="width: 140px;height: 140px"/>
                         <input name="type" id="introduce" type="text" value="" hidden="true" style="width:135px" autocomplete="off"/>
                     </td>
                 </tr>

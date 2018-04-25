@@ -20,8 +20,7 @@ import java.util.List;
  * GitHub:
  * ===============================
  */
-
-@Component
+@Service
 public interface UserJPA extends JpaRepository<UserEntity,Integer> {
 
     @Query(value = "select * from p_user where p_account =  ?1",nativeQuery = true)

@@ -35,13 +35,26 @@
                            var a_img =$("<img alt='140x140'width='140' height='140' src='../static/pic/"+item.path+"'>");
                            var a_h2=$("<p style='font-family: 华文行楷;font-size: 16px;'>"+item.routename+"</p>");
                            var a_p1=$("<p>"+item.makername+"</p>");
-                           var a_p2=$("<p><a class='btn' href='/route/listRouteDetail?routeId=3'>查看详情</a></p>");
+                           var a_p2=$("<p><a class='btn' href='/route/listRouteDetail?routeId="+item.routeid+"'>查看详情</a></p>");
                            div_per.append(a_img);
                            div_per.append(a_h2)
                            div_per.append(a_p1);
                            div_per.append(a_p2);
                            div_all.append(div_per);
+                        if(i%2==0 && i != 0){
+                            var br = $("<br/>");
+                            var br2 = $("<br/>");
+                            var br3 = $("<br/>");
+                            var br4 = $("<br/>");
+                            var br5 = $("<br/>");
+                            div_all.append(br);
+                            div_all.append(br2);
+                            div_all.append(br3);
+                            div_all.append(br4);
+                            div_all.append(br5);
+                        }
                            div_per = $("<div class='col-md-4 column'>");
+
                     });
                    }
                 }
@@ -212,10 +225,10 @@
                             <img alt="" src="../static/pic/2.jpg" />
                             <div class="carousel-caption">
                                 <h4>
-                                    Second Thumbnail label
+                                   周末三人行
                                 </h4>
                                 <p>
-                                    Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                                   给一周辛苦工作的自己放个假
                                 </p>
                             </div>
                         </div>
@@ -223,10 +236,10 @@
                             <img alt="" src="../static/pic/2.jpg" />
                             <div class="carousel-caption">
                                 <h4>
-                                    Third Thumbnail label
+                                    寻找小伙伴
                                 </h4>
                                 <p>
-                                    Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                                  周末假日寻找志同道合的小伙伴出发吧
                                 </p>
                             </div>
                         </div>
@@ -309,7 +322,7 @@
                         <li class="technology_ico">
                             <a class="superiority-text" href="#afterService">
                                 <span class="superiority-icon"></span>
-                                <span>7x24小时技术支持</span>
+                                <span>全天客服在线</span>
                             </a>
                         </li>
                         <li class="prepare_ico">
@@ -325,33 +338,6 @@
                             </a>
                         </li>
                     </ul>
-                </div>
-                <div class="footer-floor1">
-                    <div class="footer-list">
-                        <ul>
-                            <li class="flist-title">产品与服务</li>
-                            <li><a href="#"><strong>弹性云服务器</strong></a></li>
-                            <li><a href="#"><strong>服务器托管</strong></a></li>
-                        </ul>
-                        <ul>
-                            <li class="flist-title">云解决方案</li>
-                            <li><a href="#">金融解决方案</a></li>
-                            <li><a href="#">电商解决方案</a></li>
-                        </ul>
-                        <ul>
-                            <li class="flist-title">技术与支持</li>
-                            <li><a href="#" target="/user/">工单系统</a></li>
-                            <li><a href="#">意见反馈</a></li>
-                        </ul>
-                        <ul class="flist-4">
-                            <li class="flist-title">关于某公司</li>
-                            <li><a href="#">公司简介</a></li>
-                            <li><a href="#">新闻动态</a></li>
-
-                        </ul>
-                        <div class="clear-float"></div>
-                    </div>
-                    <div class="clear-float"></div>
                 </div>
             </div>
             <div class="footer-floor2">

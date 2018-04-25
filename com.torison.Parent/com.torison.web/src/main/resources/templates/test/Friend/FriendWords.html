@@ -212,18 +212,14 @@
                                     <a href="/listRouteMake">制作路线</a>
                                 </li>
                                 <li>
-                                    <a href="/route/toGetMyRoute">订单管理</a>
+                                    <a href="/route/toGetMyRoute">路线管理</a>
                                 </li>
                             </ul>
                         </li>
                     </#if>
                     </ul>
                     </ul>
-                    <form class="navbar-form navbar-left" role="search">
-                        <div class="form-group">
-                            <input class="form-control" type="text" />
-                        </div> <button type="submit" class="btn btn-default">Submit</button>
-                    </form>
+
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                             <#if Session.username??>
@@ -253,33 +249,16 @@
                         </li>
                     </ul>
                 </div>
-
             </nav>
         </div>
     </div>
     <div class="row clearfix">
-        <!--这里用动态加载-->
-        <div class="col-md-6 column">
-            <dl>
-                <dt>
-                    发送者
-                </dt>
-                <dd>
-                    。。。
-                </dd>
-                <dt>
-                    接受人：
-                </dt>
-                <dd>
-                    。。。
-                </dd>
-            </dl>
-        </div>
+
 
         <div class="col-md-6 column">
             <form role="form" action="/order/Evaluation" id="evaluation">
                 <div class="form-group">
-                    <input type="text" name="toId" value="${toId}" />
+                    <input type="text" name="toId" value="${toId}" hidden />
                     <label for="evaluationMsg">留言信息</label>
                     <textarea class="form-control" name="msg" id="evaluationMsg" type="" style="height: 300px" >
                     </textarea>
@@ -289,5 +268,6 @@
         </div>
     </div>
 </div>
+
 </body>
 </html>

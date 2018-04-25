@@ -5,7 +5,6 @@
     $(function () {
         $("#delete").click(function () {
             var routeid = $("#routeIds").val();
-            alert(""+$("#routeIds").val());
             $.ajax({
                 type:"POST",
                 url:"/route/deleteRoute",

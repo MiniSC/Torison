@@ -83,4 +83,23 @@ public class UserController {
         }
         return result;
     }
+
+    /**
+     * 解冻账号
+     * @param userId
+     * @return
+     */
+    @RequestMapping("/reFreezeUser")
+    @ResponseBody
+    public Result reFreezeUser(String userId){
+        System.out.println(userId);
+        Result result = new Result();
+        if (userService.updateUserReFreeze(userId)!=0){
+            result.setSuccess(true);
+            return result;
+        }
+        return result;
+    }
+
+
 }

@@ -16,6 +16,19 @@
                         alert("冻结失败");
                 }
             });
+        });$("#refreeze").click(function () {
+            var userid = $("#userId").val();
+            $.ajax({
+                type:"POST",
+                url:"/user/reFreezeUser",
+                data: { userId: userid },
+                success:function (data) {
+                    if (data.success){
+                        alert("已冻结");
+                    }else
+                        alert("冻结失败");
+                }
+            });
         });
     })
 

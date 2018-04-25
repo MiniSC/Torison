@@ -32,4 +32,10 @@ public class UserService {
       return  userJPA.changeRank("2",Integer.parseInt(userid));
 
     }
+
+    @Transactional
+    public int updateUserReFreeze(String userid){
+        return  userJPA.changeRank("1",Integer.parseInt(userid));
+
+    }
 }

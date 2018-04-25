@@ -76,11 +76,11 @@ public class RouteMakerController {
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                     result.setMsg("上传失败," + e.getMessage());
-                    return "申请失败";
+                    return "/test/Maker/MakerUploadFail";
                 } catch (IOException e) {
                     e.printStackTrace();
                     result.setMsg("上传失败," + e.getMessage());
-                    return "申请失败";
+                    return "/test/Maker/MakerUploaded";
                 }
             }
         }
@@ -92,7 +92,7 @@ public class RouteMakerController {
             routeMaker.setStatus("2");
             routeMakerService.insertMaker(routeMaker);
             result.setSuccess(true);
-        return "申请成功";
+        return "/test/Maker/MakerUploaded";
     }
 
 
