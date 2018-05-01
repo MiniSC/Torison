@@ -66,7 +66,6 @@ public interface RouteMapper {
     @Select({
             " select routeEndAddress ,count(routeEndAddress) num",
             " from route ",
-            " JOIN orders on route.routeID= orders.RouteID",
             " GROUP BY routeEndAddress",
             " LIMIT 10"
     })

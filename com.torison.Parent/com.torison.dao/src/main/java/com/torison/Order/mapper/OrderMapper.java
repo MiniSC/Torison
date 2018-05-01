@@ -50,7 +50,7 @@ public interface OrderMapper {
           "RouteID = #{routeid,jdbcType=INTEGER},",
           "Num = #{num,jdbcType=INTEGER},",
           "Status = #{status,jdbcType=VARCHAR}",
-        "where OrderID = #{orderid,jdbcType=INTEGER}"
+        "where RouteID = #{routeid,jdbcType=INTEGER} and UserID = #{userid,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(Order record);
 
@@ -104,7 +104,7 @@ public interface OrderMapper {
             "select",
             "OrderID, UserID, RouteID, Num, Status",
             "from orders",
-            "where UserID = #{userid,jdbcType=INTEGER} and RouteID = #{routeid,jdbcType=INTEGER} and Status = #{status,jdbcType=VARCHAR}"
+            "where UserID = #{userid,jdbcType=INTEGER} and RouteID = #{routeid,jdbcType=INTEGER} "
     })
     @Results({
             @Result(column="OrderID", property="orderid", jdbcType=JdbcType.INTEGER, id=true),

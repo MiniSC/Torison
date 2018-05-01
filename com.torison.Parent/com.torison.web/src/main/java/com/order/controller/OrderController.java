@@ -304,17 +304,17 @@ public class OrderController {
      * @return
      */
     @RequestMapping(value = "/finished")
-    @ResponseBody
-    public Result finished(HttpServletRequest request,String routeId){
+    public String finished(HttpServletRequest request,String routeId){
         Result result = new Result();
         int userid = Integer.parseInt(request.getSession().getAttribute("userid").toString());
         Order order  = new Order();
         order.setStatus(OrderStatus.FINISH);
         order.setUserid(userid);
         order.setRouteid(Integer.parseInt(routeId));
+        order.setUserid(Integer.parseInt(request.getSession().getAttribute("userid").toString()));
         orderService.updateOrder(order);
         result.setSuccess(true);
-        return  result;
+        return  "test/Order/FinishOrder";
     }
 
 }

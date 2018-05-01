@@ -180,20 +180,17 @@ public class FriendController {
      * @return
      */
     @RequestMapping("/deleteFriend")
-    @ResponseBody
-    public Result deleteFriend(HttpServletRequest request,String fid){
+    public String deleteFriend(HttpServletRequest request,String fid){
         Integer userid = Integer.parseInt(request.getSession().getAttribute("userid").toString());
         Friend friend = new Friend();
         fid = userService.getUserByAcc(fid).getId().toString();
         friend.setFriendid(Integer.parseInt(fid));
         friend.setUserid(userid);
-        Result result = new Result();
         if (friendSerivce.deleteFriend(friend)==1){
-            result.setSuccess(true);
-            result.setMsg("删除成功");
-            return result;
+
+            return "FriendDeleted";
         }
-        return result;
+        return "FriendDeleted";
     }
 
 

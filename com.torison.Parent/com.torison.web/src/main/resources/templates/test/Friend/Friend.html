@@ -156,6 +156,7 @@
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!--页面异步加载-->
     <script>
+
         function confirmclick(friendid) {
             $.ajax({
                 url: '/friend/updateRelation',
@@ -215,7 +216,7 @@
                             var td13 = $("<td></td>");
                             var a13 = $("<a href='/friend/toleavewords?toId="+item.userAcc+"'>留言</a>");
                             var td14 = $("<td></td>");
-                            var a14 = $("<a href='/friend/deleteFriend?fid='"+item.userAcc+">删除好友</a>");
+                            var a14 = $("<a href='/friend/deleteFriend?fid="+item.userAcc+"'>删除好友</a>");
                             tr_per.append(td11);
                             tr_per.append(td12);
                             td13.append(a13);
