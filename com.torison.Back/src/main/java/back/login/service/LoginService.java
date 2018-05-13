@@ -6,6 +6,7 @@ import back.login.dao.JPA.AdminJPA;
 import back.login.dao.model.Admin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class LoginService {
@@ -34,5 +35,10 @@ public class LoginService {
         resEntity.setSuccess(true);
         resEntity.setRespMsg(RespCode.LOGSUCCESS.code());
         return resEntity;
+    }
+
+    @Transactional
+    public void updatepwd(Admin admin){
+        adminJPA.update(admin.getPassword(),admin.getAccount());
     }
 }

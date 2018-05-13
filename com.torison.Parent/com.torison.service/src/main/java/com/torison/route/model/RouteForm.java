@@ -60,6 +60,59 @@ public class RouteForm extends Form {
      */
     private String deposite;
 
+    /**
+     * 最后报名时间
+     */
+    private String deadline;
+
+    /**
+     * 路线状态
+     */
+    private Integer status;
+
+    /**
+     * 聊天咨询
+     */
+    private String chatconsult;
+
+    /**
+     * 报名说明
+     */
+    private String conditionoverleaf;
+
+
+    public String getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(String deadline) {
+        this.deadline = deadline;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public String getChatconsult() {
+        return chatconsult;
+    }
+
+    public void setChatconsult(String chatconsult) {
+        this.chatconsult = chatconsult;
+    }
+
+    public String getConditionoverleaf() {
+        return conditionoverleaf;
+    }
+
+    public void setConditionoverleaf(String conditionoverleaf) {
+        this.conditionoverleaf = conditionoverleaf;
+    }
+
     public Integer getRouteid() {
         return routeid;
     }

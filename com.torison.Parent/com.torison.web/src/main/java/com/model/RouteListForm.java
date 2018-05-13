@@ -13,6 +13,15 @@ public class RouteListForm extends Form {
     private String routename;
     private String makername;
     private Integer routeid;
+    private Integer clicktime;
+
+    public Integer getClicktime() {
+        return clicktime;
+    }
+
+    public void setClicktime(Integer clicktime) {
+        this.clicktime = clicktime;
+    }
 
     public Integer getRouteid() {
         return routeid;

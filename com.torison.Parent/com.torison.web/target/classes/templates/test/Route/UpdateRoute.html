@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        function pic1 () {
+            var r = new FileReader();
+            f = document.getElementById('file1').files[0];
+
+            r.readAsDataURL(f);
+            r.onload = function (e) {
+                document.getElementById('pic1').src = this.result;
+            };
+        }
+        function pic2 () {
+            var r = new FileReader();
+            f = document.getElementById('file2').files[0];
+
+            r.readAsDataURL(f);
+            r.onload = function (e) {
+                document.getElementById('pic2').src = this.result;
+            };
+        }
+        function pic3 () {
+            var r = new FileReader();
+            f = document.getElementById('file3').files[0];
+
+            r.readAsDataURL(f);
+            r.onload = function (e) {
+                document.getElementById('pic3').src = this.result;
+            };
+        }
+
+        $(function () {
+            $('#deadline').datetimepicker({
+                format: 'YYYY-MM-DD hh:mm',
+                locale: moment.locale('zh-cn')
+            });
+        });
+    </script>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- 可选的Bootstrap主题文件（一般不使用） -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"></script>
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Title</title>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: '/route/getNewRoute',
+                type: 'POST',
+                dataType: 'json',
+                success: function (value) {
+                    if (value.success) {
+                        var activityUl = $("#newactivity");
+                        jQuery.each(value.obj, function (i, item) {
+                            var li = $("<li>");
+                            var a = $("<a href='/route/listRouteDetail?routeId=" + item.routeid + "'>" + item.routename + "</a>");
+                            li.append(a);
+                            activityUl.append(li);
+                            li = $("<li>");
+                        });
+                    }
+                }
+            });
+            $.ajax({
+                url: '/route/getBestEndRoute',
+                type: 'POST',
+                dataType: 'json',
+                success: function (value) {
+                    if (value.success) {
+                        var activityUl = $("#endaddress");
+                        jQuery.each(value.obj, function (i, item) {
+                            var li = $("<li>");
+                            var a = $("<a href='/route/getRoutesByend?routeEndAddress=" + item.routeendaddress + "'>" + item.routeendaddress + "</a>");
+                            li.append(a);
+                            activityUl.append(li);
+                            li = $("<li>");
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">背包出行</a>
+                </div>
+                <!--导航栏层-->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="/index">首页</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">订单管理<strong class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/order/toMyOrder">未支付订单</a>
+                                </li>
+                                <li>
+                                    <a href="/order/toFinishedOrder">已完成订单</a>
+                                </li>
+                                <li>
+                                    <a href="/order/toGoingOrder">进行中订单</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">目的地<strong class="caret"></strong></a>
+                            <ul class="dropdown-menu" id="endaddress">
+
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">最新活动<strong class="caret"></strong></a>
+                            <ul class="dropdown-menu" id="newactivity">
+
+                            </ul>
+                        </li>
+                        <#if Session.userrank??>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">领队工具箱<strong class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/listRouteMake">制作路线</a>
+                                </li>
+                                <li>
+                                    <a href="/route/toGetMyRoute">路线管理</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </#if>
+                    </ul>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <#if Session.username??>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">欢迎${Session.username}<strong class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/user/toUpdate">账号管理</a>
+                                </li>
+                                <li>
+                                    <a href="/route/tolistCollect">我的收藏</a>
+                                </li>
+                                <li>
+                                    <a href="/login/logOut">退出登录</a>
+                                </li>
+                            </ul>
+                            <#else>
+                            <a href="/login/toLogin">登录</a>
+                        </#if>
+                        </li>
+
+
+
+                        <li class="dropdown">
+                            <a href="/friend/toFriend" class="dropdown-toggle" data-toggle="dropdown">好友管理<strong class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/friend/toFriend">我的好友</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </nav>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-md-4 column">
+            <form role="form" action="/route/updateRoute" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                   <input class="form-control" id="routeid" name="routeid" type="text" value="${route.routeid!''}" hidden />
+                </div>
+                <div class="form-group">
+                    <label for="routename">路线名称</label><input class="form-control" id="routename" name="routename" type="text" value="${route.routename!''}" />
+                </div>
+                <div class="form-group">
+                    <label for="routefromaddress">出发地</label><input class="form-control" id="routefromaddress" name="routefromaddress"  value="${route.routefromaddress!''}" type="text" />
+                </div>
+                <div class="form-group">
+                    <label for="routeendaddress">目的地</label><input class="form-control" id="routeendaddress" name="routeendaddress" value="${route.routeendaddress!''}"  type="text" />
+                </div>
+                <div class="form-group">
+                    <label for="routeneedmoney">预付款</label><input class="form-control" id="routeneedmoney" name="routeneedmoney" value="${route.routeneedmoney!''}"  type="text" />
+                </div>
+                <div class="form-group">
+                    <label for="routeintroduce">路线介绍：请标注具体出发时间</label>
+                    <textarea style="height: 200px;" class="form-control" id="routeintroduce" name="routeintroduce"  type="text" value="${route.routeintroduce!''}" >
+                        ${route.routeintroduce!''}
+                    </textarea>
+                </div>
+                <div class="form-group">
+                    <label for="routemaxpersonnum">最大可报名人数</label>
+                    <input class="form-control" id="routemaxpersonnum" name="routemaxpersonnum"  type="text" value="${route.routemaxpersonnum!''}" />
+                </div>
+                <div class="form-group">
+                    <label for="chatconsult">聊天咨询(标注联系方式如QQ群信息)</label>
+                    <input class="form-control" id="chatconsult" name="chatconsult"  type="text"  value="${route.chatconsult!''}" />
+                </div>
+                <div class="form-group">
+                    <label for="conditionoverleaf">报名须知</label>
+                    <textarea class="form-control" id="conditionoverleaf" name="conditionoverleaf"  type="text" value="${route.conditionoverleaf!''}" >${route.conditionoverleaf!''}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="deposite">出发日期</label>
+                    <input class="form-control" id="deposite" name="deposite"  type="date" value="${route.deposite!''}" />
+                </div>
+                <div class="form-group">
+                    <label for="deadline">截止报名时间</label>
+                    <input class="form-control" id="deadline" name="deadline"  type="date" value="${route.deadline!''}" />
+                </div>
+                <div class="form-group">
+                    <label for="file1">路线图片1</label><input id="file1" type="file" name="file1" onchange="pic1()"/>
+                </div>
+                <div class="form-group">
+                    <label for="file2">路线图片2</label><input id="file2" type="file" name="file2" onchange="pic2()"/>
+                </div>
+                <div class="form-group">
+                    <label for="file3">路线图片3</label><input id="file3" type="file" name="file3" onchange="pic3()"/>
+                </div>
+                 <button type="submit" class="btn btn-default">提交</button>
+            </form>
+        </div>
+            <div class="col-md-4 column">
+                <br>
+                <br>
+                <br>
+            </div>
+        <div class="col-md-4 column">
+            <div class="row clearfix">
+                </div>
+            <div class="row clearfix">
+                    <div class="col-md-12 column">
+                        <label for="pic1">待上传图片1</label>
+                        <img id="pic1" width="140" height="140">
+                </div>
+            </div>
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <label for="pic2">待上传图片2</label>
+                    <img id="pic2" width="140" height="140">
+                </div>
+            </div>
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <label for="pic3">待上传图片3</label>
+                    <img id="pic3" width="140" height="140">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

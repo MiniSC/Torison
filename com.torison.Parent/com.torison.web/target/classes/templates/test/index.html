@@ -35,18 +35,20 @@
                            var a_img =$("<img alt='140x140'width='140' height='140' src='../static/pic/"+item.path+"'>");
                            var a_h2=$("<p style='font-family: 华文行楷;font-size: 16px;'>"+item.routename+"</p>");
                            var a_p1=$("<p>"+item.makername+"</p>");
+                           var a_p15 = $("<p>被看："+item.clicktime+"次</p>");
                            var a_p2=$("<p><a class='btn' href='/route/listRouteDetail?routeId="+item.routeid+"'>查看详情</a></p>");
                            div_per.append(a_img);
                            div_per.append(a_h2)
                            div_per.append(a_p1);
+                           div_per.append(a_p15);
                            div_per.append(a_p2);
                            div_all.append(div_per);
                         if(i%2==0 && i != 0){
-                            var br = $("<br/>");
-                            var br2 = $("<br/>");
-                            var br3 = $("<br/>");
-                            var br4 = $("<br/>");
-                            var br5 = $("<br/>");
+                            var br = $("#br");
+                            var br2 =$("#br");
+                            var br3 =$("#br");
+                            var br4 = $("#br");
+                            var br5 = $("#br");
                             div_all.append(br);
                             div_all.append(br2);
                             div_all.append(br3);
@@ -57,6 +59,45 @@
 
                     });
                    }
+                }
+            });
+            $.ajax({
+                url:'/route/getHotRoute',
+                type:'POST',
+                data:'id='+1,
+                dataType:'json',
+                success:function (value) {
+                    if (value.success){
+                        var div_per = $("<div class='col-md-4 column'>");
+                        var div_all = $("#div2");
+                        jQuery.each(value.obj, function(i,item){
+                            var a_img =$("<img alt='140x140'width='140' height='140' src='../static/pic/"+item.path+"'>");
+                            var a_h2=$("<p style='font-family: 华文行楷;font-size: 16px;'>"+item.routename+"</p>");
+                            var a_p1=$("<p>"+item.makername+"</p>");
+                            var a_p15 = $("<p>被看："+item.clicktime+"次</p>");
+                            var a_p2=$("<p><a class='btn' href='/route/listRouteDetail?routeId="+item.routeid+"'>查看详情</a></p>");
+                            div_per.append(a_img);
+                            div_per.append(a_h2)
+                            div_per.append(a_p1);
+                            div_per.append(a_p15);
+                            div_per.append(a_p2);
+                            div_all.append(div_per);
+                            if(i%2==0 && i != 0){
+                                var br = $("#br");
+                                var br2 =$("#br");
+                                var br3 =$("#br");
+                                var br4 = $("#br");
+                                var br5 = $("#br");
+                                div_all.append(br);
+                                div_all.append(br2);
+                                div_all.append(br3);
+                                div_all.append(br4);
+                                div_all.append(br5);
+                            }
+                            div_per = $("<div class='col-md-4 column'>");
+
+                        });
+                    }
                 }
             });
             /**
@@ -109,7 +150,7 @@
             <div class="col-md-12 column">
                 <nav class="navbar navbar-default" role="navigation">
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">背包客旅行</a>
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">背包出行</a>
                     </div>
                      <!--导航栏层-->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -127,7 +168,7 @@
                                         <a href="/order/toFinishedOrder">已完成订单</a>
                                     </li>
                                     <li>
-                                        <a href="/order/toMyOrder">进行中订单</a>
+                                        <a href="/order/toGoingOrder">进行中订单</a>
                                     </li>
                                 </ul>
                             </li>
@@ -151,7 +192,7 @@
                                         <a href="/listRouteMake">制作路线</a>
                                     </li>
                                     <li>
-                                        <a href="/route/toGetMyRoute">订单管理</a>
+                                        <a href="/route/toGetMyRoute">路线管理</a>
                                     </li>
                                 </ul>
                             </li>
@@ -247,15 +288,27 @@
             <div class="col-md-12 column">
                 <br>
                 <br>
-                <div style="border-left:solid 10px #96f2ff;border-right:5px solid #5eecff; height: 30px;">
+                <div style="background-color: #96f2ff;border-left:solid 10px #96f2ff;border-right:5px solid #5eecff; height: 30px;">
                      <h1 style="font-family: 'Microsoft YaHei';color: #2b2b2b;font-size: 18px">最新活动</h1>
                 </div>
             </div>
+
         </div>
         <br>
         <!--三行旅行图+文字介绍-->
         <div class="row clearfix" id="div1">
         </div>
+
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <br>
+                <br>
+                <div style="background-color: #96f2ff;border-left:solid 10px #96f2ff;border-right:5px solid #5eecff; height: 30px;">
+                    <h1 style="font-family: 'Microsoft YaHei';color: #2b2b2b;font-size: 18px">热门活动</h1>
+                </div>
+            </div>
+        </div>
+        <br>
         <div class="row clearfix" id="div2">
         </div>
         <div class="row clearfix" id="div3">
@@ -317,7 +370,7 @@
                         <li class="technology_ico">
                             <a class="superiority-text" href="#afterService">
                                 <span class="superiority-icon"></span>
-                                <span>全天客服在线</span>
+                                <span>客服15957182700</span>
                             </a>
                         </li>
                         <li class="prepare_ico">

@@ -3,6 +3,7 @@ package com.torison.Route.dao;
 import com.torison.Route.mapper.RouteMapper;
 import com.torison.Route.model.BestEndAddress;
 import com.torison.Route.model.Route;
+import com.torison.Route.model.RouteStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +30,12 @@ public class RouteDao {
      */
     public List<Route> queryAllRoute(){
         return routeMapper.queryAllRoute();
+    }   /**
+     * 查询热门路线
+     * @return listRoute
+     */
+    public List<Route> queryHotRoute(){
+        return routeMapper.queryHotRoute();
     }
 
     /**
@@ -53,8 +60,11 @@ public class RouteDao {
      * @param id
      * @return
      */
-    public int deleteRoute(int id){
-        return routeMapper.deleteByID(id);
+    public int  deleteRoute(int id){
+        Route route = new Route();
+        route.setStatus(RouteStatus.DELETE);
+        route.setRouteid(id);
+        return routeMapper.updateByIDSelective(route);
     }
 
     /**

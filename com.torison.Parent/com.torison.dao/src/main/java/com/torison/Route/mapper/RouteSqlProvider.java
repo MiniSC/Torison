@@ -48,6 +48,19 @@ public class RouteSqlProvider {
         if (record.getDeposite() != null) {
             sql.VALUES("deposite", "#{deposite,jdbcType=VARCHAR}");
         }
+        if (record.getDeadline() != null) {
+            sql.VALUES("deadLine", "#{deadline,jdbcType=VARCHAR}");
+        }
+        if (record.getChatconsult() != null) {
+            sql.VALUES("chatConsult", "#{chatconsult,jdbcType=VARCHAR}");
+        }
+        if (record.getConditionoverleaf() != null) {
+            sql.VALUES("conditionOverleaf", "#{conditionoverleaf,jdbcType=LONGVARCHAR}");
+        }
+        if (record.getStatus() != null) {
+            sql.VALUES("status", "#{status,jdbcType=INTEGER}");
+        }
+
         
         return sql.toString();
     }
@@ -93,6 +106,19 @@ public class RouteSqlProvider {
 
         if (record.getDeposite() != null) {
             sql.SET("deposite = #{deposite,jdbcType=VARCHAR}");
+        }
+
+        if (record.getDeadline() != null) {
+            sql.SET("deadLine = #{deadline,jdbcType=VARCHAR}");
+        }
+        if (record.getChatconsult() != null) {
+            sql.SET("chatConsult = #{chatconsult,jdbcType=VARCHAR}");
+        }
+        if (record.getConditionoverleaf() != null) {
+            sql.SET("conditionOverleaf = #{conditionoverleaf,jdbcType=LONGVARCHAR}");
+        }
+        if (record.getStatus() != null) {
+            sql.SET("status = #{status,jdbcType=INTEGER}");
         }
 
         sql.WHERE("routeID = #{routeid,jdbcType=INTEGER}");

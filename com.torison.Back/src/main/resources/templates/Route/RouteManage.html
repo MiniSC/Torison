@@ -10,7 +10,6 @@
             rownumbers:true,//序号
             fitColumns : false,
             border : false,
-            pagination : true,
             idField : 'routeId',/*编号域，需要修改字段名*/
             pageSize : 10,
             pageList : [ 10, 20, 30, 40, 50 ],
@@ -55,14 +54,15 @@
                 formatter : function(value, row, index) {
                     var str = '';
                     str += $.formatString('<img onclick="editFun(\'{0}\');" src="{1}" title="查看详情"/>查看详情', row.routeId, '../static/style/images/extjs_icons/pencil.png');
+                    str += $.formatString('<img onclick="auditFun(\'{0}\');" src="{1}" title="审查"/>审查', row.routeId, '../static/style/images/extjs_icons/image_edit.png');
                     return str;
                 }
             } ] ],
             toolbar : '#toolbar',
-            onLoadSuccess : function() {
+            onLoadSuccess : function(data) {
                 $('#searchForm table').show();
                 parent.$.messager.progress('close');
-
+                    $('#total').html(data.total);
                 $(this).datagrid('tooltip');
             },
             onRowContextMenu : function(e, rowIndex, rowData) {
@@ -79,6 +79,22 @@
 
     function editFun(id) {
         $.modalDialog({
+            title : '路线详情',
+            width : 500,
+            height : 500,
+            href : '/route/toRouteDetail?id=' + id
+        });
+    }
+    function auditFun(id) {
+        $.modalDialog({
+            title : '审查',
+            width : 500,
+            height : 500,
+            href : '/route/toAuditRoute?id=' + id
+        });
+    }
+    function deleteFun(id) {
+        $.modalDialog({
             title : '编辑鉴权渠道',
             width : 500,
             height : 500,
@@ -92,7 +108,7 @@
 </@header>
 <div class="easyui-layout" data-options="fit : true,border : false">
     <div data-options="region:'north',border:false" style="height: 80px; overflow: hidden;">
-       <!-- <form id="searchForm">
+      <form id="searchForm">
             <table style="display: none;">
                 <tr>
                     <td style="text-align:right;">路线名称</td>
@@ -115,7 +131,7 @@
                     </td>
                 </tr>
             </table>
-        </form>-->
+        </form>
     </div>
     <div data-options="region:'center',border:false">
         <table id="dataGrid"></table>

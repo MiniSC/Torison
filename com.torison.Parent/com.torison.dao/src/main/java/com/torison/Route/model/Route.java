@@ -1,61 +1,34 @@
 package com.torison.Route.model;
 
-/**
- * @author dongjj
- * @time 18.3.22
- * route entity
- */
 public class Route {
-
-    /**
-     * 路线ID
-     */
     private Integer routeid;
 
-    /**
-     * 路线名称
-     */
     private String routename;
 
-    /**
-     * 路线出发地
-     */
     private String routefromaddress;
 
-    /**
-     * 路线到达地
-     */
     private String routeendaddress;
 
-    /**
-     * 路线定金
-     */
     private Double routeneedmoney;
 
-    /**
-     * 路线介绍
-     */
     private String routeintroduce;
 
-    /**
-     * 制作人ID
-     */
     private String routefromid;
 
-    /**
-     * 最大可容人数
-     */
     private Integer routemaxpersonnum;
 
-    /**
-     * 剩余可定人数
-     */
     private Integer routelastpersonnum;
 
-    /**
-     * 出发时间
-     */
     private String deposite;
+
+    private String deadline;
+
+    private Integer status;
+
+    private String chatconsult;
+
+    private String conditionoverleaf;
+
 
     public Integer getRouteid() {
         return routeid;
@@ -134,6 +107,38 @@ public class Route {
     }
 
     public void setDeposite(String deposite) {
-        this.deposite = deposite;
+        this.deposite = deposite == null ? null : deposite.trim();
+    }
+
+    public String getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(String deadline) {
+        this.deadline = deadline == null ? null : deadline.trim();
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public String getChatconsult() {
+        return chatconsult;
+    }
+
+    public void setChatconsult(String chatconsult) {
+        this.chatconsult = chatconsult == null ? null : chatconsult.trim();
+    }
+
+    public String getConditionoverleaf() {
+        return conditionoverleaf;
+    }
+
+    public void setConditionoverleaf(String conditionoverleaf) {
+        this.conditionoverleaf = conditionoverleaf == null ? null : conditionoverleaf.trim();
     }
 }

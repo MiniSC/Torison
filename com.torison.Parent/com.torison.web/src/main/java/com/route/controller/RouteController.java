@@ -3,32 +3,39 @@ package com.route.controller;
 import com.alibaba.fastjson.JSON;
 import com.common.Enum.Path;
 import com.model.Result;
+import com.model.Tourists;
+import com.order.model.OrderStatus;
 import com.route.form.RouteDetailForm;
 import com.route.form.RouteListForm;
+import com.route.routeEnum.RouteStatus;
+import com.torison.ClickNum.ClickNum;
+import com.torison.ClickNumService.ClickNumService;
+import com.torison.Order.OrderService;
+import com.torison.Order.model.Order;
 import com.torison.Route.model.BestEndAddress;
 import com.torison.Route.model.Route;
 import com.torison.Route.model.RoutePic;
 import com.torison.RouteCollect.model.RouteCollection;
 import com.torison.User.UserService;
 import com.torison.User.model.User;
+import com.torison.api.PayServiceApi;
+import com.torison.api.model.PayEntity;
+import com.torison.api.model.PayEnum;
 import com.torison.route.RoutePicService;
 import com.torison.route.RouteService;
 import com.torison.route.model.RouteForm;
 import com.torison.routeCollection.RouteCollectionService;
-import com.torison.routeMaker.model.RouteMaker;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.HttpRequestHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.annotation.processing.RoundEnvironment;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -37,11 +44,6 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
-import java.util.concurrent.LinkedBlockingDeque;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-
-import static java.util.stream.Collectors.toList;
 
 @Controller
 @RequestMapping(value = "/route")
@@ -60,6 +62,16 @@ public class RouteController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private OrderService orderService;
+
+    @Autowired
+    private PayServiceApi payServiceApi;
+
+    @Autowired
+    private ClickNumService clickNumService;
+
 
     /**
      * 添加路线信息，上传图片到本地
@@ -82,8 +94,8 @@ public class RouteController {
           result.setSuccess(false);
           result.setMsg("路线名称不能为空");
       }
-      /**最后使用前补全所有必须参数是否为空的判断*/
       Route route = routeForm.transTo(new Route());
+      route.setStatus(RouteStatus.WAITE.getCode());
       route.setRoutelastpersonnum(route.getRoutemaxpersonnum());
       route.setRoutefromid(request.getSession().getAttribute("userid").toString());
       log.info("开始添加路线："+JSON.toJSONString(route));
@@ -144,13 +156,50 @@ public class RouteController {
 
         List<com.model.RouteListForm> listToList = new ArrayList<>();
         for (Route route:listroute){
-            User user = userService.getUserById(route.getRoutefromid());
-            com.model.RouteListForm routeListForm = new com.model.RouteListForm();
-            routeListForm.setMakername(user.getUsername());
-            routeListForm.setRoutename(route.getRoutename());
-            routeListForm.setRouteid(route.getRouteid());
-            routeListForm.setPath(routePicService.selectPicByID(route.getRouteid()).getRoutepic1());
-            listToList.add(routeListForm);
+            //判断路线是否通过审核
+            if (route.getStatus() == RouteStatus.PASS.getCode()) {
+                //获取路线制作者信息等进行显示
+                User user = userService.getUserById(route.getRoutefromid());
+                Integer times = clickNumService.getTimeByRouteId(route.getRouteid());
+                com.model.RouteListForm routeListForm = new com.model.RouteListForm();
+                routeListForm.setMakername(user.getUsername());
+                routeListForm.setRoutename(route.getRoutename());
+                routeListForm.setRouteid(route.getRouteid());
+                routeListForm.setClicktime(times);
+                routeListForm.setPath(routePicService.selectPicByID(route.getRouteid()).getRoutepic1());
+                listToList.add(routeListForm);
+            }
+        }
+        result.setSuccess(true);
+        result.setObj(listToList);
+        return result;
+    }/**
+     * 获取热门路线信息
+     * @param request
+     * @param makerName
+     * @param file
+     * @return
+     */
+    @RequestMapping(value = "/getHotRoute", method = RequestMethod.POST)
+    @ResponseBody
+    public Result getHotRoute(HttpServletRequest request, String makerName, MultipartFile file) {
+
+        Result result = new Result();
+        List<Route> listroute = routeService.queryHotRoute();
+
+        List<com.model.RouteListForm> listToList = new ArrayList<>();
+        for (Route route:listroute){
+                //获取路线制作者信息等进行显示
+                User user = userService.getUserById(route.getRoutefromid());
+                Integer times = clickNumService.getTimeByRouteId(route.getRouteid());
+                com.model.RouteListForm routeListForm = new com.model.RouteListForm();
+                routeListForm.setMakername(user.getUsername());
+                routeListForm.setRoutename(route.getRoutename());
+                routeListForm.setRouteid(route.getRouteid());
+                routeListForm.setClicktime(times);
+                routeListForm.setPath(routePicService.selectPicByID(route.getRouteid()).getRoutepic1());
+                listToList.add(routeListForm);
+
         }
         result.setSuccess(true);
         result.setObj(listToList);
@@ -173,6 +222,7 @@ public class RouteController {
      */
     @RequestMapping(value = "/listRouteDetail")
     public String togetRouteDetail(Model model, Integer routeId){
+        clickNumService.updateTime(routeId);
         model.addAttribute("routeid",routeId);
         return "test/Route/ListRoute";
     }
@@ -202,6 +252,9 @@ public class RouteController {
         routeDetailForm.setRoutemakername(user.getUsername());
         routeDetailForm.setRouteprice(route.getRouteneedmoney().toString());
         routeDetailForm.setRoutetime(route.getDeposite());
+        routeDetailForm.setChatconsult(route.getChatconsult());
+        routeDetailForm.setConditionoverleaf(route.getConditionoverleaf());
+        routeDetailForm.setDeadline(route.getDeadline());
         List<RouteDetailForm> routeDetailForms = new LinkedList<>();
         routeDetailForms.add(routeDetailForm);
         Result result = new Result();
@@ -219,6 +272,21 @@ public class RouteController {
     @RequestMapping(value = "/deleteRoute")
     public String deleteRoute(int routeId){
         routeService.deleteRoute(routeId);
+        Order order = new Order();
+        order.setRouteid(routeId);
+        List<Order> orderList = orderService.listOrderByRouteId(routeId);
+        for (Order order1 : orderList) {
+            if (order1.getStatus().equals(OrderStatus.PAYED)){
+                User user = userService.getUserById(order1.getUserid().toString());
+                Route route = routeService.selectRouteById(order1.getRouteid());
+                PayEntity payEntity = new PayEntity();
+                payEntity.setStatus(PayEnum.PayStatus.INCREASE);
+                double allMoney = route.getRouteneedmoney() * order1.getNum();
+                payEntity.setMoney(allMoney);
+                payEntity.setAccount(user.getAccount());
+                payServiceApi.modifyMoney(payEntity);
+            }
+        }
         return "test/Route/ListMyRoute";
     }
 
@@ -334,6 +402,25 @@ public class RouteController {
             routeListForm.setRouteend(route.getRouteendaddress());
             routeListForm.setRouteID(route.getRouteid());
             routeListForm.setRoutename(route.getRoutename());
+            List<Order> orderList = orderService.listOrderByRouteIdAndStatus(route.getRouteid(),OrderStatus.PAYED);
+            int allnum = 0;
+            for (Order order : orderList) {
+                allnum+=order.getNum();
+            }
+            double allmoney = allnum * route.getRouteneedmoney();
+            routeListForm.setAllmoney(allmoney);
+            if (RouteStatus.PASS.getCode() == route.getStatus()){
+                routeListForm.setStatusMsg(RouteStatus.PASS.getDesc());
+            }
+            if (RouteStatus.REJ.getCode() == route.getStatus()){
+                routeListForm.setStatusMsg(RouteStatus.REJ.getDesc());
+            }
+            if (RouteStatus.WAITE.getCode() == route.getStatus()){
+                routeListForm.setStatusMsg(RouteStatus.WAITE.getDesc());
+            }
+            if (RouteStatus.STOP.getCode() == route.getStatus()){
+                routeListForm.setStatusMsg(RouteStatus.STOP.getDesc());
+            }
             listRoute.add(routeListForm);
         }
         result.setSuccess(true);
@@ -409,7 +496,107 @@ public class RouteController {
         return result;
     }
 
+    /**
+     * 初始化修改路线信息
+     * @return
+     */
+    @RequestMapping(value = "/toUpdateRoute")
+    public String toUpdateRoute(Model model,String routeId){
 
+        Route route = routeService.selectRouteById(Integer.parseInt(routeId));
+        model.addAttribute("route",route);
+        return "test/Route/UpdateRoute";
+    }
+
+    /**
+     * 更新路线信息
+     * @param
+     * @return
+     */
+    @RequestMapping("/updateRoute")
+    @ResponseBody
+    public Result getRouteslist( @Valid RouteForm routeForm,HttpServletRequest request,
+                                 MultipartFile file1,
+                                 MultipartFile file2,
+                                 MultipartFile file3){
+        Result result = new Result();
+        log.info("路线信息入参:"+JSON.toJSONString(routeForm));
+        if (routeForm.getRoutename().isEmpty()||routeForm.getRoutename().equals("")){
+            result.setSuccess(false);
+            result.setMsg("路线名称不能为空");
+        }
+        Route route = routeForm.transTo(new Route());
+        route.setStatus(RouteStatus.WAITE.getCode());
+        route.setRoutelastpersonnum(route.getRoutemaxpersonnum());
+        route.setRoutefromid(request.getSession().getAttribute("userid").toString());
+        log.info("开始更新路线："+JSON.toJSONString(route));
+        routeService.updateRoute(route);
+            List<MultipartFile> files = new ArrayList<>();
+            files.add(file1);files.add(file2);files.add(file3);
+            List<String> routePaths = new ArrayList<>();
+            for (MultipartFile file:files) {
+                if (!file.isEmpty()) {
+                    try {
+                        String fileName = UUID.randomUUID().toString();
+                        BufferedOutputStream out = new BufferedOutputStream(
+                                new FileOutputStream(new File(Path.PicURL.PicUpload + fileName + ".jpg")));
+                        BufferedOutputStream out2 = new BufferedOutputStream(
+                                new FileOutputStream(new File(Path.PicURL.PicUpload2 + fileName + ".jpg")));
+                        out.write(file.getBytes());
+                        out2.write(file.getBytes());
+                        routePaths.add(fileName + ".jpg");
+                        out.flush();
+                        out2.flush();
+                        out.close();
+                        out2.close();
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+       routePicService.updatePicById(routePaths,route.getRouteid());
+
+        result.setSuccess(true);
+        return result;
+    }
+
+    @RequestMapping("/toTourists")
+    public String toTourists(String routeId, Model model){
+        int intRouteId = Integer.parseInt(routeId);
+        Route route = routeService.selectRouteById(intRouteId);
+        model.addAttribute("routeName",route.getRoutename());
+        model.addAttribute("routeId",routeId);
+        return "test/Route/Tourists";
+    }
+
+    @RequestMapping("/getTourists")
+    @ResponseBody
+    public Result getTourists(String routeId){
+        //获取路线订单信息
+        int intRouteId = Integer.parseInt(routeId);
+        List<Order> orderList = orderService.listOrderByRouteId(intRouteId);
+        //订单用户信息
+        List<Tourists> touristsList = new ArrayList<>();
+        orderList.forEach(order -> {
+            Tourists tourists = new Tourists();
+            User user = userService.getUserById(order.getUserid().toString());
+            tourists.setAccount(user.getAccount());
+            tourists.setName(user.getUsername());
+            if (order.getStatus().equals(OrderStatus.PAYED)) {
+                tourists.setPaystatus("已支付");
+            }
+            if (order.getStatus().equals(OrderStatus.UNPAY)){
+                tourists.setPaystatus("未支付");
+            }
+            touristsList.add(tourists);
+        });
+        Result result = new Result();
+        result.setObj(touristsList);
+        result.setSuccess(true);
+        return result;
+    }
 
 
 

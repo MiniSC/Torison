@@ -7,12 +7,17 @@ import back.UserManage.service.RMService;
 import back.UserManage.service.UserService;
 import back.common.model.DataGrid;
 import back.common.model.Result;
+import back.login.dao.JPA.AdminJPA;
+import back.login.dao.model.Admin;
+import back.login.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.xml.crypto.Data;
 import java.util.List;
 
@@ -25,6 +30,12 @@ public class UserController {
 
     @Autowired
     RMService rmService;
+
+    @Autowired
+    private AdminJPA adminJPA;
+
+    @Autowired
+    private LoginService loginService;
 
 
     /**
@@ -65,6 +76,30 @@ public class UserController {
         userReq.setUserId(Integer.parseInt(userid));
         model.addAttribute("user",userService.listUser(userReq).get(0));
         return "User/UserDetail";
+    } /**
+     * 跳转修改密码
+     * @param
+     * @param
+     * @return
+     */
+    @RequestMapping("/tochangepwd")
+    public String tochangepwd(){
+
+        return "User/changepwd";
+    }
+
+    @RequestMapping("/changepwd")
+    @ResponseBody
+    public Result changepwd(HttpServletRequest request , String pwd){
+        HttpSession session = request.getSession();
+        String userAccount = session.getAttribute("userid").toString();
+        Result result = new Result();
+        Admin admin = new Admin();
+        admin.setAccount(userAccount);
+        admin.setPassword(pwd);
+        loginService.updatepwd(admin);
+          result.setSuccess(true);
+        return result;
     }
 
     /**

@@ -1,7 +1,6 @@
 package com.order.controller;
 
 import com.model.Result;
-import com.model.User;
 import com.order.model.OrderForm;
 import com.order.model.OrderStatus;
 import com.torison.Evaluation.Service.EvaluationService;
@@ -23,7 +22,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.jws.WebParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.*;
@@ -63,21 +61,33 @@ public class OrderController {
     public Result addOrder(Order order,Integer num , HttpServletRequest request){
         Result result = new Result();
         HttpSession session = request.getSession();
+        if (session.getAttribute("userid") == null) {
+            result.setSuccess(false);
+            result.setMsg("请先登录");
+            return result;
+        }
         int userid = Integer.parseInt(session.getAttribute("userid").toString());
         order.setStatus(OrderStatus.UNPAY);
         order.setUserid(userid);
         Order order1 = orderService.listOrderByall(order);
+        Route route = routeService.selectRouteById(order.getRouteid());
+        if (route.getRoutelastpersonnum()<num){
+            result.setSuccess(false);
+            result.setMsg("超过路线可报名人数");
+            return result;
+        }
         if (order1!=null){
             order1.setNum(order1.getNum()+order.getNum());
             orderService.updateOrder(order1);
             result.setSuccess(true);
             result.setMsg("添加成功");
+            return result;
         }
         order.setUserid(userid);
         order.setNum(num);
         order.setStatus(OrderStatus.UNPAY);
         orderService.inserOrder(order);
-        Route route = routeService.selectRouteById(order.getRouteid());
+
         route.setRoutelastpersonnum(route.getRoutelastpersonnum()-order.getNum());
         routeService.updateRoute(route);
         result.setSuccess(true);
@@ -310,9 +320,21 @@ public class OrderController {
         Order order  = new Order();
         order.setStatus(OrderStatus.FINISH);
         order.setUserid(userid);
-        order.setRouteid(Integer.parseInt(routeId));
-        order.setUserid(Integer.parseInt(request.getSession().getAttribute("userid").toString()));
+        int routeId1 = Integer.parseInt(routeId);
+        Order order1 = orderService.listOrderByUseridAndRouteid(userid,routeId1);
+        order.setNum(order1.getNum());
+        order.setRouteid(routeId1);
+        order.setUserid(userid);
         orderService.updateOrder(order);
+
+        Route route = routeService.selectRouteById(routeId1);
+        PayEntity payEntity = new PayEntity();
+        String routeMakerAcc = userService.getUserById(route.getRoutefromid()).getAccount();
+        payEntity.setAccount(routeMakerAcc);
+        double money = order1.getNum() * route.getRouteneedmoney();
+        payEntity.setMoney(money);
+        payEntity.setStatus(PayEnum.PayStatus.INCREASE);
+        payServiceApi.modifyMoney(payEntity);
         result.setSuccess(true);
         return  "test/Order/FinishOrder";
     }

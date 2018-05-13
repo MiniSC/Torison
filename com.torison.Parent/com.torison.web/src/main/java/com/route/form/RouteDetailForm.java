@@ -17,7 +17,45 @@ public class RouteDetailForm {
     private String pic2;
     private String pic3;
 
+    private String deadline;
 
+    private Integer status;
+
+    private String chatconsult;
+
+    private String conditionoverleaf;
+
+    public String getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(String deadline) {
+        this.deadline = deadline;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public String getChatconsult() {
+        return chatconsult;
+    }
+
+    public void setChatconsult(String chatconsult) {
+        this.chatconsult = chatconsult;
+    }
+
+    public String getConditionoverleaf() {
+        return conditionoverleaf;
+    }
+
+    public void setConditionoverleaf(String conditionoverleaf) {
+        this.conditionoverleaf = conditionoverleaf;
+    }
 
     public String getRouteid() {
 

@@ -15,16 +15,20 @@ public interface RouteMapper {
      * @return
      */
     @Insert({
-        "insert into ROUTE (routeID, routeName, ",
+        "insert into ROUTE ( routeName, ",
         "routeFromAddress, routeEndAddress, ",
         "routeNeedMoney, routeIntroduce, ",
         "routeFromId, routeMaxPersonNum, ",
-        "routeLastPersonNum, deposite)",
-        "values (#{routeid,jdbcType=INTEGER}, #{routename,jdbcType=VARCHAR}, ",
+        "routeLastPersonNum, deposite,",
+        "deadLine , status,",
+        "chatconsult, conditionoverleaf)",
+        "values ( #{routename,jdbcType=VARCHAR}, ",
         "#{routefromaddress,jdbcType=VARCHAR}, #{routeendaddress,jdbcType=VARCHAR}, ",
         "#{routeneedmoney,jdbcType=DOUBLE}, #{routeintroduce,jdbcType=VARCHAR}, ",
         "#{routefromid,jdbcType=VARCHAR}, #{routemaxpersonnum,jdbcType=INTEGER}, ",
-        "#{routelastpersonnum,jdbcType=INTEGER}, #{deposite,jdbcType=VARCHAR})"
+        "#{routelastpersonnum,jdbcType=INTEGER}, #{deposite,jdbcType=VARCHAR}, ",
+        "#{deadline,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, ",
+        "#{chatconsult,jdbcType=VARCHAR}, #{conditionoverleaf,jdbcType=LONGVARCHAR})",
     })
     @Options(useGeneratedKeys = true, keyProperty = "routeid")
     int insert(Route record);
@@ -44,9 +48,18 @@ public interface RouteMapper {
     @Select({
             "select",
             "*",
-            "from ROUTE"
+            "from ROUTE "
     })
     List<Route> queryAllRoute();
+
+    /**
+     * 查询所有路线
+     * @return
+     */
+    @Select({
+            "select * from route,click_num where route.routeID = click_num.routeId and route.`status` = 0 GROUP BY click_num.times DESC LIMIT 3"
+    })
+    List<Route> queryHotRoute();
 
     /**
      * 查询最新的十条路线
@@ -55,7 +68,7 @@ public interface RouteMapper {
     @Select({
             "select",
             "*",
-            "from ROUTE GROUP BY routeID DESC LIMIT 10"
+            "from ROUTE where status = 0 GROUP BY routeID DESC LIMIT 5"
     })
     List<Route> queryTopTenRoute();
 
@@ -66,6 +79,7 @@ public interface RouteMapper {
     @Select({
             " select routeEndAddress ,count(routeEndAddress) num",
             " from route ",
+            "where status = 0",
             " GROUP BY routeEndAddress",
             " LIMIT 10"
     })
@@ -83,7 +97,7 @@ public interface RouteMapper {
             "select",
             "*",
             "from ROUTE",
-            "where routeID=#{ID,jdbcType=VARCHAR}"
+            "where routeID=#{ID,jdbcType=VARCHAR} "
     })
     List<Route> queryRouteByID(int ID);
 
@@ -96,7 +110,7 @@ public interface RouteMapper {
             "select",
             "*",
             "from ROUTE",
-            "where routeFromID=#{routeFromID,jdbcType=VARCHAR}"
+            "where routeFromID=#{routeFromID,jdbcType=VARCHAR} and status != 4"
     })
     List<Route> queryRouteByMakerID(int routeFromID);
     /**
@@ -112,7 +126,7 @@ public interface RouteMapper {
      * @param routeid
      * @return
      */
-    @Delete({
+    @Update({
             "delete from ROUTE",
             "where routeID = #{routeid,jdbcType=INTEGER}"
     })
@@ -128,7 +142,7 @@ public interface RouteMapper {
             "select",
             "*",
             "from ROUTE",
-            "where routeEndAddress=#{endaddress,jdbcType=VARCHAR}"
+            "where routeEndAddress=#{endaddress,jdbcType=VARCHAR} and status = 0"
     })
     List<Route> queryRouteByEnd(String endaddress);
 

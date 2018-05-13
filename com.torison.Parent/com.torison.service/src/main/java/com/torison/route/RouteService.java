@@ -3,12 +3,9 @@ package com.torison.route;
 import com.torison.Route.dao.RouteDao;
 import com.torison.Route.model.BestEndAddress;
 import com.torison.Route.model.Route;
-import com.torison.route.model.RouteForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -49,6 +46,12 @@ public class RouteService {
      */
     public List<Route> queryAllRoute(){
        return routeDao.queryAllRoute();
+    }/**
+     * 查询所有路线
+     * @return
+     */
+    public List<Route> queryHotRoute(){
+       return routeDao.queryHotRoute();
     }
 
     /**

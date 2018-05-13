@@ -33,4 +33,13 @@ public class RoutePicService {
     public RoutePic selectPicByID(Integer ID){
         return routePicDao.selectByPrimaryKey(ID);
     }
+
+    public void updatePicById(List<String> picPaths, Integer routeId){
+        RoutePic routePic = new RoutePic();
+        routePic.setRouteid(routeId);
+        routePic.setRoutepic1(picPaths.get(0));
+        routePic.setRoutepic2(picPaths.get(1));
+        routePic.setRoutepic3(picPaths.get(2));
+         routePicDao.updatePicByID(routePic);
+    }
 }

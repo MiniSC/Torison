@@ -2,6 +2,7 @@ package com.torison.Order.dao;
 
 import com.torison.Order.mapper.OrderMapper;
 import com.torison.Order.model.Order;
+import org.omg.CORBA.INTERNAL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -76,6 +77,14 @@ public class OrderDao {
      */
     public Order listOrderByall(Order order){
         return orderMapper.selectByall(order);
+    }
+
+    public List<Order> listOrderByRouteId(Integer routeId){
+        return orderMapper.selectOrderByRouteId(routeId);
+    }
+
+    public List<Order> listOrderByRouteIdAndStatus(Integer routeId,String status){
+        return orderMapper.selectByRouteIdAndStatus(routeId,status);
     }
 
 

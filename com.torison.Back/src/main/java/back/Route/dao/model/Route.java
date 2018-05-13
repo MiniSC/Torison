@@ -3,6 +3,7 @@ package back.Route.dao.model;
 import ch.qos.logback.core.rolling.helper.IntegerTokenConverter;
 
 import javax.persistence.*;
+import javax.websocket.ClientEndpoint;
 
 @Entity
 @Table(name = "route")
@@ -39,6 +40,50 @@ public class Route {
 
     @Column(name = "deposite")
     private String deposite;
+
+    @Column(name = "deadline")
+    private String deadLine;
+
+    @Column(name = "status")
+    private Integer status;
+
+    @Column(name = "chatconsult")
+    private String chatconsult;
+
+    @Column(name = "conditionoverleaf")
+    private String conditionoverleaf;
+
+    public String getDeadLine() {
+        return deadLine;
+    }
+
+    public void setDeadLine(String deadLine) {
+        this.deadLine = deadLine;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public String getChatconsult() {
+        return chatconsult;
+    }
+
+    public void setChatconsult(String chatconsult) {
+        this.chatconsult = chatconsult;
+    }
+
+    public String getConditionoverleaf() {
+        return conditionoverleaf;
+    }
+
+    public void setConditionoverleaf(String conditionoverleaf) {
+        this.conditionoverleaf = conditionoverleaf;
+    }
 
     public Integer getRouteId() {
         return routeId;

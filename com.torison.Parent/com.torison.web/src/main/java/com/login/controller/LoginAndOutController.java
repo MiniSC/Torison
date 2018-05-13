@@ -52,6 +52,12 @@ public class LoginAndOutController {
             result.setMsg("请先到邮箱激活账号");
             return result;
         }
+        //验证账号是否被冻结
+        if ("2".equals(respEntity.getData().getRank())){
+            result.setSuccess(false);
+            result.setMsg("账号被冻结，请联系管理员");
+            return result;
+        }
         if (respCode.Login.TREUUSER.equals(respEntity.getRespCode())){
             HttpSession session = request.getSession();
             session.setAttribute("username",respEntity.getData().getUsername());
@@ -81,6 +87,9 @@ public class LoginAndOutController {
     public String logOut(HttpServletRequest request){
         HttpSession session = request.getSession();
         session.removeAttribute("username");
+        session.removeAttribute("userrank");
+        session.removeAttribute("account");
+        session.removeAttribute("userid");
         return "test/index";
     }
 

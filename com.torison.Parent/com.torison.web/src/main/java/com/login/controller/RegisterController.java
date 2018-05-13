@@ -53,7 +53,6 @@ public class RegisterController {
             result.setSuccess(false);
             result.setMsg("邮箱有误，邮件无法送达，请重新填写信息");
             return result;
-
         }
         /*生成uuid用来表示用户的账号和让用户登录*/
         user.setAccount(userAccount);

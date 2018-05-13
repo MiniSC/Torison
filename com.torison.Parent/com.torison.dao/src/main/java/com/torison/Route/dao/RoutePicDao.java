@@ -18,4 +18,8 @@ public class RoutePicDao {
     public RoutePic selectByPrimaryKey (Integer ID){
         return routePicMapper.selectByPrimaryKey(ID);
     }
+
+    public void updatePicByID(RoutePic routePic){
+        routePicMapper.updateByPrimaryKey(routePic);
+    }
 }

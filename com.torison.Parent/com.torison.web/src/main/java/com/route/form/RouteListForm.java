@@ -13,6 +13,24 @@ public class RouteListForm extends Form {
     private String pic;
     private String routefrom;
     private String routeend;
+    private String statusMsg;
+    private Double allmoney;
+
+    public Double getAllmoney() {
+        return allmoney;
+    }
+
+    public void setAllmoney(Double allmoney) {
+        this.allmoney = allmoney;
+    }
+
+    public String getStatusMsg() {
+        return statusMsg;
+    }
+
+    public void setStatusMsg(String statusMsg) {
+        this.statusMsg = statusMsg;
+    }
 
     public int getRouteID() {
         return routeID;

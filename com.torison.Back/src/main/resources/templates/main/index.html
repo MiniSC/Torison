@@ -17,11 +17,13 @@
                         {"menuid":"14","menuname":"权限撤销","icon":"icon-role","url":"/usermanage/toUndoPass"}
                     ]
                 },{"menuid":"8","icon":"icon-sys","menuname":"路线管理",
-                    "menus":[{"menuid":"21","menuname":"路线监管","icon":"icon-nav","url":"/route/toListRoute"}
+                    "menus":[{"menuid":"21","menuname":"路线审查","icon":"icon-nav","url":"/route/toListRoute"},
+                          {"menuid":"22","menuname":"路线禁开","icon":"icon-nav","url":"/route/toListRouteDelete"}
                     ]
                 }
                 ,{"menuid":"8","icon":"icon-sys","menuname":"用户管理",
-                    "menus":[{"menuid":"21","menuname":"用户管理","icon":"icon-users","url":"/user/toListUser"}
+                    "menus":[{"menuid":"31","menuname":"用户管理","icon":"icon-users","url":"/user/toListUser"},
+                        {"menuid":"32","menuname":"管理员密码修改","icon":"icon-nav","url":"/user/tochangepwd"}
                     ]
                 }
             ]};
@@ -117,8 +119,10 @@
                 <a>欢迎${Session.username}</a>
                 <#else>
                 <a href="/login/toLogin">登录</a>
+
             </#if>
 <#if Session.username??>
+    <a href="#"><span id="changepwd" onclick="openPwd()">修改密码</span></a>
 <a href="/login/logout">退出登录</a>
 </#if></span>
 <span style="padding-left:10px; font-size: 16px; "><img src="../static/images/blocks.gif" width="20" height="20" align="absmiddle" />"背包出行"背包客旅行交友后台管理系统</span>

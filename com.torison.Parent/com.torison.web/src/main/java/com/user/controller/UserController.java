@@ -7,6 +7,8 @@ import com.torison.User.UserService;
 import com.torison.User.dao.UserDao;
 import com.torison.User.model.User;
 import com.torison.api.PayServiceApi;
+import com.torison.routeMaker.model.RouteMaker;
+import com.torison.routemaker.RouteMakerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,17 +26,23 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private RouteMakerService routeMakerService;
+
 
     @RequestMapping(value = "/toUpdate")
     public String toUpdate(Model model, HttpServletRequest request){
         HttpSession session = request.getSession();
         User user = userService.getUserByAcc(session.getAttribute("account").toString());
-        if (UserRank.MAKER.code().equals(user.getRank())){
+        RouteMaker routeMaker = routeMakerService.queryMaker(user.getId());
+        if (routeMaker != null && "0".equals(routeMaker.getStatus())){
             user.setRank("发布者");
-        }
-        if (UserRank.USER.code().equals(user.getRank())){
+
+        }else{
             user.setRank("普通用户");
+            model.addAttribute("flag",1);
         }
+
         model.addAttribute("user",user);
         return "test/User/UpdateUser";
     }

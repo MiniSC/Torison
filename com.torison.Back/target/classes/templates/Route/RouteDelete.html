@@ -1,0 +1,76 @@
+<#assign ctx = request.contextPath />
+<script type="text/javascript">
+    var first = true;
+    var first_bank = true;
+    $(function () {
+        $("#delete").click(function () {
+            var msg = $("#msg").val();
+            var routeid = $("#routeIds").val();
+            $.ajax({
+                type:"POST",
+                url:"/route/deleteRoute",
+                data: { msg: msg ,auditStatus : 3, routeId : routeid},
+                success:function (data) {
+                    if (data.success){
+                        alert(""+data.respMsg);
+                    }else
+                        alert(""+data.respMsg);
+                }
+            });
+        });
+
+    })
+
+
+
+
+    //校验规则
+    $.extend($.fn.validatebox.defaults.rules, {
+//验证汉字
+        CHS: {
+            validator: function (value) {
+                return /^[\u0391-\uFFE5]+$/.test(value);
+            },
+            message: '只能为中文'
+        },
+//数字
+        Number: {
+            validator: function (value) {
+                var reg =/^([0-9][0-9]*)+(.[0-9]{1,2})?$/;
+                return reg.test(value);
+            },
+            message: '只能为数字，保留两位小数'
+        },
+        NumberAndChar: {
+            validator: function (value) {
+                var reg =/^[a-zA-Z0-9]*$/;
+                return reg.test(value);
+            },
+            message: '只能为数字和字母'
+        }
+
+
+    })
+</script>
+<div class="easyui-layout" data-options="fit:true,border:false">
+    <div data-options="region:'center',border:false" title="" style="overflow: hidden;height:300px;width:400px;overflow-x:scroll;overflow-y:scroll;word-break:break-all" >
+        <input id="routeIds" value="${route.routeId}" hidden="true" />
+        <form id="form" method="post">
+            <table class="ftbs" >
+                <tr class="fitem">
+                    <th>禁开理由：</th>
+                    <td>
+                        <input placeholder="请输入禁开理由" id="msg" maxlength="30" name="msg" class="easyui-validatebox" required="true" type="text" value="" /></td>
+                </tr>
+                <tr class="fitem">
+                    <th>操作：</th>
+                    <td width="140px">
+                        <input  type="button" value="禁开" id="delete"/>
+                    </td>
+                </tr>
+
+            </table>
+        </form>
+    </div>
+</div>
+
